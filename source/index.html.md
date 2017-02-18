@@ -28,3 +28,19 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 We have language bindings in Shell, Ruby, PHP and Python!
 
 You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+
+#####Available APIs
+
+Features | Fedex | Aramex | Ecom | Delhivery | Bluedart | XpressBees | NuvoEx
+-------- | ----- | ------ | ---- | --------- | -------- | ---------- | ------
+courier partner ID | 1 | 2 | 3 | 4 | 5 | 6 | 7
+Create Order | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓
+Cancel Order | ✓ | NA | ✓ | ✓ | ✗ | ✗ | ✗
+Pickup Request | ✓ | NA | NA | ✓ | ✓ | NA | NA
+Reverse Pickup (RVP) | NA | ✗ | ✗ | ✗ | NA | NA | ✓
+
+✓ : API available in ClickPost
+
+✗ : API Not available in ClickPost
+
+NA: The courier partner does not support/provide the API
