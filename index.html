@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,10 +101,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -122,163 +119,1621 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Clickpost API! You can use our API to access Clickpost API endpoints which can get information on our different APIs:</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<ol>
+<li><strong>Order API</strong>: Create order on Courier Partner and fetch AWB, Cancel orders and place pickup request</li>
+<li><strong>Track Order</strong>: Track your orders</li>
+<li><strong>Recommendation Engine</strong>: Recommend list of Courier Partners in priority order</li>
+</ol>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>We have language bindings in Shell, Ruby, PHP and Python!</p>
 
-<h1 id="authentication">Authentication</h1>
+<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
+<h5 id="available-apis">Available APIs</h5>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Features</th>
+<th>Fedex</th>
+<th>Aramex</th>
+<th>Ecom</th>
+<th>Delhivery</th>
+<th>Bluedart</th>
+<th>XpressBees</th>
+<th>NuvoEx</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>courier partner ID</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>Create Order</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Cancel Order</td>
+<td>✓</td>
+<td>NA</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>Pickup Request</td>
+<td>✓</td>
+<td>NA</td>
+<td>NA</td>
+<td>✓</td>
+<td>✓</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Reverse Pickup (RVP)</td>
+<td>NA</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>NA</td>
+<td>NA</td>
+<td>✓</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<p>✓ : API available in ClickPost</p>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>✗ : API Not available in ClickPost</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>NA: The courier partner does not support/provide the API</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+          <h1 id="order-api">Order API</h1>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<h2 id="create-order-api">Create Order API</h2>
+
+<blockquote>
+<p>URL to hit:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v1/create-order/?username=&lt;user-name&gt;&amp;key=&lt;api-key&gt;
+Headers: {'Content-type': 'application/json'}
+
+(Username/key needs to be replaced with the username/key provided to you)
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p><strong>Example:</strong> POST Body (COD Shipment)</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nt">"pickup_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Heronakamura"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1, Top Floor, Canaught Place, New Delhi"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110001"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-14T18:00:00+05:30"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rahul Jagat"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8080808080"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KFC, Kalkaji Main Road, New Delhi"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"drop_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110020"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"invoice_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"370.00"</span><span class="p">,</span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"IN1543MTOSKTBLA-146-10"</span><span class="p">,</span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN1543MTOSKTBLA-146-10"</span><span class="p">,</span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">},{</span><span class="nt">"price"</span><span class="p">:</span><span class="s2">"694.00"</span><span class="p">,</span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"IN1516MTODREMLT-147-10"</span><span class="p">,</span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IN1516MTODREMLT-147-10"</span><span class="p">,</span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">}],</span><span class="w">
+  </span><span class="nt">"invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123465"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"invoice_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1006.00</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDF1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"founders@clickpost.in"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"breadth"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"courier_partner"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order Placed Successfully"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASDF1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"waybill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"785578015860"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> POST Body (PREPAID Shipment)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B-220/2, 1st Floor, Right Door, Savitri
+Nagar, New Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110017"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-10T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rahul"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8376035546"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L-19B, Third Floor, Malviya Nagar, New
+    Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deepanshu"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8376035546"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"drop_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110092"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120349483"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[{\"price\": 200, \"description\": \"item1\",
+    \"sku\": \"XYZ1\", \"quantity\": 1}, {\"price\": 300,
+    \"description\": \"item2\", \"sku\": \"XYZ2\", \"quantity\": 1},
+    {\"price\": 400, \"description\": \"item3\", \"sku\": \"XYZ3\",
+    \"quantity\": 2}]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-234/3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAMPLE-REF-No"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"founders@clickpost.in"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"breadth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"courier_partner"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Example:</strong> POST Body: (Reverse Pickup: RVP Shipment):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"courier_partner"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"founders@clickpost.in"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deepanshu"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8080808080"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B-220/2, 1st Floor, Right Door, Savitri Nagar,
+    New Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110017"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rahul"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8080808080"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L-19B, third Floor Malviya Nagar, New Delhi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110017"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"drop_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120349483"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-4/3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[{\"price\": 200, \"description\": \"item1\", \"sku\":
+    \"XYZ1\", \"quantity\": 1}]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"breadth"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sok56sjkaphf"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pickup_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-01T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rvp_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Interested"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"delivery_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RVP"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The create order API allows uploading the package details (manifest information) into the courier partner’s system and returns a label generated by them. You can create single order; errors/warnings will be highlighted in the response.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>Please note, in case of any validation failure - order will not get created. Please wait for 8 seconds before you reject a rest-request for latency.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>The API is a HTTP POST request to: <code class="prettyprint">https://www.clickpost.in/api/v1/create-order/</code> where output format is json.</p>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>Listed below are the parameters:</p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL parameters:</h4>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>Username</td>
+<td>character</td>
+<td>User name provided to you</td>
+</tr>
+<tr>
+<td>key</td>
+<td>character</td>
+<td>API key provided to you</td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<h4 id="post-parameters">POST Parameters:</h4>
+
+<p>Format: JSON</p>
+
+<h4 id="compulsory-fields">Compulsory Fields:</h4>
+
+<h5 id="pickup-information">Pickup information</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pickup_name</td>
+<td>character</td>
+<td>maximum length of 100 characters</td>
+</tr>
+<tr>
+<td>pickup_phone</td>
+<td>integer</td>
+<td>10/11 digit phone number</td>
+</tr>
+<tr>
+<td>pickup_pincode</td>
+<td>integer</td>
+<td>6 digit pincode</td>
+</tr>
+<tr>
+<td>pickup_address</td>
+<td>character</td>
+<td>maximum length of 500 characters</td>
+</tr>
+<tr>
+<td>pickup_time</td>
+<td>character</td>
+<td>(ISO Format: example 2015-12-10T12:00:00Z)</td>
+</tr>
+<tr>
+<td>pickup_city</td>
+<td>character</td>
+<td>pickup city name, maximum length 200 characters</td>
+</tr>
+<tr>
+<td>pickup_state</td>
+<td>character</td>
+<td>pickup state name, maximum length 200 characters</td>
+</tr>
+<tr>
+<td>pickup_country</td>
+<td>character</td>
+<td>pickup country name, maximum length 100 characters i. email: email id to be sent to courier partner for this shipment</td>
+</tr>
+</tbody></table>
+
+<h5 id="drop-information">Drop Information</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>drop_name</td>
+<td>character</td>
+<td>maximum length of 100 characters</td>
+</tr>
+<tr>
+<td>drop_address</td>
+<td>character</td>
+<td>maximum length of 500 characters</td>
+</tr>
+<tr>
+<td>drop_phone</td>
+<td>integer</td>
+<td>10/11 digit phone number</td>
+</tr>
+<tr>
+<td>drop_pincode</td>
+<td>integer</td>
+<td>6 digit pincode</td>
+</tr>
+<tr>
+<td>drop_city</td>
+<td>character</td>
+<td>drop city name, maximum length 200 characters</td>
+</tr>
+<tr>
+<td>drop_state</td>
+<td>character</td>
+<td>drop state name, maximum length 200 characters</td>
+</tr>
+<tr>
+<td>drop_country</td>
+<td>character</td>
+<td>drop country name, maximum length 200 characters</td>
+</tr>
+</tbody></table>
+
+<h5 id="shipment-details">Shipment details</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>items</td>
+<td>List</td>
+<td>Json list with multiple item objects in it. Each item object should have</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>price of the item</td>
+</tr>
+<tr>
+<td>description</td>
+<td>character</td>
+<td>Item description</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>character</td>
+<td>SKU unit name of item</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>number of item pieces</td>
+</tr>
+<tr>
+<td>invoice_value</td>
+<td>decimal/float/integer</td>
+<td>value</td>
+</tr>
+<tr>
+<td>invoice_number</td>
+<td>character</td>
+<td>string of length 50 characters</td>
+</tr>
+<tr>
+<td>invoice_date</td>
+<td>character</td>
+<td>(Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)</td>
+</tr>
+<tr>
+<td>reference_number</td>
+<td>character</td>
+<td>reference number to tag the order with your order id.</td>
+</tr>
+<tr>
+<td>length</td>
+<td>integer</td>
+<td>in cm</td>
+</tr>
+<tr>
+<td>breadth</td>
+<td>integer</td>
+<td>in cm</td>
+</tr>
+<tr>
+<td>height</td>
+<td>integer</td>
+<td>in cm</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>integer</td>
+<td>grams</td>
+</tr>
+<tr>
+<td>tin</td>
+<td>character</td>
+<td>TIN number of seller</td>
+</tr>
+</tbody></table>
+
+<h5 id="order-type">Order type:</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_type</td>
+<td>character</td>
+<td>COD/PREPAID</td>
+</tr>
+<tr>
+<td>cod_value: if order_type = COD</td>
+<td>double</td>
+<td>cod_value should be greater than 0</td>
+</tr>
+<tr>
+<td>cod_value: if order_type = PREPAID</td>
+<td>double</td>
+<td>cod_value should be equal to 0</td>
+</tr>
+</tbody></table>
+
+<h5 id="courier-partner">Courier Partner:</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>courier_partner</td>
+<td>integer</td>
+<td>ID of courier partner for which the order is to be placed.</td>
+</tr>
+</tbody></table>
+
+<h5 id="compulsory-fields-for-rvp-order-creation"><strong>Compulsory fields for RVP order creation:</strong></h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>rvp_reason</td>
+<td>character</td>
+<td>stating the reason for Reverse Pickup</td>
+</tr>
+<tr>
+<td>delivery_type</td>
+<td>character</td>
+<td>For Reverse Pickup, the value of this field should  be <strong>&ldquo;RVP&rdquo;</strong></td>
+</tr>
+</tbody></table>
+
+<h5 id="optional-field-for-xpressbees">Optional field for XpressBees:</h5>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>vendor_code</td>
+<td>character</td>
+<td>In case you have multiple locations for pickup, please pass vendor_code of corresponding location in create-order from where the shipment needs to be picked up</td>
+</tr>
+</tbody></table>
+
+<h4 id="courier-partner-id">Courier Partner ID</h4>
+
+<table><thead>
+<tr>
+<th>Courier Partner ID</th>
+<th>Courier Partner name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Fedex SO</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Aramex</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ecom Express</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Delhivery</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Bluedart</td>
+</tr>
+<tr>
+<td>6</td>
+<td>XpressBees</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Nuvoex</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-explanation">Response Explanation:</h3>
+
+<p>Response Object has two parts:</p>
+
+<ol>
+<li>meta: stores information about the API, success or failure
+
+<ol>
+<li>&ldquo;success&rdquo;: true/false, tells whether the order was created or not</li>
+<li>&ldquo;message&rdquo;: SUCCESS in case order was created successfully, else returns error</li>
+<li>&ldquo;status&rdquo;:
+
+<ul>
+<li>200 if the order is created successfully,</li>
+<li>400 if there is a bad request encountered: errors will be present in “message”</li>
+</ul></li>
+</ol></li>
+<li>result:
+
+<ol>
+<li>reference_number: reference number provided in the post data</li>
+<li>waybill: waybill generated by courier partner for the shipment</li>
+<li>label: AWS link of the label generated for the shipment (Not generated for RVP shipments)
+Additional fields for Bluedart:</li>
+<li>DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label</li>
+<li>DestinationArea: 3 digit destination area code needed by Bluedart on shipping label</li>
+</ol></li>
+</ol>
+
+<h2 id="cancel-order-api">Cancel Order API</h2>
+
+<blockquote>
+<p>URL to hit:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v1/cancel-order/?username=test&amp;key=42d42a34-ae09-4693- b20c-ae2624&amp;awb=782715732348
+
+Headers: {'Content-type': 'application/json'}
+
+(Username/key needs to be replaced with the username/key provided to you) Response:
+</code></pre>
+<blockquote>
+<p><strong>Example: POST Body</strong> (Cancel Order)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8159:Shipment Delete was requested for a tracking
+number already in a deleted state."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Cancel API allows you to cancel a shipment for which the order has been created.</p>
+
+<p>The API is a HTTP GET request to: https://www.clickpost.in/api/v1/cancel-order/ where output is json</p>
+
+<p>Listed below are the parameters:</p>
+
+<h4 id="url-parameters">URL parameters:</h4>
+
+<ol>
+<li>username: User name provided to you.</li>
+<li>key: API key provided to you.</li>
+<li>waybill: waybill, which needs to be cancelled</li>
+</ol>
+
+<h3 id="response-explanation">Response Explanation:</h3>
+
+<p>Response will have <code class="prettyprint">meta</code> tag which explains about the status of the shipment:</p>
+
+<ol>
+<li>message: <code class="prettyprint">SUCCESS</code> in case the Shipment is deleted successfully, else the error message provided by courier partner.</li>
+<li>success: true if order is deleted successfully, else false</li>
+<li>status: 200 if API works fine, 400 in case of bad request</li>
+</ol>
+
+<h2 id="create-pickup-request">Create Pickup Request</h2>
+
+<blockquote>
+<p>URL to hit:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v1/create-pickup/?username=test&amp;key=42d42a34-ae09-4693- b20c-ae
+Headers: {'Content-type': 'application/json'}
+
+(Username/key needs to be replaced with the username/key provided to you) POST Body:
+</code></pre>
+<blockquote>
+<p><strong>Example: POST Body</strong> (Pickup Request)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"pickup_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-02T12:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"courier_partner"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"laptop"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110017"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"founders@clickpost.in"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8376035546"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test-User"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delhi"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B-222/2 savitri nagar new delhi -10"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The Pickup Request API allows you to place pickup request for courier partners and obtain confirmation for the same.</p>
+
+<p>Please note, in case of any validation failure - order will not get created.</p>
+
+<p>The API is a HTTP POST request to:
+<code class="prettyprint">https://www.clickpost.in/api/v1/create-pickup/</code> where output format is json.</p>
+
+<p>Listed below are the parameters:</p>
+
+<h4 id="url-parameters">URL parameters:</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>character</td>
+<td>user name provided to you</td>
+</tr>
+<tr>
+<td>key</td>
+<td>character</td>
+<td>API key provided to you</td>
+</tr>
+</tbody></table>
+
+<h4 id="post-parameters">POST Parameters:</h4>
+
+<p>Format: JSON</p>
+
+<h3 id="compulsory-fields">Compulsory Fields:</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pickup_date</td>
+<td>character</td>
+<td>ISO datetime field example: 2015-03-31T12:00:00Z</td>
+</tr>
+<tr>
+<td>courier_partner</td>
+<td>integer</td>
+<td>ID of courier partner for which the pickup request needs to be placed. For now we support only Fedex(Standard Overnight) as the courier partner (ID: 1)</td>
+</tr>
+<tr>
+<td>items</td>
+<td>character</td>
+<td>description of item that needs to be placed. Max length: 200 chars</td>
+</tr>
+<tr>
+<td>pickup_address</td>
+<td>character</td>
+<td>Address of pickup location</td>
+</tr>
+<tr>
+<td>pickup_name</td>
+<td>character</td>
+<td>Contact person for the pickup</td>
+</tr>
+<tr>
+<td>pickup_email</td>
+<td>character</td>
+<td>email contact of the pickup location</td>
+</tr>
+<tr>
+<td>pickup_pincode</td>
+<td>integer</td>
+<td>pincode of pickup location</td>
+</tr>
+<tr>
+<td>pickup_phone</td>
+<td>integer</td>
+<td>contact number of pickup location, 10/11 digit number</td>
+</tr>
+<tr>
+<td>pickup_city</td>
+<td>character</td>
+<td>name of pickup city</td>
+</tr>
+<tr>
+<td>pickup_state</td>
+<td>character</td>
+<td>name of pickup state</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELKL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"confirmation_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="response-explanation">Response Explanation:</h3>
+
+<p>Response will have meta tag which explains about the status of the API and <code class="prettyprint">result</code> which provides pickup details. In <code class="prettyprint">meta</code> tag:</p>
+
+<ol>
+<li>message: SUCCESS if the pickup request is placed successfully, error message otherwise</li>
+<li>success: true if pickup request is placed successfully, else false</li>
+<li>status: 200 if pickup request is placed successfully, 400 in case of bad request</li>
+</ol>
+
+<p>In <code class="prettyprint">result</code> tag:</p>
+
+<ol>
+<li>location: ID of pickup location shared by courier partner</li>
+<li>confirmation_number: pickup confirmation number</li>
+</ol>
+
+<p>Result tag will be present in request only if the meta tag contains <code class="prettyprint">success</code> : true.</p>
+
+<p><strong>Important Points</strong>:</p>
+
+<ol>
+<li>waybills and links provided in the example can be used to check the API using test credentials</li>
+<li>Test credentials provided to you may throw error for some Courier Partners since they point to their testing servers, which might be down or nonfunctional at times. For better testing, we would suggest you to share your production credentials for the corresponding courier partner and then try the APIs.</li>
+</ol>
+
+<p>For Ecom Express and XpressBees, please request static IPs from us and share the same with your Ecom-express / XpressBees tech support and get them approved for your API’s IP.</p>
+
+<aside class="warning">
+You must replace Username/key with the username/key provided to you.
+</aside>
+
+<hr>
+
+          <h1 id="track-order">Track Order</h1>
+
+<p>To track any shipment, client needs to register for tracking service on Clickpost server 1st.</p>
+
+<table><thead>
+<tr>
+<th>Courier Partner</th>
+<th style="text-align: center">courier_partner_id</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Fedex</td>
+<td style="text-align: center">1</td>
+</tr>
+<tr>
+<td>Aramex</td>
+<td style="text-align: center">2</td>
+</tr>
+<tr>
+<td>EcomExpress</td>
+<td style="text-align: center">3</td>
+</tr>
+<tr>
+<td>Delhivery</td>
+<td style="text-align: center">4</td>
+</tr>
+<tr>
+<td>Bluedart</td>
+<td style="text-align: center">5</td>
+</tr>
+<tr>
+<td>XpressBees</td>
+<td style="text-align: center">6</td>
+</tr>
+<tr>
+<td>NuvoEx</td>
+<td style="text-align: center">7</td>
+</tr>
+<tr>
+<td>InnovEx</td>
+<td style="text-align: center">10</td>
+</tr>
+<tr>
+<td>ShadowFax</td>
+<td style="text-align: center">11</td>
+</tr>
+<tr>
+<td>OnlineExpress</td>
+<td style="text-align: center">12</td>
+</tr>
+</tbody></table>
+
+<h2 id="register-for-tracking-service">Register for Tracking Service</h2>
+
+<blockquote>
+<p>It’s a POST request. The URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v1/register-service/
+Headers: {'Content-type': 'application/json'}
+</code></pre>
+<blockquote>
+<p><strong>Example</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"---Your Clickpost API KEY--"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="fields-explanation">Fields Explanation:</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key (required)</td>
+<td>character</td>
+<td>this is the API Key provided to you</td>
+</tr>
+<tr>
+<td>service_id (required)</td>
+<td>Integer</td>
+<td>this is the Integer id of service for which you want to register</td>
+</tr>
+</tbody></table>
+
+<h4 id="service-id">Service ID</h4>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>Use</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>For placing orders on courier partner</td>
+</tr>
+<tr>
+<td>2</td>
+<td>For Tracking Shipments on Clickpost</td>
+</tr>
+<tr>
+<td>3</td>
+<td>For using Clickpost Recommendation Engine</td>
+</tr>
+</tbody></table>
+
+<h2 id="register-an-awb-for-tracking">Register an AWB for tracking</h2>
+
+<blockquote>
+<p>It’s a POST request. The URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v1/tracking/awb-register/
+Headers: {'Content-type': 'application/json'}
+</code></pre>
+<blockquote>
+<p><strong>Example</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"waybill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P76933624"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e9b19ac-8e1f-41ac-a35b-4cd23f41"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"cp_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"tracking_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20370</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="fields-explanation">Fields Explanation</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key (required)</td>
+<td>character</td>
+<td>this is the API Key</td>
+</tr>
+<tr>
+<td>waybill (required)</td>
+<td>character</td>
+<td>this is/are comma separated waybill numbers for which the status is required</td>
+</tr>
+<tr>
+<td>cp_id (required)</td>
+<td>integer</td>
+<td>courier_partner_id as specified on page 1 of this documentation</td>
+</tr>
+</tbody></table>
+
+<h2 id="tracking-awb-using-polling">Tracking AWB Using Polling</h2>
+
+<blockquote>
+<p><strong>Example</strong></p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v2/track-order/?username=testuser&amp;key=2e9b19ac-8e1f- 41ac-a35b-4cd23f41ae17&amp;waybill=3515341&amp;cp_id=10
+
+Headers: {'Content-type': 'application/json'}
+</code></pre>
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"messsage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"506610002236"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"scans"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OrderPlaced"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OrderPlaced"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-04-12T07:37:22.113Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OrderPlaced"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Picked up and Booking processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Picked up and Booking processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOUTH DELHI, DELHI"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-27 22:15:13+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PickedUp"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Transit to"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In Transit to"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELHI, DELHI"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-27 22:18:57+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InTransit"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+            </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Out For Delivery"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Out For Delivery"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MUMBAI, MUMBAI"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-31 13:29:24+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OutForDelivery"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+            </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered on 03 Nov 16 - Signed by sign"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MUMBAI, MUMBAI"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-03 08:10:56+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+            </span><span class="p">}],</span><span class="w">
+            </span><span class="nt">"latest_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered on 03 Nov 16 - Signed by sign"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MUMBAI, MUMBAI"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-03T08:10:56Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Package tracker API retrieves the historic statuses and the current status of the package.</p>
+
+<p>The API is a HTTP GET request to:
+https://www.clickpost.in/api/v2/track-order/ where output is json</p>
+
+<p>Listed below are the parameters:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key (required)</td>
+<td>character</td>
+<td>this is the API Key</td>
+</tr>
+<tr>
+<td>username (required)</td>
+<td>character</td>
+<td>user name, provided to you</td>
+</tr>
+<tr>
+<td>waybill (required)</td>
+<td>character</td>
+<td>this is/are comma separated waybill numbers for which the status is required</td>
+</tr>
+<tr>
+<td>cp_id (required)</td>
+<td>integer</td>
+<td>courier_partner_id as specified on page 1 of this documentation</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-explanation">Response Explanation:</h3>
+
+<ol>
+<li>“meta” stores information about the API, success or failure
+
+<ul>
+<li>success: true/false, true if the API worked fine, else false</li>
+<li>message: SUCCESS if everything is fine, else the error message c. status: 200, if the API data was fine, 400 in case of a bad request</li>
+</ul></li>
+<li>“result” is an array of records. Each record holds information of comma-separated waybill entered in the request parameter.</li>
+<li>Each record has following objects:
+
+<ul>
+<li>“valid”: (true / false) in case a wrong AWB / AWB which is not yet registered on Clickpost; is entered to track a shipment, “valid” field will be false. If the AWB is correct, “valid” will be true</li>
+<li>“waybill”: AWB provided in the API. Is the key of each object. The value is a dictionary storing information about shipment:
+
+<ol>
+<li>scans: Stores all scans that happened for shipment. Has following keys:
+
+<ul>
+<li>status: status of the shipment at that time</li>
+<li>remarks: remark given by courier partner</li>
+</ul></li>
+<li>location: location of shipment at the time of the scan</li>
+<li>timestamp: date/time in ISO format when the scan was done</li>
+<li>clickpost_status_code: clickpost generated status code for particular
+status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained on last page of this document)</li>
+<li>clickpost_status_description: description of clickpost_status_code (Specified on last page of this document)</li>
+</ol></li>
+<li>lateststatus: Stores information about the latest status of shipment, has following fields:
+
+<ol>
+<li>status: status of the shipment at that time</li>
+<li>remarks: remark given by courier partner</li>
+<li>location: location of shipment at the time of the scan</li>
+<li>timestamp: date/time in ISO format when the scan was done</li>
+<li>clickpost_status_code: clickpost generated status code for particular
+status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner (Explained on last page of this document)</li>
+<li>clickpost_status_description: description of clickpost_status_code (Specified on last page of this document)</li>
+</ol></li>
+</ul></li>
+</ol>
+
+<h2 id="tracking-waybills-using-webhooks">Tracking Waybills Using Webhooks</h2>
+
+<h3 id="register-for-webhooks">Register for Webhooks:</h3>
+
+<blockquote>
+<p>It&rsquo;s a POST request. The URL</p>
+</blockquote>
+<pre class="highlight plaintext"><code>URL: https://www.clickpost.in/api/v1/tracking/register-webhook/
+Headers: {'Content-type': 'application/json'}
+</code></pre>
+<blockquote>
+<p><strong>Example</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"service_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxx---Your API KEY---xxxxxxxxxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"webhook_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxx---- Your Webhook URL---xxxxxxxx"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h4 id="fields-explanation">Fields Explanation:</h4>
+
+<ol>
+<li>“service_id” is the service identifier for which you want to register the webhook. Right  now, Clickpost provides webhook only for tracking service, which has service_id = 2</li>
+<li>“key”: API key provided to you</li>
+<li>“webhook_url” is the url on which data will be posted on your server</li>
+</ol>
+
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"webhook_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e7cc4c4-273d-49ce-90f1-ecc2b69b4e6c"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="response-explanation">Response Explanation:</h3>
+
+<ol>
+<li>“message”: SUCCESS implies the request has been placed successfully. Else message will hold error message</li>
+<li>“webhook_key”: security key that Clickpost will send with every request it will post on  your server. This key will be sent in headers as: <code class="prettyprint">webhook_key: webhook_key_as_in_registration_response</code></li>
+<li>“success” : true if the request has been placed successfully false other wise</li>
+<li>&ldquo;status_codes&rdquo; :</li>
+</ol>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Everything is fine</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Invalid API key</td>
+</tr>
+<tr>
+<td>302</td>
+<td>AWB already exists</td>
+</tr>
+<tr>
+<td>305</td>
+<td>Already registered Webhook for this AWB</td>
+</tr>
+<tr>
+<td>306</td>
+<td>Not authorized to use this service</td>
+</tr>
+</tbody></table>
+
+<h3 id="webhook-data-post-on-client-server">Webhook data POST on Client Server:</h3>
+
+<p>Every time courier partner updates tracking of the shipment, We will post data to your server using the url you registered while registering for webhooks.</p>
+
+<blockquote>
+<p><strong>Header</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"webhook_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webhook_key_given_during_webhooks_register"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Payload</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When forward shipment is accepted by end customer and POD is received"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"waybill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZABC"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bengaluru_Koramangala_Dc (Karnataka)"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-12T17:12:36.710Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"clickpost_status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"clickpost_status_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="payload-explanation">Payload Explanation:</h3>
+
+<ol>
+<li>waybill: AWB number for which data is posted.</li>
+<li>status: status of the shipment at that time</li>
+<li>remarks: remark given by courier partner</li>
+<li>location: location of shipment at the time of the scan</li>
+<li>timestamp: date/time in ISO format when the scan was done</li>
+<li>clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained on next page)</li>
+<li>clickpost_status_description: description of clickpost_status_code (Specified on next page)</li>
+</ol>
+
+<h4 id="uber-status-mapping">Uber Status Mapping</h4>
+
+<table><thead>
+<tr>
+<th>clickpost_status_id</th>
+<th>clickpost_status_description</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>ORDER_PLACED</td>
+<td>&lsquo;Order Has Been Placed&rsquo;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PICKUP_PENDING</td>
+<td>&#39;Pickup Pending&rsquo;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PICKUP_CANCELLED</td>
+<td>&#39;Pickup Cancelled&rsquo;</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PICKED_UP</td>
+<td>&#39;Pickup Has Been Done&rsquo;</td>
+</tr>
+<tr>
+<td>5</td>
+<td>INTRANSIT</td>
+<td>&#39;In Transit&rsquo;</td>
+</tr>
+<tr>
+<td>6</td>
+<td>OUT_FOR_DELIVERY</td>
+<td>&#39;Shipment Out For Delivery&rsquo;</td>
+</tr>
+<tr>
+<td>7</td>
+<td>NOT_SERVICEABLE</td>
+<td>&#39;Area For Delivery Is Not Servicable&rsquo;</td>
+</tr>
+<tr>
+<td>8</td>
+<td>DELIVERED</td>
+<td>&#39;Shipment Delivered&rsquo;</td>
+</tr>
+<tr>
+<td>9</td>
+<td>FAILED_DELIVERY</td>
+<td>&#39;Delivery Failed&rsquo;</td>
+</tr>
+<tr>
+<td>10</td>
+<td>CANCELLED_ORDER</td>
+<td>&#39;Order Has Been Cancelled&rsquo;</td>
+</tr>
+<tr>
+<td>11</td>
+<td>RTO_REQUESTED</td>
+<td>&#39;Rto For Shipment has been Requested&rsquo;</td>
+</tr>
+<tr>
+<td>12</td>
+<td>RTO</td>
+<td>&#39;Marked As Return&rsquo;</td>
+</tr>
+<tr>
+<td>13</td>
+<td>RTO_OUT_FOR_DELIVERY</td>
+<td>&#39;Shipment Is Out For Delivery For RTO&rsquo;</td>
+</tr>
+<tr>
+<td>14</td>
+<td>RTO_DELIVERED</td>
+<td>&#39;Rto Delivered&rsquo;</td>
+</tr>
+<tr>
+<td>15</td>
+<td>RTO_FAILED</td>
+<td>&#39;Rto Failed&rsquo;</td>
+</tr>
+<tr>
+<td>16</td>
+<td>LOST</td>
+<td>&#39;Shipment is Lost&rsquo;</td>
+</tr>
+<tr>
+<td>17</td>
+<td>DAMAGED</td>
+<td>&#39;Shipment is damaged&rsquo;</td>
+</tr>
+<tr>
+<td>18</td>
+<td>SHIPMENT_DELAYED</td>
+<td>&#39;Shipment Is Delayed Or Misroute&rsquo;</td>
+</tr>
+<tr>
+<td>19</td>
+<td>CONTACT_CUSTOMER_CARE</td>
+<td>&#39;Contact To The Customer Care&rsquo;</td>
+</tr>
+<tr>
+<td>20</td>
+<td>SHIPMENT_HELD</td>
+<td>&#39;Shipment Is being held&rsquo;</td>
+</tr>
+<tr>
+<td>21</td>
+<td>RTO_INTRANSIT</td>
+<td>&#39;Shipment Return On The Way&rsquo;</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+          <h1 id="recommendation-api">Recommendation API</h1>
+
+<blockquote>
+<p>URL to hit</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://www.clickpost.in/api/v1/recommendation_api/?key=2e9b19ac-8e1f-41ac-a35b-4cd23f41ae17
+
+(key needs to be replaced with the key provided to you)
+</code></pre>
+<h4 id="courier-partners">Courier Partners</h4>
+
+<table><thead>
+<tr>
+<th>Courier Partner</th>
+<th style="text-align: center">courier_partner_id</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Fedex</td>
+<td style="text-align: center">1</td>
+</tr>
+<tr>
+<td>Aramex</td>
+<td style="text-align: center">2</td>
+</tr>
+<tr>
+<td>EcomExpress</td>
+<td style="text-align: center">3</td>
+</tr>
+<tr>
+<td>Delhivery</td>
+<td style="text-align: center">4</td>
+</tr>
+<tr>
+<td>Bluedart</td>
+<td style="text-align: center">5</td>
+</tr>
+<tr>
+<td>XpressBees</td>
+<td style="text-align: center">6</td>
+</tr>
+<tr>
+<td>NuvoEx</td>
+<td style="text-align: center">7</td>
+</tr>
+<tr>
+<td>InnovEx</td>
+<td style="text-align: center">10</td>
+</tr>
+<tr>
+<td>ShadowFax</td>
+<td style="text-align: center">11</td>
+</tr>
+<tr>
+<td>OnlineExpress</td>
+<td style="text-align: center">12</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p><strong>Example(POST Body)</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[{</span><span class="w">
+     </span><span class="nt">"pickup_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110017"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"drop_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110019"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bottle"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"invoice_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1245</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"delivery_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FORWARD"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"length"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"breadth"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p><strong>Response</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"meta"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="nt">"result"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[{</span><span class="w">
+     </span><span class="nt">"pincode_serviceable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"request_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"pickup_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110017"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"delivery_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FORWARD"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"drop_pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110019"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bottle"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"invoice_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1245</span><span class="w">
+                       </span><span class="p">},</span><span class="w">
+     </span><span class="nt">"form_tax_details"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                            </span><span class="nt">"form_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"entry_tax"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                       </span><span class="p">}],</span><span class="w">
+     </span><span class="nt">"preference_array"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                            </span><span class="nt">"cp_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fedex"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"cp_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"cp_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bluedart"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"cp_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"cp_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcomExpress"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"cp_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+                      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>It’s a POST request as follows</p>
+
+<p>URL:
+<code class="prettyprint">https://www.clickpost.in/api/v1/recommendation_api/</code>`</p>
+
+<p>Headers: {&lsquo;Content-type&rsquo;: &#39;application/json&rsquo;}</p>
+
+<h4 id="url-parameters">URL Parameters:</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>character</td>
+<td>API key provided to you</td>
+</tr>
+</tbody></table>
+
+<h4 id="post-parameters">POST Parameters:</h4>
+
+<p>Format: JSON</p>
+
+<h3 id="compulsory-fields">Compulsory Fields</h3>
+
+<p>Payload is a list of json objects each of which have following fields:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pickup_pincode</td>
+<td>integer</td>
+<td>pincode of pickup address</td>
+</tr>
+<tr>
+<td>drop_pincode</td>
+<td>integer</td>
+<td>pincode of drop address</td>
+</tr>
+<tr>
+<td>order_type</td>
+<td>character</td>
+<td>COD/PREPAID</td>
+</tr>
+<tr>
+<td>reference_number</td>
+<td>character</td>
+<td>to identify each json object uniquely</td>
+</tr>
+<tr>
+<td>item</td>
+<td>character</td>
+<td>item that you wish to send</td>
+</tr>
+<tr>
+<td>invoice_value</td>
+<td>double</td>
+<td>invoice value of the shipment</td>
+</tr>
+<tr>
+<td>delivery_type</td>
+<td>character</td>
+<td>FORWARD/RVP</td>
+</tr>
+</tbody></table>
+
+<h3 id="optional-fields">Optional Fields</h3>
+
+<p>In case you want the recommendation logic to incorporate pricing as a parameter as well please pass the following fields in the API. If not passed, the pricing given by you in the system will not be entertained as a parameter.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>weight</td>
+<td>integer</td>
+<td>weight of the shipment</td>
+</tr>
+<tr>
+<td>length</td>
+<td>integer</td>
+<td>length of the shipment</td>
+</tr>
+<tr>
+<td>breadth</td>
+<td>integer</td>
+<td>breadth of the shipment</td>
+</tr>
+<tr>
+<td>height</td>
+<td>integer</td>
+<td>height of the shipment</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-explanation">Response explanation:</h3>
+
+<p>Response object has two parts:</p>
+
+<ol>
+<li>meta: stores information about the API, success or failure
+
+<ul>
+<li>success: true/false, tells whether the order was created or not</li>
+<li>message: SUCCESS in case order was created successfully, else returns error message.</li>
+<li>status:
+
+<ol>
+<li>200 if the order is created successfully,</li>
+<li>400 if there is a bad request encountered: errors will be present in “message”</li>
+</ol></li>
+</ul></li>
+<li>result: It’s a list of multiple objects, each corresponding to the request json objects, with unique identifier: reference_number. For each json object in result, refer:
+
+<ul>
+<li>pincode_serviceable: this field will let you know whether the pincode is serviceable by any courier partner or not. Values: true: if the pincode is serviceable else false</li>
+<li>preference_array: it’s the list of eligible courier partners for the corresponding reference_number. It has following fields
+
+<ol>
+<li>cp_id: courier partner id as mentioned on page 1 of this document</li>
+<li>cp_name: name of the courier partner</li>
+<li>priority: priority</li>
+</ol></li>
+</ul></li>
+</ol>
+
+<aside class="warning">
+You must replace key with key provided to you.
+</aside>
+
+<hr>
+
+          <h1 id="error-codes">Error Codes</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
 
@@ -339,10 +1794,7 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
