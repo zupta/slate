@@ -1,22 +1,5 @@
 # Track Order
 
-To track any shipment, client needs to register for tracking service on Clickpost server 1st.
-
-
-
-Courier Partner | courier_partner_id
------ | :------:
-Fedex | 1
-Aramex | 2
-EcomExpress | 3
-Delhivery | 4
-Bluedart | 5
-XpressBees | 6
-NuvoEx | 7
-InnovEx | 10
-ShadowFax | 11
-OnlineExpress | 12
-
 ##Register for Tracking Service
 
 > It’s a POST request. The URL:
@@ -277,11 +260,11 @@ Every time courier partner updates tracking of the shipment, We will post data t
 
 ```json
 {
-"status": "When forward shipment is accepted by end customer and POD is received",
+  "status": "When forward shipment is accepted by end customer and POD is received",
   "remark": "Delivered",
   "waybill": "XYZABC",
   "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-  "timestamp": "2016-07-12T17:12:36.710Z",
+  "timestamp": "2016-07-12T17:12:36.710",
   "clickpost_status_code": 8,
   "clickpost_status_description": "Delivered"
 }
@@ -293,7 +276,7 @@ Every time courier partner updates tracking of the shipment, We will post data t
 2. status: status of the shipment at that time
 3. remarks: remark given by courier partner
 4. location: location of shipment at the time of the scan
-5. timestamp: date/time in ISO format when the scan was done
+5. timestamp: date/time in IST format when the scan was done
 6. clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained on next page)
 7. clickpost_status_description: description of clickpost_status_code (Specified on next page)
 
@@ -323,5 +306,6 @@ clickpost_status_id | clickpost_status_description | Meaning
 19 | CONTACT_CUSTOMER_CARE | 'Contact To The Customer Care'
 20 | SHIPMENT_HELD | 'Shipment Is being held'
 21 | RTO_INTRANSIT | 'Shipment Return On The Way'
+
 
 ------

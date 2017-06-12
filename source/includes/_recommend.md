@@ -8,21 +8,6 @@ https://www.clickpost.in/api/v1/recommendation_api/?key=2e9b19ac-8e1f-41ac-a35b-
 (key needs to be replaced with the key provided to you)
 ```
 
-####Courier Partners
-
-Courier Partner | courier_partner_id
------ | :------:
-Fedex | 1
-Aramex | 2
-EcomExpress | 3
-Delhivery | 4
-Bluedart | 5
-XpressBees | 6
-NuvoEx | 7
-InnovEx | 10
-ShadowFax | 11
-OnlineExpress | 12
-
 >__Example(POST Body)__
 
 ```json
