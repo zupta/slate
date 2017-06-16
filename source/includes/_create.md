@@ -86,11 +86,7 @@ Nagar, New Delhi",
     "invoice_date": "2015-12-27",
     "order_type": "PREPAID",
     "cod_value": "0",
-    "items": "[{\"price\": 200, \"description\": \"item1\",
-    \"sku\": \"XYZ1\", \"quantity\": 1}, {\"price\": 300,
-    \"description\": \"item2\", \"sku\": \"XYZ2\", \"quantity\": 1},
-    {\"price\": 400, \"description\": \"item3\", \"sku\": \"XYZ3\",
-    \"quantity\": 2}]",
+    "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1"}],
     "invoice_number": "INV-234/3",
     "invoice_value": "100",
     "reference_number": "SAMPLE-REF-No",
@@ -130,8 +126,8 @@ Nagar, New Delhi",
     "invoice_number": "INV-4/3",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
-    "items": "[{\"price\": 200, \"description\": \"item1\", \"sku\":
-    \"XYZ1\", \"quantity\": 1}]",
+    "items": [{"price": 200, "description": "item1", "sku":
+    "XYZ1", "quantity": 1}],
     "height": 10,
     "length": 10,
     "breadth": 10,
@@ -148,7 +144,7 @@ The create order API allows uploading the package details (manifest information)
 Please note, in case of any validation failure - order will not get created. Please wait for 8 seconds before you reject a rest-request for latency.
 
 
-The API is a HTTP POST request to: `https://www.clickpost.in/api/v1/create-order/ ` where output format is json.
+The API is a HTTP POST request to: `https://www.clickpost.in/api/v1/create-order/` where output format is json.
 
 Listed below are the parameters:
 ####URL parameters:
@@ -338,8 +334,6 @@ __Important Points__:
 
 1. waybills and links provided in the example can be used to check the API using test credentials
 2. Test credentials provided to you may throw error for some Courier Partners since they point to their testing servers, which might be down or nonfunctional at times. For better testing, we would suggest you to share your production credentials for the corresponding courier partner and then try the APIs.
-
-For Ecom Express and XpressBees, please request static IPs from us and share the same with your Ecom-express / XpressBees tech support and get them approved for your API’s IP.
 
 
 <aside class="warning">
