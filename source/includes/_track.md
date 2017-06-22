@@ -46,7 +46,7 @@ ID | Use
 >It’s a POST request. The URL:
 
 ```
-https://www.clickpost.in/api/v1/tracking/awb-register/
+https://www.clickpost.in/api/v2/tracking/awb-register/
 Headers: {'Content-type': 'application/json'}
 ```
 
@@ -54,29 +54,87 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-     "waybill": "P76933624",
-     "key": "2e9b19ac-8e1f-41ac-a35b-4cd23f41",
-     "cp_id": 11
+    "waybill":"ABCDRESDEFGHIJKL1257679",
+    "cp_id":1,
+    "key":"42d42a34-ae09-4693-b20c-ae26249d7614",
+
+    "consumer_details":{
+        "name":"Prashant Gupta",
+        "phone":"8080808080",
+        "email":"support@clickpost.in"
+    },
+    "shipment_info":{
+       "item":"Shirt",
+       "order_type": "COD",
+       "invoice_value": 1000,
+       "reference_number": "123XYZ",
+       "length": 10,
+       "height": 10,
+       "weight": 10,
+       "breadth": 10,
+       "drop_pin_code": "110016",
+       "pickup_pin_code": "110017",
+       "delivery_type": "FORWARD",
+       "cod_amount": 1000.10
+    }
 }
+
 ```
 >__Response__
 
 ```json
 {
-     "tracking_id": 20370,
-     "status_code": 200,
-     "success": true,
-     "message": "SUCCESS"
+	"meta": {
+		"message": "SUCCESS",
+		"status": 200,
+		"success": true
+	},
+	"result": {
+		"consumer_details": {
+			"id": 1
+		},
+		"shipment_info": {
+			"id": 1
+		},
+		"tracking_id": 1188264
+	}
 }
 ```
 
 ###Fields Explanation
+
+####Compulsory:
 
 Parameter | Type | Description
 --------- | ---- | -----------
 key (required) | character | this is the API Key
 waybill (required) | character | this is/are comma separated waybill numbers for which the status is required
 cp_id (required) | integer | courier_partner_id as specified on page 1 of this documentation
+
+####Optional:
+
+#####consumer_details(optional): In case you to send notifications to your customers via mail / sms, please pass information in this object:
+Parameter | Type | Description
+--------- | ---- | ----------- 
+name | character (250 chars) | end customer name, who will receive the shipment, this will be used to personalize the SMS / email sent to the customer
+phone_number | 10/11 characters | customer phone number on which SMS is to be sent.
+email | character (150 chars) | Email address of the customer, on which email is to be sent.
+
+#####shipment_info (optional): shipment information for rich analytics on your data:
+Parameter | Type | Description
+--------- | ---- | ----------- 
+item | character (500 chars) | name of item sent to the customer
+order_type | character | either COD or PREPAID
+invoice_value | float | shipment invoice value
+reference_number | character (len: 100) | order_id or reference number to be shared with end customer
+length | integer | in cm
+breadth | integer | in cm
+height | integer | in cm
+weight | integer | in grams
+drop_pincode | character | 6 digit pincode of drop location
+pickup_pincode | character | 6 digit pincode of pickup location
+delivery_type | character | either FORWARD / RVP
+cod_amount| float field | COD value to be collected from customer, float field
 
 
 ##Tracking AWB Using Polling
