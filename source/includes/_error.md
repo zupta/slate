@@ -2,19 +2,65 @@
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
-The Kittn API uses the following error codes:
+The Clickpost API uses the following error codes:
 
-
-Error Code | Meaning
+Server Response Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+200 | Success
+400 | Bad Request
+401 | Unauthorized
+403 | Forbidden
+404 | Not Found
+405 | Method Not Allowed
+406 | Not Acceptable
+429 | Too Many Requests
+500 | Internal Server Error
+503 | Service Unavailable
+504 | Server unable to serve the request, please retry
+
+Clickpost Service Error Code | Meaning
+---------- | -------
+301 | Authentication Failed: Invalid Token or API Key
+302 | Invalid Courier Partner Id with Field cp_id
+303 | waybill already registered
+304 | Already Registered For Service
+306 | You are not Registered To Use this service, Please Register
+316 | You Dont Have Credentials For The Courier Partner
+320 | This service is not subscribed by you
+324 | You Are Using Invalid Credential For Courier Partner, Please Update
+325 | Status You Are Trying to update is invalid for our systems, Contact to tech@pyck.in
+326 | Invalid Tracking Id
+328 | Invalid POST data
+330 | waybill does not exist
+351 | NO ACCOUNT EXIST
+352 | Multiple Account exist
+353 | INACTIVE ACCOUNT
+354 | UNHANDLED CP ERROR
+355 | Vendor code not found
+422 | Invalid Entity
+
+Order Creation Error Code | Meaning
+---------- | -------
+307 | You have entered invalid Order Type
+308 | You have entered invalid Order priority
+309 | Invalid Delivery Type
+310 | RVP reason is missing
+311 | Invalid Courier Partner For RVP
+312 | Items Data is missing from order details
+313 | Invalid Format of items for Order data
+314 | Invalid Format Of Order Data
+315 | Invalid Cod Value
+319 | Error In Order Placing To Courier Partner
+321 | Awb Number Does not exist in system for courier partner
+322 | Internal Server Error In Courier Partners Server, Try Again
+323 | You have Already placed this order
+
+Clickpost Webhook Error Code | Meaning
+---------- | -------
+305 | Webhook already Registered for the user
+327 | Webhook not registered for the user
+
+Order Cancellation Error Code | Meaning
+---------- | -------
+600 | ORDER ALREADY CANCELLED
+350 | Order Cancellation Error
