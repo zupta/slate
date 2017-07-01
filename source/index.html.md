@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - create
+  - pickup
   - track
   - cancellation
   - serviceability
