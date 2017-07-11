@@ -1,7 +1,5 @@
 # Error Codes
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
 The Clickpost API uses the following error codes:
 
 Server Response Code | Meaning
@@ -28,14 +26,14 @@ Clickpost Service Error Code | Meaning
 316 | You Dont Have Credentials For The Courier Partner
 320 | This service is not subscribed by you
 324 | You Are Using Invalid Credential For Courier Partner, Please Update
-325 | Status You Are Trying to update is invalid for our systems, Contact to tech@pyck.in
+325 | Status You Are Trying to update is invalid for our systems, Contact to tech@clickpost.in
 326 | Invalid Tracking Id
 328 | Invalid POST data
 330 | waybill does not exist
-351 | NO ACCOUNT EXIST
+351 | No account exist
 352 | Multiple Account exist
-353 | INACTIVE ACCOUNT
-354 | UNHANDLED CP ERROR
+353 | Inactive account
+354 | Unhandled CP error
 355 | Vendor code not found
 422 | Invalid Entity
 
@@ -62,5 +60,5 @@ Clickpost Webhook Error Code | Meaning
 
 Order Cancellation Error Code | Meaning
 ---------- | -------
-600 | ORDER ALREADY CANCELLED
+600 | Order already cancelled
 350 | Order Cancellation Error

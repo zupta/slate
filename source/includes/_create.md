@@ -208,16 +208,34 @@ cod_value: if order_type = PREPAID | double | cod_value should be equal to 0
 Parameter | Type | Description
 --------- | ---- | -----------
 courier_partner | integer | ID of courier partner for which the order is to be placed.
+
+List of courier partners is present at:
+http://track.clickpost.in/courier_partner
+
 #####**Compulsory fields for RVP order creation:**
 Parameter | Type | Description
 --------- | ---- | -----------
 rvp_reason | character | stating the reason for Reverse Pickup
 delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
-#####Optional field for XpressBees:
+#####Optional field for NuvoEx RVP (Doorstep QC):
+Parameter | Type | Description
+--------- | ---- | -----------
+qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
+image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
+cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
+sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
+#####Optional field for XpressBees (vendor_code for multiple location pickups):
 Parameter | Type | Description
 --------- | ---- | -----------
 vendor_code | character | In case you have multiple locations for pickup, please pass vendor_code of corresponding location in create-order from where the shipment needs to be picked up
+#####Optional field for Bluedart (Critical / Time defined delivery service):
+Parameter | Type | Description
+--------- | ---- | -----------
+service_type | character | If you are using Critical shipment service, Time Defined delivery Service (10:30 am or 12 noon next day), Please pass this field with values: 
 
+C: Critical Shipment 
+T: Time defined delivery on or before 10:30 
+N: Time defined delivery on or before 12
 
 ###Response Explanation:
 
@@ -236,11 +254,6 @@ Response Object has two parts:
   Additional fields for Bluedart:
   4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
   5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
-
-__Important Points__:
-
-1. waybills and links provided in the example can be used to check the API using test credentials
-2. Test credentials provided to you may throw error for some Courier Partners since they point to their testing servers, which might be down or nonfunctional at times. For better testing, we would suggest you to share your production credentials for the corresponding courier partner and then try the APIs.
 
 
 <aside class="warning">

@@ -10,11 +10,11 @@ toc_footers:
 
 includes:
   - create
-  - pickup
   - track
   - cancellation
-  - serviceability
   - recommend
+  - serviceability
+  - pickup
   - error
 
 
@@ -25,9 +25,12 @@ search: true
 
 Welcome to the Clickpost API! You can use our API to access Clickpost API endpoints which can get information on our different APIs:
 
-1. __Order API__: Create order on Courier Partner and fetch AWB, Cancel orders and place pickup request
-2. __Track Order__: Track your orders
-3. __Recommendation Engine__: Recommend list of Courier Partners in priority order
+1. __Manifestation API__: Create order on Courier Partner and fetch AWB, Cancel orders and place pickup request
+2. __Track Shipment__: Track your shipment using AWB and Courier Partner
+3. __Cancellation API__: Cancel shipment manifested on Courier Partner for faster returns and higher inventory availability
+4. __Recommendation Engine__: Recommend list of Courier Partners in priority order
+5. __Serviceability API__: Check pincode serviceability
+6. __Pickup Request API__: Recommend list of Courier Partners in priority order
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 

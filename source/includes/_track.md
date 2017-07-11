@@ -113,14 +113,14 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
 
 ####Optional:
 
-#####consumer_details(optional): In case you to send notifications to your customers via mail / sms, please pass information in this object:
+####consumer_details(optional): In case you to send notifications to your customers via mail / sms, please pass information in this object:
 Parameter | Type | Description
 --------- | ---- | ----------- 
 name | character (250 chars) | end customer name, who will receive the shipment, this will be used to personalize the SMS / email sent to the customer
 phone_number | 10/11 characters | customer phone number on which SMS is to be sent.
 email | character (150 chars) | Email address of the customer, on which email is to be sent.
 
-#####shipment_info (optional): shipment information for rich analytics on your data:
+####shipment_info (optional): shipment information for rich analytics on your data:
 Parameter | Type | Description
 --------- | ---- | ----------- 
 item | character (500 chars) | name of item sent to the customer
