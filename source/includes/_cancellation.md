@@ -3,7 +3,7 @@
 > URL to hit:
 
 ```
-https://www.clickpost.in/api/v1/cancel-order/?username=test&key=42d42a34-ae09-4693- b20c-ae2624&awb=782715732348
+https://www.clickpost.in/api/v1/cancel-order/?username=test&key=42d42a34-ae09-4693- b20c-ae2624&awb=782715732348&cp_id=8
 
 Headers: {'Content-type': 'application/json'}
 
@@ -32,6 +32,7 @@ Listed below are the parameters:
 1. username: User name provided to you.
 2. key: API key provided to you.
 3. waybill: waybill, which needs to be cancelled
+4. cp_id: Courier Partner ID of the courier from which shipment was dispatched. List: <a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
 
 
 ###Response Explanation:

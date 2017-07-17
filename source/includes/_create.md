@@ -140,7 +140,7 @@ Nagar, New Delhi",
 }
 ```
 
-> __Example:__ POST Body: (Reverse Pickup with QC detail (Only for NuvoEx Rvp): RVP Shipment):
+> __Example:__ POST Body: (Reverse Pickup with QC detail RVP Shipment[Only for NuvoEx]):
 
 ```
 {
@@ -262,7 +262,7 @@ Parameter | Type | Description
 courier_partner | integer | ID of courier partner for which the order is to be placed.
 
 List of courier partners is present at:
-http://track.clickpost.in/courier_partner
+<a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
 
 #####**Compulsory fields for RVP order creation:**
 Parameter | Type | Description

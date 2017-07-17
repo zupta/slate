@@ -51,7 +51,7 @@ Format: JSON
 Parameter | Type | Description
 --------- | ---- | -----------
 pickup_date | character | ISO datetime field example: 2015-03-31T12:00:00Z
-courier_partner | integer |ID of courier partner for which the pickup request needs to be placed. List at : http://track.clickpost.in/courier_partner
+courier_partner | integer |ID of courier partner for which the pickup request needs to be placed. List at : <a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
 items | character | description of item that needs to be placed. Max length: 200 chars
 pickup_address | character | Address of pickup location
 pickup_name | character | Contact person for the pickup
@@ -72,7 +72,8 @@ pickup_state | character | name of pickup state
   },
   "result": {
     "location": "DELKL",
-    "confirmation_number": "6" }
+    "confirmation_number": "6" 
+  }
 }
 ```
 

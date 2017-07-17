@@ -90,10 +90,10 @@ Headers: {'Content-type': 'application/json'}
 		"success": true
 	},
 	"result": {
-		"consumer_details": {
+			"consumer_details": {
 			"id": 1
 		},
-		"shipment_info": {
+			"shipment_info": {
 			"id": 1
 		},
 		"tracking_id": 1188264
@@ -136,7 +136,6 @@ pickup_pincode | character | 6 digit pincode of pickup location
 delivery_type | character | either FORWARD / RVP
 cod_amount| float field | COD value to be collected from customer, float field
 
-
 ##Tracking AWB Using Polling
 
 >__Example__
@@ -151,59 +150,71 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-	"meta": {
-		"status": 200,
-		"messsage": "SUCCESS",
-		"success": true
-	},
-	"result": {
-		"506610002236": {
-			"scans": [{
-				"status": "OrderPlaced",
-				"remark": "OrderPlaced",
-				"location": "None",
-				"timestamp": "2016-04-12T07:37:22.113Z",
-				"clickpost_status_description": "OrderPlaced",
-				"clickpost_status_code": 1
-			}, {
-				"status": "Picked up and Booking processed",
-				"remark": "Picked up and Booking processed",
-				"location": "SOUTH DELHI, DELHI",
-				"timestamp": "2016-10-27 22:15:13+00:00",
-				"clickpost_status_description": "PickedUp",
-				"clickpost_status_code": 4
-			}, {
-				"status": "In Transit to",
-				"remark": "In Transit to",
-				"location": "DELHI, DELHI",
-				"timestamp": "2016-10-27 22:18:57+00:00",
-				"clickpost_status_description": "InTransit",
-				"clickpost_status_code": 5
-			}, {
-				"status": "Out For Delivery",
-				"remark": "Out For Delivery",
-				"location": "MUMBAI, MUMBAI",
-				"timestamp": "2016-10-31 13:29:24+00:00",
-				"clickpost_status_description": "OutForDelivery",
-				"clickpost_status_code": 6
-			}, {
-				"status": "Delivered",
-				"remark": "Delivered on 03 Nov 16 - Signed by sign",
-				"location": "MUMBAI, MUMBAI",
-				"timestamp": "2016-11-03 08:10:56+00:00",
-				"clickpost_status_description": "Delivered",
-				"clickpost_status_code": 8
-			}],
-			"latest_status": {
-				"status": "Delivered",
-				"remark": "Delivered on 03 Nov 16 - Signed by sign",
-				"location": "MUMBAI, MUMBAI",
-				"timestamp": "2016-11-03T08:10:56Z",
-				"clickpost_status_description": "Delivered",
-				"clickpost_status_code": 8
-			}
-		}
-	}
+    "meta": {
+        "message": "SUCCESS",
+        "success": true,
+        "status": 200
+    },
+    "result": {
+        "3515341": [
+            {
+                "clickpost_status_description": "Delivered",
+                "remark": "Delivered Via @DS/BLRDMR/1718/000020 on @04-04-2017",
+                "status": "D",
+                "location": "DOMLUR, BANGALORE",
+                "timestamp": "2017-04-04 14:56:16",
+                "clickpost_status_code": 8
+            },
+            {
+                "clickpost_status_description": "OutForDelivery",
+                "remark": "Out For Delivery",
+                "status": "O",
+                "location": "DOMLUR, BANGALORE",
+                "timestamp": "2017-04-04 10:29:41",
+                "clickpost_status_code": 6
+            },
+            {
+                "clickpost_status_description": "FailedDelivery",
+                "remark": "Delivery Failed on  03 Apr 17 Reason:- @CID - RECEIVER REQUESTED DELIVERY ON ANOTHER DATE",
+                "status": "N",
+                "location": "DOMLUR, BANGALORE",
+                "timestamp": "2017-04-03 16:10:36",
+                "clickpost_status_code": 9
+            },
+            {
+                "clickpost_status_description": "OutForDelivery",
+                "remark": "Out For Delivery",
+                "status": "O",
+                "location": "DOMLUR, BANGALORE",
+                "timestamp": "2017-04-03 11:15:00",
+                "clickpost_status_code": 6
+            },
+            {
+                "clickpost_status_description": "InTransit",
+                "remark": "Arrived",
+                "status": "T",
+                "location": "DOMLUR, BANGALORE",
+                "timestamp": "2017-03-31 10:08:17",
+                "clickpost_status_code": 5
+            },
+            {
+                "clickpost_status_description": "OrderPlaced",
+                "remark": "Order Process",
+                "status": "U",
+                "location": "DELHI HUB1, NEW DELHI",
+                "timestamp": "2017-03-30 00:39:04",
+                "clickpost_status_code": 1
+            },
+            {
+                "clickpost_status_description": "PickedUp",
+                "remark": "Picked up and Booking processed",
+                "status": "P",
+                "location": "DELHI HUB1, NEW DELHI",
+                "timestamp": "2017-03-29 00:00:00",
+                "clickpost_status_code": 4
+            }
+        ]
+    }
 }
 ```
 
@@ -252,14 +263,18 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
 ##Tracking Waybills Using Webhooks
 ###Register for Webhooks:
 
->It's a POST request. The URL
+It's a POST request. (PUT in case you want to update existing webhook url) 
+`https://www.clickpost.in/api/v1/tracking/register-webhook/`
+
+
+>__Webhook Registration URL__
 
 ```
 URL: https://www.clickpost.in/api/v1/tracking/register-webhook/
 Headers: {'Content-type': 'application/json'}
 ```
 
->__Example__
+>__Webhook Registration Example__
 
 ```json
 {
@@ -275,7 +290,7 @@ Headers: {'Content-type': 'application/json'}
 2. “key”: API key provided to you
 3. “webhook_url” is the url on which data will be posted on your server
 
->__Response__
+>__Webhook Registration Response__
 
 ```json
 {
@@ -305,16 +320,16 @@ Status Code | Description
 
 Every time courier partner updates tracking of the shipment, We will post data to your server using the url you registered while registering for webhooks.
 
->__Header__
+>__Webhook Payload Header__
 
 ```json
 {
-     "Content-Type": "application/json",
-     "webhook_key": "webhook_key_given_during_webhooks_register"
+	"Content-Type": "application/json",
+	"webhook_key": "webhook_key_given_during_webhooks_register"
 }
 ```
 
->__Payload__
+>__Webhook Payload__
 
 ```json
 {
@@ -335,35 +350,32 @@ Every time courier partner updates tracking of the shipment, We will post data t
 3. remarks: remark given by courier partner
 4. location: location of shipment at the time of the scan
 5. timestamp: date/time in IST format when the scan was done
-6. clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained on next page)
+6. clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained in next section)
 7. clickpost_status_description: description of clickpost_status_code (Specified on next page)
 
 
-####Uber Status Mapping
+>__Test Webhook URL__
 
-clickpost_status_id | clickpost_status_description | Meaning
------ | ------ |  -------
-1 | ORDER_PLACED | 'Order Has Been Placed'
-2 | PICKUP_PENDING | 'Pickup Pending'
-3 | PICKUP_CANCELLED | 'Pickup Cancelled'
-4 | PICKED_UP | 'Pickup Has Been Done'
-5 | INTRANSIT | 'In Transit'
-6 | OUT_FOR_DELIVERY | 'Shipment Out For Delivery'
-7 | NOT_SERVICEABLE | 'Area For Delivery Is Not Servicable'
-8 | DELIVERED | 'Shipment Delivered'
-9 | FAILED_DELIVERY | 'Delivery Failed'
-10 | CANCELLED_ORDER | 'Order Has Been Cancelled'
-11 | RTO_REQUESTED | 'Rto For Shipment has been Requested'
-12 | RTO | 'Marked As Return'
-13 | RTO_OUT_FOR_DELIVERY | 'Shipment Is Out For Delivery For RTO'
-14 | RTO_DELIVERED | 'Rto Delivered'
-15 | RTO_FAILED | 'Rto Failed'
-16 | LOST | 'Shipment is Lost'
-17 | DAMAGED | 'Shipment is damaged'
-18 | SHIPMENT_DELAYED |'Shipment Is Delayed Or Misroute'
-19 | CONTACT_CUSTOMER_CARE | 'Contact To The Customer Care'
-20 | SHIPMENT_HELD | 'Shipment Is being held'
-21 | RTO_INTRANSIT | 'Shipment Return On The Way'
+```
+https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
+```
 
+>__Test Webhook Payload__
+
+```json
+{
+  "test_url": "http://test.clickpost.in/"
+}
+```
+
+###Testing Webhook:
+You can test the webhooks by making a POST request on the following URL:
+`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
+
+
+
+Where test_url is your server URL where you want to test the webhook data.
+
+This will send sample payload as mentioned above with Headers on the server mentioned in test_url.
 
 ------

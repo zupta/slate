@@ -15,8 +15,8 @@ includes:
   - recommend
   - serviceability
   - pickup
+  - status
   - error
-
 
 search: true
 ---
