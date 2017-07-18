@@ -61,4 +61,4 @@ Clickpost Webhook Error Code | Meaning
 Order Cancellation Error Code | Meaning
 ---------- | -------
 600 | Order already cancelled
-350 | Order Cancellation Error
+350 | Order Cancellation Error from Courier Partner Server
