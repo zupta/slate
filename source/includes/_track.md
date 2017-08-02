@@ -332,6 +332,32 @@ Every time courier partner updates tracking of the shipment, We will post data t
 >__Webhook Payload__
 
 ```json
+
+{
+  "waybill": "P0109276342",
+  "clickpost_status_code": 6,
+  "cp_id": 14,
+  "clickpost_status_description": "OutForDelivery",
+  "status": "O",
+  "location": "VASAI, MUMBAI",
+  "timestamp": "2017-08-02T13:23:02Z",
+  "remark": "Out For Delivery",
+  "additional": {
+    "latest_status": {
+      "clickpost_status_code": 6,
+      "location": "VASAI, MUMBAI",
+      "status": "O",
+      "clickpost_status_description": "OutForDelivery",
+      "timestamp": "2017-08-02T13:23:02Z",
+      "remark": "Out For Delivery"
+    }
+  }
+}
+```
+
+>__NDR(Non delivery report) details in Webhook, send when the status_code = 9 (Failed Delivery)__
+
+```json
 {
   "status": "When forward shipment is not accepted by end customer",
   "remark": "Failed Delivery",
@@ -343,10 +369,41 @@ Every time courier partner updates tracking of the shipment, We will post data t
   "cp_id": 1,
 
   "additional": {
-
+    "latest_status": {
+      "clickpost_status_code": 9,
+      "location": "Bengaluru_Koramangala_Dc (Karnataka)",
+      "status": "When forward shipment is not accepted by end customer",
+      "clickpost_status_description": "FailedDelivery",
+      "timestamp": "2016-07-12T17:12:36.710",
+      "remark": "Failed Delivery"
+    },
     "ndr_status_code": 1,
-    "ndr_status_description": "Customer Unavailable",
+    "ndr_status_description": "Customer Unavailable"
+  }
+}
+```
 
+>__NuvoEx Doorstep QC check webhook__
+
+```json
+{
+  "status": "Shipment picked up",
+  "remark": "Picked up",
+  "waybill": "XYZABC",
+  "location": "Bengaluru_Koramangala_Dc (Karnataka)",
+  "timestamp": "2016-07-12T17:12:36.710",
+  "clickpost_status_code": 4,
+  "clickpost_status_description": "PickedUp",
+  "cp_id": 7,
+  "additional": {
+    "latest_status": {
+      "status": "Shipment picked up",
+      "remark": "Picked up",
+      "location": "Bengaluru_Koramangala_Dc (Karnataka)",
+      "timestamp": "2016-07-12T17:12:36.710",
+      "clickpost_status_code": 4,
+      "clickpost_status_description": "PickedUp"
+    },
     "dsqc": {
       "breadth": null,
       "expected_amount": 0,
@@ -463,6 +520,7 @@ Every time courier partner updates tracking of the shipment, We will post data t
     }
   }
 }
+
 ```
 
 ###Payload Explanation:
@@ -475,6 +533,27 @@ Every time courier partner updates tracking of the shipment, We will post data t
 6. clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained in next section)
 7. clickpost_status_description: description of clickpost_status_code (Specified on next page)
 
+
+
+###Important Notes and special data in Webhooks (Examples are present on the right):
+
+1. Webhooks do not guarantee the order of data send to Client servers. 
+latest_status indicates the latest status for the shipment at the time when the webhook is sent. This is sent with all webhooks
+2. In case of NuvoEx Reverse Pickup: doorstep Quality Check order, additional has dsqc object at the time of pickup cancelled (clickpost_status_code = 10) and pickedup (clickpost_status_code = 4)
+3. In case of Failed Delivery, Clickpost unified NDR status code and NDR status description is sent in additional
+
+---
+
+
+###Testing Webhook:
+You can test the webhooks by making a POST request on the following URL:
+`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
+
+
+
+Where test_url is your server URL where you want to test the webhook data.
+
+This will send sample payload as mentioned above with Headers on the server mentioned in test_url.
 
 >__Test Webhook URL__
 
@@ -489,15 +568,4 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
   "test_url": "http://test.clickpost.in/"
 }
 ```
-
-###Testing Webhook:
-You can test the webhooks by making a POST request on the following URL:
-`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
-
-
-
-Where test_url is your server URL where you want to test the webhook data.
-
-This will send sample payload as mentioned above with Headers on the server mentioned in test_url.
-
 ------
