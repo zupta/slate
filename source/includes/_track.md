@@ -383,6 +383,7 @@ Every time courier partner updates tracking of the shipment, We will post data t
 }
 ```
 
+
 >__NuvoEx Doorstep QC check webhook__
 
 ```json
@@ -544,6 +545,20 @@ latest_status indicates the latest status for the shipment at the time when the 
 
 ---
 
+###NDR Status Codes
+
+ndr_status_code | ndr_status_description
+--------------|------------------------
+1 | "Customer Unavailable"
+2 | "Rejected by Customer"
+3 | "Delivery Rescheduled"
+4 | "No Attempt"
+5 | "Customer Unreachable"
+6 | "Address Issue"
+7 | "Payment Issue"
+8 | "Out Of Delivery Area"
+
+---
 
 ###Testing Webhook:
 You can test the webhooks by making a POST request on the following URL:
