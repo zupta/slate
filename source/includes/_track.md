@@ -580,7 +580,31 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
 
 ```json
 {
-  "test_url": "http://test.clickpost.in/"
+  "test_url": "http://www.clickpost.in/",
+  "test_data": {
+    "status": "When forward shipment is not accepted by end customer",
+    "remark": "Failed Delivery",
+    "waybill": "XYZABC",
+    "location": "Bengaluru_Koramangala_Dc (Karnataka)",
+    "timestamp": "2016-07-12T17:12:36.710",
+    "clickpost_status_code": 9,
+    "clickpost_status_description": "FailedDelivery",
+    "cp_id": 1,
+
+    "additional": {
+      "latest_status": {
+        "clickpost_status_code": 9,
+        "location": "Bengaluru_Koramangala_Dc (Karnataka)",
+        "status": "When forward shipment is not accepted by end customer",
+        "clickpost_status_description": "FailedDelivery",
+        "timestamp": "2016-07-12T17:12:36.710",
+        "remark": "Failed Delivery"
+      },
+      "ndr_status_code": 1,
+      "ndr_status_description": "Customer Unavailable"
+    }
+  }
 }
+
 ```
 ------
