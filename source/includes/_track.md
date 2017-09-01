@@ -549,6 +549,7 @@ latest_status indicates the latest status for the shipment at the time when the 
 
 ndr_status_code | ndr_status_description
 --------------|------------------------
+0 | "Unknown Exception"
 1 | "Customer Unavailable"
 2 | "Rejected by Customer"
 3 | "Delivery Rescheduled"
@@ -557,18 +558,22 @@ ndr_status_code | ndr_status_description
 6 | "Address Issue"
 7 | "Payment Issue"
 8 | "Out Of Delivery Area"
+9 | "Order Already Cancelled"
+10| "Self Collect"
+11| "Shipment Seized By Customer"
+
+*Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description*
 
 ---
 
 ###Testing Webhook:
 You can test the webhooks by making a POST request on the following URL:
+
 `https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
-
-
 
 Where test_url is your server URL where you want to test the webhook data.
 
-This will send sample payload as mentioned above with Headers on the server mentioned in test_url.
+This will send sample payload as specified in test_data with Headers on the server mentioned in test_url.
 
 >__Test Webhook URL__
 
