@@ -14,6 +14,7 @@ includes:
   - cancellation
   - recommend
   - serviceability
+  - expected_date_of_delivery
   - pickup
   - status
   - error
@@ -30,7 +31,8 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 3. __Cancellation API__: Cancel shipment manifested on Courier Partner for faster returns and higher inventory availability
 4. __Recommendation Engine__: Recommend list of Courier Partners in priority order
 5. __Serviceability API__: Check pincode serviceability
-6. __Pickup Request API__: Recommend list of Courier Partners in priority order
+6. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
+7. __Pickup Request API__: Recommend list of Courier Partners in priority order
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 

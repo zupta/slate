@@ -49,6 +49,8 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
 }
 ```
 
+Serviceability api checks if pickup and drop pincodes are serviceabile or not. It accepts the shipment dimension fields as additional parameters. Courier company id can be passed to check the serviceability for a specific courier company.
+
 It’s a POST request as follows
 
 URL:
@@ -96,7 +98,7 @@ Response object has two parts:
 
 1. meta: stores information about the API, success or failure
     + success: true/false, tells whether the order was created or not
-    + message: SUCCESS in case order was created successfully, else returns error message.
+    + message: SUCCESS in case request was successfully processed by clickpost, else returns error message.
     + status:
         1. 200 if the order is created successfully,
         2. 400 if there is a bad request encountered: errors will be present in “message”
