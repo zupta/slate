@@ -20,7 +20,8 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
             "height": 10,
             "length": 10,
             "weight": 10,
-            "invoice_value": 1245
+            "invoice_value": 1245,
+            "cp_id": 1
         }
     }
 ]
@@ -83,14 +84,11 @@ Parameter | Type | Description
 --------- | ---- | -----------
 invoice_value | double | invoice value of the shipment
 order_type | character | COD/PREPAID
-
-<!--
 weight | integer | weight of the shipment
 length | integer | length of the shipment
 breadth | integer | breadth of the shipment
 height | integer | height of the shipment
--->
-
+cp_id | integer | clickpost courier comapny id
 
 ###Response explanation:
 
