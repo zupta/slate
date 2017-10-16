@@ -107,12 +107,12 @@ https://www.clickpost.in//api/v1/predicted_sla_api/?username=test&key=42d42a34-a
 }
 ```
 
-The expected date of delivery api computes the minimum/maximum time range, any shipment can take between the pickup and drop pincode using our predictive/machine learning algorithms. By default it computes the range for all courier companies available and gives the courier comapny id which might deliver the shipment fastest. Optional courier comapny id can be passed to see the range for a specific courier comapny; errors/warnings will be highlighted in the response.
+The expected date of delivery API computes the minimum/maximum time range, a shipment lifecycle may take between the pickup and drop pincode using our predictive machine learning algorithm. By default, it computes the range for all courier companies available and gives the courier partner id which might deliver the shipment fastest. Optional courier comapny id can be passed to see the range for a specific courier partner; errors/warnings will be highlighted in the response.
 
 It’s a POST request as follows
 
 URL:
-`https://www.clickpost.in/api/v1/predicted_sla_api/``
+`https://www.clickpost.in/api/v1/predicted_sla_api/`
 
 Headers: {'Content-type': 'application/json'}
 
@@ -142,23 +142,27 @@ drop_pincode | integer | pincode of drop address
 
 Parameter | Type | Description
 --------- | ---- | -----------
-cp_id | integer | clickpost courier company id 
+cp_id | integer | courier partner id
+
+List of courier partners is present at:
+<a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
+
 
 ###Response explanation:
 
 Response object has two parts:
 
 1. meta: stores information about the API, success or failure
-    + success: true/false, tells whether the order was created or not
-    + message: SUCCESS in case request was successfully processed by clickpost, else returns error message.
+    + success: true/false, tells whether the request was processed successfully by Clickpost 
+    + message: SUCCESS in case request was successfully processed by Clickpost, else returns error message.
     + status:
         1. 200 if the request is processed successfully,
         2. 400 if there is a bad request encountered: errors will be present in “message”
 2. result: 
-    + predicted_sla_min: minimum predicted sla a shipment can take between the pin codes given
-    + predicted_sla_max: maximum predicted sla a shipment can take between the pin codes given
-    + min_sla_cp_id: courier company id for the smallest range of sla for shipment can take between the pin codes given   
-    + all_map: conatins min, max values for all posible courier comapnies    
+    + predicted_sla_min: minimum sla in days predicted by Clickpost between the given pin codes
+    + predicted_sla_max: maximum sla in days predicted by Clickpost between the given pin codes
+    + min_sla_cp_id: courier partner id corresponding to the smallest sla of shipment between the pin codes given   
+    + all_map: contains [min, max] values for all courier partners serviced by Clickpost
 
 
 <aside class="warning">
