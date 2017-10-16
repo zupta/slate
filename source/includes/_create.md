@@ -95,11 +95,11 @@ Nagar, New Delhi",
     "return_info": {
         "pincode": "110019",
         "city": "DELHI",
-        "name": "Deepanshu",
+        "name": "Clickpost",
         "state": "DELHI",
         "country": "IN",
         "phone": 8080808080,
-        "address": "Test Address top floor kalkaji NewDelhi "
+        "address": "Test Address, Test Location, Test Landmark New Delhi"
     },
     "tin": "120349483",
     "invoice_date": "2015-12-27",
@@ -241,6 +241,7 @@ pickup_time | character | (ISO Format: example 2015-12-10T12:00:00Z)
 pickup_city | character | pickup city name, maximum length 200 characters
 pickup_state | character | pickup state name, maximum length 200 characters
 pickup_country | character | pickup country name, maximum length 100 characters i. email: email id to be sent to courier partner for this shipment
+vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location
 #####Drop Information
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -251,6 +252,18 @@ drop_pincode| integer | 6 digit pincode
 drop_city | character | drop city name, maximum length 200 characters
 drop_state | character | drop state name, maximum length 200 characters
 drop_country | character | drop country name, maximum length 200 characters
+drop_email | character | (optional) email of the customer
+#####Return Information
+Parameter | Type | Description
+--------- | ---- | -----------
+name | character | maximum length of 100 characters
+address | character | maximum length of 500 characters
+phone | integer | 10/11 digit phone number
+pincode| integer | 6 digit pincode
+city | character | drop city name, maximum length 200 characters
+state | character | drop state name, maximum length 200 characters
+country | character | drop country name, maximum length 200 characters
+email | character | (optional) email of the customer
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -287,6 +300,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 rvp_reason | character | stating the reason for Reverse Pickup
 delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
+
 #####Optional field for NuvoEx RVP (Doorstep QC):
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -294,18 +308,14 @@ qc_type | character | pass "doorstep" if you want reverse pickup to be done as d
 image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
 cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
 sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
-#####Optional field for XpressBees (vendor_code for multiple location pickups):
-Parameter | Type | Description
---------- | ---- | -----------
-vendor_code | character | In case you have multiple locations for pickup, please pass vendor_code of corresponding location in create-order from where the shipment needs to be picked up
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
 --------- | ---- | -----------
 service_type | character | If you are using Critical shipment service, Time Defined delivery Service (10:30 am or 12 noon next day), Please pass this field with values: 
 
-C: Critical Shipment 
-T: Time defined delivery on or before 10:30 
-N: Time defined delivery on or before 12
+1. C: Critical Shipment 
+2. T: Time defined delivery on or before 10:30 
+3. N: Time defined delivery on or before 12
 
 ###Response Explanation:
 
