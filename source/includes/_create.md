@@ -158,7 +158,7 @@ Nagar, New Delhi",
 }
 ```
 
-> __Example:__ POST Body: (Reverse Pickup with QC detail RVP Shipment[Only for NuvoEx]):
+> __Example:__ POST Body: (Reverse Pickup with QC detail RVP Shipment[Only for Shadowfax Reverse]):
 
 ```
 {
