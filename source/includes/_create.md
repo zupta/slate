@@ -659,8 +659,8 @@ Headers: {'Content-type': 'application/json'}
 {
     "pickup_info": {
         "email": "mrigendrasinha@gmail.com",
-        "pickup_name": "CARATLANE TRADING PRIVATE LIMITED",
-        "pickup_phone": "9500070937",
+        "pickup_name": "Test Pickup Name",
+        "pickup_phone": "8080808080",
         "pickup_address": "No.5, Pycroft Garden Road, Mohammed Sathak Trust, 5th Floor, Nungambakkam",
         "pickup_pincode": "110016",
         "pickup_city": "DELHI",
@@ -670,8 +670,8 @@ Headers: {'Content-type': 'application/json'}
         "tin": "33030721658"
     },
     "drop_info": {
-        "drop_name": "CARATLANE TRADING PRIVATE LIMITED",
-        "drop_phone": "9500070937",
+        "drop_name": "Test Drop Name",
+        "drop_phone": "8080808080",
         "drop_address": "No.5, Pycroft Garden Road, Mohammed Sathak Trust, 5th Floor, Nungambakkam",
         "drop_pincode": "223045",
         "drop_city": "BANGLORE",
@@ -708,7 +708,7 @@ Headers: {'Content-type': 'application/json'}
             "transit_info": {
                 "transit_city": "CHANDIGARH",
                 "transit_state": "CHANDIGARH",
-                "transit_phone": "9999200122",
+                "transit_phone": "8080808080",
                 "transit_name": "Mr.Arun",
                 "transit_pincode": "160017",
                 "transit_address": "229A, 2nd Floor, Elante Mall, Industrial Area,Phase-1",
