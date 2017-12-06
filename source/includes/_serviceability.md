@@ -42,7 +42,6 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
                 "PREPAID": true,
                 "COD": true
             },
-            "expected_sla": 2,
             "comitted_sla": 3
         }
     ]
@@ -106,8 +105,7 @@ Response object has two parts:
     + serviceable: JSON object which stores following two fields:
     	+ COD: Values: true: if the pincode is COD serviceable else false
     	+ PREPAID: Values: true: if the pincode is COD serviceable else false
-    + expected_sla: average expected SLA (in days) for the shipment as recommended by Clickpost, if dispatched today. (integer field)
-    + commited_sla: average commited SLA by courier partner for the shipment if dispatched today. (integer field)
+    + commited_sla: average commited SLA by courier partner (based on your contract with courier partner) for the shipment if dispatched today. (integer field)
 
 
 <aside class="warning">
