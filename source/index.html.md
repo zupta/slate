@@ -16,6 +16,7 @@ includes:
   - serviceability
   - expected_date_of_delivery
   - pickup
+  - customer_feedback
   - status
   - error
 
@@ -33,6 +34,7 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 5. __Serviceability API__: Check pincode serviceability
 6. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
 7. __Pickup Request API__: Recommend list of Courier Partners in priority order
+8. __Customer Feedback API__: Gives list of customer feedbacks submitted on tracking page by end user. 
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 
