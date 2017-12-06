@@ -413,6 +413,26 @@ Headers: {'Content-type': 'application/json'}
         ],
         "cod_value": 200,
         "courier_partner": 3
+    },
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
     }
 }
 ```
@@ -476,6 +496,26 @@ Headers: {'Content-type': 'application/json'}
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
         "pickup_phone": "9816691388"
+    },
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
     },
     "shipment_details": {
         "height": 12,
@@ -697,6 +737,26 @@ Headers: {'Content-type': 'application/json'}
         "invoice_number": "INV123",
         "invoice_value": 1000,
         "invoice_date": "2017-11-11"
+    },
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
     },
     "additional": {
         "data_validation": true,
