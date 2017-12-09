@@ -50,7 +50,27 @@ Headers: {'Content-type': 'application/json'}
   "length": 5,
   "height": 10,
   "breadth": 15,
-  "courier_partner": 2
+  "courier_partner": 2,
+  "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
+    }
 }
 ```
 
@@ -114,7 +134,27 @@ Nagar, New Delhi",
     "length": "10",
     "height": "10",
     "breadth": "10",
-    "courier_partner": 5
+    "courier_partner": 5,
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
+    }
 }
 ```
 
@@ -154,7 +194,27 @@ Nagar, New Delhi",
     "reference_number": "sok56sjkaphf",
     "pickup_time": "2016-10-01T12:00:00Z",
     "rvp_reason": "Not Interested",
-    "delivery_type": "RVP"
+    "delivery_type": "RVP",
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
+    }
 }
 ```
 
@@ -206,7 +266,27 @@ Nagar, New Delhi",
     "reference_number": "sok56sjkaphf",
     "pickup_time": "2016-10-01T12:00:00Z",
     "rvp_reason": "Not Interested",
-    "delivery_type": "RVP"
+    "delivery_type": "RVP",
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
+    }
 }
 ```
 
