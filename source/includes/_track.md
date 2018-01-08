@@ -54,29 +54,34 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-    "waybill":"ABCDRESDEFGHIJKL1257679",
-    "cp_id":1,
-    "key":"42d42a34-ae09-4693-b20c-ae26249d7614",
-
-    "consumer_details":{
-        "name":"Prashant Gupta",
-        "phone":"8080808080",
-        "email":"support@clickpost.in"
-    },
-    "shipment_info":{
-       "item":"Shirt",
-       "order_type": "COD",
-       "invoice_value": 1000,
-       "reference_number": "123XYZ",
-       "length": 10,
-       "height": 10,
-       "weight": 10,
-       "breadth": 10,
-       "drop_pin_code": "110016",
-       "pickup_pin_code": "110017",
-       "delivery_type": "FORWARD",
-       "cod_amount": 1000.10
-    }
+  "waybill": "ABCDRESDEFGHIJKL1257679",
+  "cp_id": 1,
+  "key": "42d42a34-ae09-4693-b20c-ae26249d7614",
+  
+  "consumer_details": {
+          "name": "Prashant Gupta",
+          "phone": "8080808080",
+          "email": "support@clickpost.in"
+  },
+  "shipment_info": {
+          "item": "Shirt",
+          "order_type": "COD",
+          "invoice_value": 1000,
+          "reference_number": "123XYZ",
+          "length": 10,
+          "height": 10,
+          "weight": 10,
+          "breadth": 10,
+          "drop_pin_code": "110019",
+          "pickup_pin_code": "110017",
+          "delivery_type": "FORWARD",
+          "cod_amount": 1000.10,
+          "drop_address": "Roots hacker Home, R 28, Second Floor, Nehru Enclace, Opposite Nehru Place, New Delhi 110019"
+  },
+  "additional": {
+    "order_date": "2017-02-14T18:00:00+05:30",
+    "ship_date": "2017-02-14T24:00:00+05:30"
+  }
 }
 
 ```
@@ -135,6 +140,13 @@ drop_pincode | character | 6 digit pincode of drop location
 pickup_pincode | character | 6 digit pincode of pickup location
 delivery_type | character | either FORWARD / RVP
 cod_amount| float field | COD value to be collected from customer, float field
+drop_address| character (500 chars) | drop address of the shipment
+
+####additional (optional): extra information about shipment used to power tracking page:
+Parameter | Type | Description
+--------- | ---- | ----------- 
+order_date | character | timestamp when the order was placed
+ship_date | character | timestamp when order was ready to ship
 
 ##Tracking AWB Using Polling
 
