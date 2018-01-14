@@ -17,6 +17,7 @@ includes:
   - expected_date_of_delivery
   - pickup
   - customer_feedback
+  - widget
   - status
   - error
 
