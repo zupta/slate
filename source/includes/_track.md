@@ -2,13 +2,13 @@
 
 ##Register for Tracking Service
 
-> It’s a POST request. The URL:
+> POST request. URL:
 
 ```
 https://www.clickpost.in/api/v1/register-service/
 Headers: {'Content-type': 'application/json'}
 ```
->__Example__
+>__Payload__
 
 ```
 {
@@ -43,14 +43,14 @@ ID | Use
 
 ##Register an AWB for tracking
 
->It’s a POST request. The URL:
+>POST request. URL:
 
 ```
 https://www.clickpost.in/api/v2/tracking/awb-register/
 Headers: {'Content-type': 'application/json'}
 ```
 
->__Example__
+>__Sample Payload__
 
 ```json
 {
@@ -150,7 +150,7 @@ ship_date | character | timestamp when order was ready to ship
 
 ##Tracking AWB Using Polling
 
->__Example__
+>__URL__
 
 ```
 https://www.clickpost.in/api/v2/track-order/?username=testuser&key=2e9b19ac-8e1f- 41ac-a35b-4cd23f41ae17&waybill=3515341&cp_id=10

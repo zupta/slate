@@ -1,7 +1,12 @@
-1. Place widget script in your webpage.
-Note: It's better to move widget script from the top to as low in the page as possible.
+# Tracking Page / Widget
 
+###To integrate with your website:
+
+1. Place widget script in your webpage.
 2. Place widget HTML code in your webpage.
+
+Note: It's better to move widget script to as low in the web page as possible.
+
 
 Tracking Page / Widget is designed to provide exhaustive tracking to end user. 
 
@@ -23,11 +28,10 @@ data-cpId | string | Your Courier Partner Id
 data-username | string | username provided to you
 data-key | string | Key provided to you
 
-```
-<div id="1234567890" class="tracking-widget" data-cpId="11" data-key="123-456-7890" data-username="xyz"></div>
 
-<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget.js"></script>
-```
+`<div id="1234567890" class="tracking-widget" data-cpId="11" data-key="123-456-7890" data-username="xyz"></div>`
+
+`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget.js"></script>`
 
 ##Tracking widget using Reference Number (Order ID)
 
@@ -39,21 +43,17 @@ id | string | Your order reference number
 data-username | string | username provided to you
 data-key | string | API Key provided to you
 
-```
-<div id="1234567890" class="tracking-widget" data-key="123-456-7890" data-username="xyz"></div>
+`<div id="1234567890" class="tracking-widget" data-key="123-456-7890" data-username="xyz"></div>`
 
-<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.1.js"></script>
-```
+`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.1.js"></script>`
 
 
 ##Tracking widget using Reference Number (Order ID) with Customer NDR Feedback Form
 
 Widget with failed delivery form:
 
-```
-<div id="1234567890" class="tracking-widget" data-key="123-456-7890" data-username="xyz"></div>
+`<div id="1234567890" class="tracking-widget" data-key="123-456-7890" data-username="xyz"></div>`
 
-<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.2.js"></script>
-```
+`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.2.js"></script>`
 
 Note: No need to add more than one script for multiple tracking widgets in a page.

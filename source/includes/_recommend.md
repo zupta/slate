@@ -72,7 +72,7 @@ https://www.clickpost.in/api/v1/recommendation_api/?key=2e9b19ac-8e1f-41ac-a35b-
 It’s a POST request as follows
 
 URL:
-`https://www.clickpost.in/api/v1/recommendation_api/``
+`https://www.clickpost.in/api/v1/recommendation_api/`
 
 Headers: {'Content-type': 'application/json'}
 
