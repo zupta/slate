@@ -453,7 +453,8 @@ Headers: {'Content-type': 'application/json'}
         "awb_number ": "43062728295",
         "delivery_type": "FORWARD",
         "async": true,
-        "gst_number" : "21313"
+        "gst_number" : "21313",
+        "account_code": "ecom surface"
     },
     "pickup_info": {
         "pickup_state": "DELHI",
@@ -563,7 +564,8 @@ Headers: {'Content-type': 'application/json'}
         "awb_number ": "43062728295",
         "delivery_type": "FORWARD",
         "async": true,
-        "gst_number" : "21313"
+        "gst_number" : "21313",
+        "account_code": "ecom surface"
     },
     "pickup_info": {
         "pickup_state": "DELHI",
@@ -638,7 +640,7 @@ Listed below are the parameters:
 ####URL parameters:
 Parameter | Type | Description
 --------- | ---- | -----------
-Username | character | User name provided to you
+username | character | User name provided to you
 key | character | API key provided to you
 
 ####POST Parameters:
@@ -701,26 +703,26 @@ tin | character | TIN number of seller
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
-order_type | character | COD/PREPAID
-cod_value: if order_type = COD | double | cod_value should be greater than 0
-cod_value: if order_type = PREPAID | double | cod_value should be equal to 0
+order_type | character | COD/PREPAID/EXCHANGE
+cod_value | double | if order_type = COD, cod_value should be greater than 0, if order_type = PREPAID, cod_value should be equal to 0
 #####Courier Partner:
 Parameter | Type | Description
 --------- | ---- | -----------
 courier_partner | integer | ID of courier partner for which the order is to be placed.
+account_code | character | (optional) in case you have multiple accounts for a courier partner, code of account saved in clickpost is to be passed in additional object
 
 List of courier partners is present at:
 <a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
 
-#####**Compulsory fields in additional object:**
+#####**additional object:**
 Parameter | Type | Description
 --------- | ---- | -----------
 label | boolean | true or false based upon if label need to be generated
-rvp_reason | character | rvp reason if order is for reverse pickup
-priority | character| "NORMAL" or any other priority for order
 return_info | object | return info object information if needed
 awb_number | character | awb number if available
-delivery_type | character| FORWARD or any other order type
+delivery_type | character| FORWARD or RVP
+rvp_reason | character | rvp reason if order is for reverse pickup
+priority | character| "NORMAL" or any other priority for order
 async | boolean| for real time orders false and true if order need to generated in background
 gst_number | character| gst number for tax purposes
 

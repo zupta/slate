@@ -30,42 +30,45 @@ https://www.clickpost.in/api/v1/recommendation_api/?key=2e9b19ac-8e1f-41ac-a35b-
 
 ```json
 {
-"meta":
-    {
-          "status": 200,
-          "message": "SUCCESS",
-          "success": true
-    },
-"result":
-    [{
-     "pincode_serviceable": true,
-     "request_details": {
-                            "pickup_pincode": "110017",
-                            "reference_number": "1",
-                            "delivery_type": "FORWARD",
-                            "order_type": "PREPAID",
-                            "drop_pincode": "110019",
-                            "item": "bottle",
-                            "invoice_value": 1245
-                       },
-     "form_tax_details": [{
-                            "form_name": "",
-                            "entry_tax": false
-                       }],
-     "preference_array": [{
-                            "cp_name": "Fedex",
-                            "cp_id": 1,
-                            "priority": 1
-                      }, {
-                            "cp_name": "Bluedart",
-                            "cp_id": 5,
-                            "priority": 2
-                      }, {
-                            "cp_name": "EcomExpress",
-                            "cp_id": 3,
-                            "priority": 3
-                      }]
-    }]
+    "result": [
+        {
+            "form_tax_details": [
+                {
+                    "entry_tax": false,
+                    "form_name": ""
+                }
+            ],
+            "request_details": {
+                "order_type": "PREPAID",
+                "drop_pincode": "110019",
+                "reference_number": "1",
+                "delivery_type": "FORWARD",
+                "pickup_pincode": "110017",
+                "invoice_value": 1245,
+                "item": "bottle"
+            },
+            "preference_array": [
+                {
+                    "cp_name": "Fedex",
+                    "cp_id": 1,
+                    "account_code": "Fedex Economy",
+                    "priority": 1,
+                },
+                {
+                    "cp_name": "Fedex",
+                    "cp_id": 1,
+                    "account_code": "Fedex Standard Overnight",
+                    "priority": 2,
+                }
+            ],
+            "pincode_serviceable": true
+        }
+    ],
+    "meta": {
+        "message": "SUCCESS",
+        "success": true,
+        "status": 200
+    }
 }
 ```
 
@@ -127,6 +130,7 @@ Response object has two parts:
     + preference_array: it’s the list of eligible courier partners for the corresponding reference_number. It has following fields
         1. cp_id: courier partner id as mentioned on page 1 of this document
         2. cp_name: name of the courier partner
+        3. account_code: account code created while adding credentials on Clickpost dashboard, this is useful if you have multiple accounts for a courier partner
         3. priority: priority
 
 
