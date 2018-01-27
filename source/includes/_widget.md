@@ -17,6 +17,11 @@ The widget/page has following features:
 3. In case you want customer to request a delivery preference any time before an attempt for delivery is made, please contact our team to enable the feature. Feedback of the same will be available as for point 2.
 4. Design language of the page is customisable as per your website theme. Our team can help you in designing the page.
 
+JS to be included:
+
+`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.3.js"></script>`
+
+
 ##Tracking widget using AWB number and Courier Partner ID
 
 ###Fields Explanation:
@@ -29,9 +34,8 @@ data-username | string | username provided to you
 data-key | string | Key provided to you
 
 
-`<div id="1234567890" class="tracking-widget" data-cpId="11" data-key="123-456-7890" data-username="xyz"></div>`
+`<div id="1234567890" class="tracking-widget" data-cpId="11"></div>`
 
-`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget.js"></script>`
 
 ##Tracking widget using Reference Number (Order ID)
 
@@ -45,15 +49,5 @@ data-key | string | API Key provided to you
 
 `<div id="1234567890" class="tracking-widget" data-key="123-456-7890" data-username="xyz"></div>`
 
-`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.1.js"></script>`
-
-
-##Tracking widget using Reference Number (Order ID) with Customer NDR Feedback Form
-
-Widget with failed delivery form:
-
-`<div id="1234567890" class="tracking-widget" data-key="123-456-7890" data-username="xyz"></div>`
-
-`<script type="text/javascript" src="http://track.clickpost.in/clickpost-widget-1.0.2.js"></script>`
 
 Note: No need to add more than one script for multiple tracking widgets in a page.
