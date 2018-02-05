@@ -233,7 +233,9 @@ Headers: {'Content-type': 'application/json'}
 Package tracker API retrieves the historic statuses and the current status of the package.
 
 The API is a HTTP GET request to:
-https://www.clickpost.in/api/v2/track-order/ where output is json
+`https://www.clickpost.in/api/v2/track-order/` 
+
+where output is json
 
 Listed below are the parameters:
 
@@ -276,6 +278,7 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
 ###Register for Webhooks:
 
 It's a POST request. (PUT in case you want to update existing webhook url) 
+
 `https://www.clickpost.in/api/v1/tracking/register-webhook/`
 
 

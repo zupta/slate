@@ -30,8 +30,6 @@ Parameter | Type | Description
 --------- | ---- | -----------
 id | string | Your Waybill number
 data-cpId | string | Your Courier Partner Id
-data-username | string | username provided to you
-data-key | string | Key provided to you
 
 
 `<div id="1234567890" class="tracking-widget" data-cpId="11"></div>`
