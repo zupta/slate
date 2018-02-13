@@ -37,7 +37,7 @@ Headers: {'Content-type': 'application/json'}
         "phone": 8080808080,
         "address": "Test Address top floor kalkaji NewDelhi "
     },
-  "tin": "00000000000",
+  "tin": "00000000",
   "invoice_date": "2016-12-16",
   "order_type": "PREPAID",
   "cod_value": 0,
@@ -193,8 +193,6 @@ Nagar, New Delhi",
     "weight": 100,
     "reference_number": "sok56sjkaphf",
     "pickup_time": "2016-10-01T12:00:00Z",
-    "rvp_reason": "Not Interested",
-    "delivery_type": "RVP",
     "gst_info": {
         "seller_gstin": "1234",
         "taxable_value": 100,
@@ -215,6 +213,9 @@ Nagar, New Delhi",
         "invoice_reference": "1234",
         "cgst_tax_rate": 100
     }
+
+    "rvp_reason": "Not Interested",
+    "delivery_type": "RVP",
 }
 ```
 
@@ -439,8 +440,6 @@ Headers: {'Content-type': 'application/json'}
     },
     "additional": {
         "label ": true,
-        "rvp_reason": "",
-        "priority": "NORMAL",
         "return_info": {
             "pincode": "110019",
             "address": "Test Address top floor kalkaji NewDelhi ",
@@ -550,8 +549,6 @@ Headers: {'Content-type': 'application/json'}
     },
     "additional": {
         "label ": true,
-        "rvp_reason": "",
-        "priority": "NORMAL",
         "return_info": {
             "pincode": "110019",
             "address": "Test Address top floor kalkaji NewDelhi ",
@@ -1090,7 +1087,7 @@ Headers: {'Content-type': 'application/json'}
         "phone": 8080808080,
         "name": "Deepanshu",
         "pincode": "110019",
-        "address": "Test Address top floor kalkaji NewDelhi "
+        "address": "Test Address top floor Nehru Place New Delhi "
     },
     "pickup_phone": "8080808080",
     "drop_state": "DELHI",
@@ -1101,7 +1098,6 @@ Headers: {'Content-type': 'application/json'}
     "weight": 100,
     "length": 10,
     "invoice_value": 1000,
-    "rvp_reason": "Customer Refused",
     "height": 10,
     "drop_phone": "8080808080",
     "pickup_name": "Deepanshu",
@@ -1109,7 +1105,7 @@ Headers: {'Content-type': 'application/json'}
     "data_validation": false,
     "pickup_country": "IN",
     "invoice_number": "INV-234/3",
-    "pickup_address": "A-228 top floor nea",
+    "pickup_address": "A-228 top floor near XYZ, Gurgaon",
     "pickup_city": "Gurgaon",
     "cod_value": 0,
     "shipment_type": "MPS",

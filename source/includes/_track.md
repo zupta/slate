@@ -580,7 +580,7 @@ ndr_status_code | ndr_status_description
 
 ---
 
-##Testing Webhook:
+##Testing Webhook
 
 You can test the webhooks by making a POST request on the following URL:
 
