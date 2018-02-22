@@ -57,7 +57,7 @@ Headers: {'Content-type': 'application/json'}
   "waybill": "ABCDRESDEFGHIJKL1257679",
   "cp_id": 1,
   "key": "42d42a34-ae09-4693-b20c-ae2624218a329",
-  "account_code": "Fedex Domestic"
+  "account_code": "Fedex Domestic",
   
   "consumer_details": {
           "name": "Prashant Gupta",
