@@ -57,6 +57,7 @@ Headers: {'Content-type': 'application/json'}
   "waybill": "ABCDRESDEFGHIJKL1257679",
   "cp_id": 1,
   "key": "42d42a34-ae09-4693-b20c-ae2624218a329",
+  "account_code": "Fedex Domestic"
   
   "consumer_details": {
           "name": "Prashant Gupta",
@@ -115,6 +116,7 @@ Parameter | Type | Description
 key (required) | character | this is the API Key
 waybill (required) | character | this is/are comma separated waybill numbers for which the status is required
 cp_id (required) | integer | courier_partner_id as specified on page 1 of this documentation
+account_code (optional) | string | account code in case you have multiple accounts for same courier partner
 
 ####Optional:
 

@@ -356,7 +356,7 @@ quantity | Integer | number of item pieces
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
-reference_number | character | reference number to tag the order with your order id.
+reference_number | character | reference number to tag the order with your order id. Reference number has to follow Code 39 standards (https://en.wikipedia.org/wiki/Code_39)
 length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
