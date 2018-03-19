@@ -19,6 +19,7 @@ includes:
   - pickup
   - widget
   - customer_feedback
+  - ndr_action_update
   - status
   - error
 
@@ -36,7 +37,8 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 5. __Serviceability API__: Check pincode serviceability
 6. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
 7. __Pickup Request API__: Recommend list of Courier Partners in priority order
-8. __Customer Feedback API__: Gives list of customer feedbacks submitted on tracking page by end user. 
+8. __Customer Feedback API__: Gives list of customer feedbacks submitted on tracking page by end user.
+9. __NDR Action update API__: Updates the after NDR action directly on courier company's database. (Currently works for Delhivery only)
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 
