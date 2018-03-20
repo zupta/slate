@@ -68,18 +68,6 @@ key | character | API key provided to you
 username | character | username provided to you
 cp_id | integer | courier company id provided by clickpost
 
-###Optional Fields
-
-<!--For every action, need different kind of data -->
-
-Parameter | Type | Description
---------- | ---- | -----------
-action_data->deferred_date | character | [DEFER_DLV] Deferred date for reattempt in (YYYY-MM-DD) format
-action_data->name | character | [EDIT_DETAILS] Name of person to handover the shipment
-action_data->add | character | [EDIT_DETAILS] Address where shipment need to be delivered
-action_data->phone | character | [RE-ATTEMPT] Phone no of the persion to contact for delivery
-NO_DATA | NO_DATA | [RE-ATTEMPT] No extra data is required
-
 List of courier partners is present at:
 <a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
 
@@ -93,6 +81,18 @@ Parameter | Type | Description
 --------- | ---- | -----------
 waybill | stiring | awb number for ndr action update
 act | long | action to take (DEFER_DLV, EDIT_DETAILS, RE-ATTEMPT)
+
+###Optional Fields
+
+<!--For every action, need different kind of data -->
+
+Parameter | Type | Description
+--------- | ---- | -----------
+action_data->deferred_date | character | [DEFER_DLV] Deferred date for reattempt in (YYYY-MM-DD) format
+action_data->name | character | [EDIT_DETAILS] Name of person to handover the shipment
+action_data->add | character | [EDIT_DETAILS] Address where shipment need to be delivered
+action_data->phone | character | [RE-ATTEMPT] Phone no of the persion to contact for delivery
+NO_DATA | NO_DATA | [RE-ATTEMPT] No extra data is required
 
 ###Response explanation:
 
