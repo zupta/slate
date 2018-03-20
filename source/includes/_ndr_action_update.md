@@ -3,7 +3,7 @@
 >URL to hit
 
 ```
-https://www.clickpost.in/api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624&cp_id=4
+https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624&cp_id=4
 
 (username and key needs to be replaced with the key provided to you)
 ```
@@ -67,6 +67,21 @@ Parameter | Type | Description
 key | character | API key provided to you
 username | character | username provided to you
 cp_id | integer | courier company id provided by clickpost
+
+###Optional Fields
+
+<!--For every action, need different kind of data -->
+
+Parameter | Type | Description
+--------- | ---- | -----------
+action_data->deferred_date | character | [DEFER_DLV] Deferred date for reattempt in (YYYY-MM-DD) format
+action_data->name | character | [EDIT_DETAILS] Name of person to handover the shipment
+action_data->add | character | [EDIT_DETAILS] Address where shipment need to be delivered
+action_data->phone | character | [RE-ATTEMPT] Phone no of the persion to contact for delivery
+NO_DATA | NO_DATA | [RE-ATTEMPT] No extra data is required
+
+List of courier partners is present at:
+<a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
 
 ####POST Parameters:
 
