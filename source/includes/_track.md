@@ -182,69 +182,134 @@ Headers: {'Content-type': 'application/json'}
 ```json
 {
     "meta": {
+        "status": 200,
         "message": "SUCCESS",
-        "success": true,
-        "status": 200
+        "success": true
     },
     "result": {
-        "3515341": [
-            {
+        "69590558973": {
+            "latest_status": {
+                "location": "TOLICHOWKI E-TAIL CENTRE",
+                "clickpost_status_code": 8,
+                "timestamp": "2018-03-16 18:56:00",
                 "clickpost_status_description": "Delivered",
-                "remark": "Delivered Via @DS/BLRDMR/1718/000020 on @04-04-2017",
-                "status": "D",
-                "location": "DOMLUR, BANGALORE",
-                "timestamp": "2017-04-04 14:56:16",
-                "clickpost_status_code": 8
+                "status": "SHIPMENT DELIVERED",
+                "remark": "SHIPMENT DELIVERED"
             },
-            {
-                "clickpost_status_description": "OutForDelivery",
-                "remark": "Out For Delivery",
-                "status": "O",
-                "location": "DOMLUR, BANGALORE",
-                "timestamp": "2017-04-04 10:29:41",
-                "clickpost_status_code": 6
-            },
-            {
-                "clickpost_status_description": "FailedDelivery",
-                "remark": "Delivery Failed on  03 Apr 17 Reason:- @CID - RECEIVER REQUESTED DELIVERY ON ANOTHER DATE",
-                "status": "N",
-                "location": "DOMLUR, BANGALORE",
-                "timestamp": "2017-04-03 16:10:36",
-                "clickpost_status_code": 9
-            },
-            {
-                "clickpost_status_description": "OutForDelivery",
-                "remark": "Out For Delivery",
-                "status": "O",
-                "location": "DOMLUR, BANGALORE",
-                "timestamp": "2017-04-03 11:15:00",
-                "clickpost_status_code": 6
-            },
-            {
-                "clickpost_status_description": "InTransit",
-                "remark": "Arrived",
-                "status": "T",
-                "location": "DOMLUR, BANGALORE",
-                "timestamp": "2017-03-31 10:08:17",
-                "clickpost_status_code": 5
-            },
-            {
-                "clickpost_status_description": "OrderPlaced",
-                "remark": "Order Process",
-                "status": "U",
-                "location": "DELHI HUB1, NEW DELHI",
-                "timestamp": "2017-03-30 00:39:04",
-                "clickpost_status_code": 1
-            },
-            {
-                "clickpost_status_description": "PickedUp",
-                "remark": "Picked up and Booking processed",
-                "status": "P",
-                "location": "DELHI HUB1, NEW DELHI",
-                "timestamp": "2017-03-29 00:00:00",
-                "clickpost_status_code": 4
-            }
-        ]
+            "scans": [
+                {
+                    "location": "TOLICHOWKI E-TAIL CENTRE",
+                    "clickpost_status_code": 8,
+                    "timestamp": "2018-03-16 18:56:00",
+                    "checkpoint_id": 112650092,
+                    "clickpost_status_description": "Delivered",
+                    "status": "SHIPMENT DELIVERED",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT DELIVERED"
+                },
+                {
+                    "location": "TOLICHOWKI E-TAIL CENTRE",
+                    "clickpost_status_code": 6,
+                    "timestamp": "2018-03-16 13:11:00",
+                    "checkpoint_id": 112584864,
+                    "clickpost_status_description": "OutForDelivery",
+                    "status": "SHIPMENT OUT FOR DELIVERY",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT OUT FOR DELIVERY"
+                },
+                {
+                    "location": "TOLICHOWKI E-TAIL CENTRE",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-16 11:37:00",
+                    "checkpoint_id": 112584868,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT ARRIVED",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT ARRIVED"
+                },
+                {
+                    "location": "TOLICHOWKI E-TAIL CENTRE",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-16 11:22:00",
+                    "checkpoint_id": 112584871,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT IN TRANSIT",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT IN TRANSIT"
+                },
+                {
+                    "location": "HYDERABAD HUB",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-16 10:47:00",
+                    "checkpoint_id": 112584879,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT FURTHER CONNECTED",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT FURTHER CONNECTED"
+                },
+                {
+                    "location": "HYDERABAD HUB",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-16 07:59:00",
+                    "checkpoint_id": 112401887,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT ARRIVED AT HUB",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT ARRIVED AT HUB"
+                },
+                {
+                    "location": "MUMBAI ETAIL WAREHOU",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-16 06:05:00",
+                    "checkpoint_id": 112401888,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT FURTHER CONNECTED",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT FURTHER CONNECTED"
+                },
+                {
+                    "location": "MUMBAI ETAIL WAREHOU",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-15 23:48:00",
+                    "checkpoint_id": 112292967,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT ARRIVED AT HUB",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT ARRIVED AT HUB"
+                },
+                {
+                    "location": "MUMBAI ETAIL CENTRE",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-15 21:32:00",
+                    "checkpoint_id": 112292968,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT FURTHER CONNECTED",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT FURTHER CONNECTED"
+                },
+                {
+                    "location": "MUMBAI ETAIL CENTRE",
+                    "clickpost_status_code": 5,
+                    "timestamp": "2018-03-15 18:52:00",
+                    "checkpoint_id": 112292969,
+                    "clickpost_status_description": "InTransit",
+                    "status": "SHIPMENT ARRIVED",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT ARRIVED"
+                },
+                {
+                    "location": "SEEPZ",
+                    "clickpost_status_code": 4,
+                    "timestamp": "2018-03-15 18:01:00",
+                    "checkpoint_id": 112217310,
+                    "clickpost_status_description": "PickedUp",
+                    "status": "SHIPMENT PICKED UP",
+                    "tracking_id": 8241453,
+                    "remark": "SHIPMENT PICKED UP"
+                }
+            ],
+            "valid": true
+        }
     }
 }
 ```
