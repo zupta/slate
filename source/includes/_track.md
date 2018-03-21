@@ -77,7 +77,23 @@ Headers: {'Content-type': 'application/json'}
           "pickup_pin_code": "110017",
           "delivery_type": "FORWARD",
           "cod_amount": 1000.10,
-          "drop_address": "Roots hacker Home, R 28, Second Floor, Nehru Enclace, Opposite Nehru Place, New Delhi 110019"
+          "drop_address": "Roots hacker Home, R 28, Second Floor, Nehru Enclace, Opposite Nehru Place, New Delhi 110019",
+          "additional": {
+                    "items": [
+                        {
+                            "sku": "XYZ1",
+                            "description": "item1",
+                            "quantity": 1,
+                            "additional": {
+                                "price": 200,
+                                "length": 10,
+                                "height": 10,
+                                "breadth": 10,
+                                "weight": 100
+                            }
+                        }
+                    ]
+                  }
   },
   "additional": {
     "order_date": "2017-02-14T18:00:00+05:30",
@@ -143,6 +159,7 @@ pickup_pincode | character | 6 digit pincode of pickup location
 delivery_type | character | either FORWARD / RVP
 cod_amount| float field | COD value to be collected from customer, float field
 drop_address| character (500 chars) | drop address of the shipment
+additional | object | optional field which can have additional information related to items like description, images for return management solution (easier for end customer to select which product to return)
 
 ####additional (optional): extra information about shipment used to power tracking page:
 Parameter | Type | Description

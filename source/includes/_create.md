@@ -41,7 +41,7 @@ Headers: {'Content-type': 'application/json'}
   "invoice_date": "2016-12-16",
   "order_type": "PREPAID",
   "cod_value": 0,
-  "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1"}],
+  "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
   "invoice_number": "123465",
   "invoice_value": 1006.00,
   "reference_number": "ASDF1234",
@@ -125,7 +125,7 @@ Nagar, New Delhi",
     "invoice_date": "2015-12-27",
     "order_type": "PREPAID",
     "cod_value": "0",
-    "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1"}],
+    "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images":"http://sample-file1.jpg,http://sample-file2.jpg"}],
     "invoice_number": "INV-234/3",
     "invoice_value": "100",
     "reference_number": "SAMPLE-REF-No",
@@ -186,7 +186,7 @@ Nagar, New Delhi",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
     "items": [{"price": 200, "description": "item1", "sku":
-    "XYZ1", "quantity": 1}],
+    "XYZ1", "quantity": 1, "images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
     "height": 10,
     "length": 10,
     "breadth": 10,
@@ -362,6 +362,7 @@ breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
 tin | character | TIN number of seller
+images | character | comma separated images of the item
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -485,7 +486,8 @@ Headers: {'Content-type': 'application/json'}
                     "length": 10,
                     "height": 10,
                     "breadth": 10,
-                    "weight": 100
+                    "weight": 100,
+                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
                 },
                 "quantity": 1,
                 "sku": "XYZ1"
@@ -614,7 +616,8 @@ Headers: {'Content-type': 'application/json'}
                     "length": 10,
                     "height": 10,
                     "breadth": 10,
-                    "weight": 100
+                    "weight": 100,
+                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
                 },
                 "quantity": 1,
                 "sku": "XYZ1"
@@ -697,6 +700,7 @@ breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
 tin | character | TIN number of seller
+images | character | comma separated images of the item
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------

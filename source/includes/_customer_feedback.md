@@ -3,7 +3,7 @@
 >URL to hit
 
 ```
-https://www.clickpost.in//api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624&start_date=1509529561&end_date=1512121581
+https://www.clickpost.in/api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624&start_date=1509529561&end_date=1512121581
 
 (username and key needs to be replaced with the key provided to you)
 ```
@@ -11,7 +11,7 @@ https://www.clickpost.in//api/v1/ndr_user_feedback/?username=test&key=42d42a34-a
 >__Example - GET Request__
 
 ```
-https://www.clickpost.in//api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624&start_date=1509529561&end_date=1512121581
+https://www.clickpost.in/api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624&start_date=1509529561&end_date=1512121581
 ```
 
 >__Response__
