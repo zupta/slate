@@ -430,32 +430,6 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-    "drop_info": {
-        "drop_address": "F-68 third floor kalkaji New Delhi ",
-        "drop_phone": "9717732407",
-        "drop_country": "IN",
-        "drop_state": "DELHI",
-        "drop_pincode": "110019",
-        "drop_city": "Delhi",
-        "drop_name": "Prashant"
-    },
-    "additional": {
-        "label ": true,
-        "return_info": {
-            "pincode": "110019",
-            "address": "Test Address top floor kalkaji NewDelhi ",
-            "state": "DELHI",
-            "phone": "8080808080",
-            "name": "Deepanshu",
-            "city": "DELHI",
-            "country": "IN"
-        },
-        "awb_number ": "43062728295",
-        "delivery_type": "FORWARD",
-        "async": true,
-        "gst_number" : "21313",
-        "account_code": "ecom surface"
-    },
     "pickup_info": {
         "pickup_state": "DELHI",
         "pickup_address": "A-228 top floor kalkaji New Delhi ",
@@ -467,6 +441,15 @@ Headers: {'Content-type': 'application/json'}
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
         "pickup_phone": "9816691388"
+    },
+    "drop_info": {
+        "drop_address": "F-68 third floor kalkaji New Delhi ",
+        "drop_phone": "9717732407",
+        "drop_country": "IN",
+        "drop_state": "DELHI",
+        "drop_pincode": "110019",
+        "drop_city": "Delhi",
+        "drop_name": "Prashant"
     },
     "shipment_details": {
         "height": 12,
@@ -515,6 +498,23 @@ Headers: {'Content-type': 'application/json'}
         "igst_tax_rate": 100,
         "invoice_reference": "1234",
         "cgst_tax_rate": 100
+    },
+    "additional": {
+        "label": true,
+        "return_info": {
+            "pincode": "110019",
+            "address": "Test Address top floor kalkaji NewDelhi ",
+            "state": "DELHI",
+            "phone": "8080808080",
+            "name": "Deepanshu",
+            "city": "DELHI",
+            "country": "IN"
+        },
+        "awb_number ": "43062728295",
+        "delivery_type": "FORWARD",
+        "async": true,
+        "gst_number" : "21313",
+        "account_code": "ecom surface"
     }
 }
 ```

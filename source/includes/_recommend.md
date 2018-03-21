@@ -52,13 +52,13 @@ https://www.clickpost.in/api/v1/recommendation_api/?key=2e9b19ac-8e1f-41ac-a35b-
                     "cp_name": "Fedex",
                     "cp_id": 1,
                     "account_code": "Fedex Economy",
-                    "priority": 1,
+                    "priority": 1
                 },
                 {
                     "cp_name": "Fedex",
                     "cp_id": 1,
                     "account_code": "Fedex Standard Overnight",
-                    "priority": 2,
+                    "priority": 2
                 }
             ],
             "pincode_serviceable": true
