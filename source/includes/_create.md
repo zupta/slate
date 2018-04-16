@@ -35,7 +35,7 @@ Headers: {'Content-type': 'application/json'}
         "state": "DELHI",
         "country": "IN",
         "phone": 8080808080,
-        "address": "Test Address top floor kalkaji NewDelhi "
+        "address": "Test Address top floor kalkaji New Delhi "
     },
   "tin": "00000000",
   "invoice_date": "2016-12-16",
@@ -212,7 +212,7 @@ Nagar, New Delhi",
         "igst_tax_rate": 100,
         "invoice_reference": "1234",
         "cgst_tax_rate": 100
-    }
+    },
 
     "rvp_reason": "Not Interested",
     "delivery_type": "RVP",
@@ -282,7 +282,6 @@ Nagar, New Delhi",
         "gst_total_tax": 100,
         "igst_amount": 100,
         "cgst_amount": 200,
-        "gst_tax_base": 200,
         "consignee_gstin": "1233",
         "igst_tax_rate": 100,
         "invoice_reference": "1234",
@@ -361,8 +360,28 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
-tin | character | TIN number of seller
+tin | character | TIN number of seller (Now GST No)
 images | character | comma separated images of the item
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -699,8 +718,28 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
-tin | character | TIN number of seller
+tin | character | TIN number of seller (Now GST No)
 images | character | comma separated images of the item
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -955,7 +994,27 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
-tin | character | TIN number of seller
+tin | character | TIN number of seller (Now GST No)
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -1215,7 +1274,27 @@ breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
 tin | character | TIN number of seller
-shipment_type | character | MPS
+shipment_type | character | MPS (Compulsory)
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
