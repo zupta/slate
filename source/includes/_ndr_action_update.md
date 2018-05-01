@@ -44,7 +44,6 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
 ```json
 {
     "result": {
-<<<<<<< HEAD
         "ndr_update_status": [
             {
                 "cp_response": "UPL15970567163944112616",
@@ -67,9 +66,6 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
                 "awb": "1278728"
             }
         ]
-=======
-        "cp_response": "UPL10575891229462827496"
->>>>>>> 00091cd461961f428f624e60484d679ab7e64c81
     },
     "meta": {
         "message": "Success",
