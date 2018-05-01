@@ -35,13 +35,13 @@ Headers: {'Content-type': 'application/json'}
         "state": "DELHI",
         "country": "IN",
         "phone": 8080808080,
-        "address": "Test Address top floor kalkaji NewDelhi "
+        "address": "Test Address top floor kalkaji New Delhi "
     },
   "tin": "00000000",
   "invoice_date": "2016-12-16",
   "order_type": "PREPAID",
   "cod_value": 0,
-  "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1"}],
+  "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
   "invoice_number": "123465",
   "invoice_value": 1006.00,
   "reference_number": "ASDF1234",
@@ -125,7 +125,7 @@ Nagar, New Delhi",
     "invoice_date": "2015-12-27",
     "order_type": "PREPAID",
     "cod_value": "0",
-    "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1"}],
+    "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images":"http://sample-file1.jpg,http://sample-file2.jpg"}],
     "invoice_number": "INV-234/3",
     "invoice_value": "100",
     "reference_number": "SAMPLE-REF-No",
@@ -186,7 +186,7 @@ Nagar, New Delhi",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
     "items": [{"price": 200, "description": "item1", "sku":
-    "XYZ1", "quantity": 1}],
+    "XYZ1", "quantity": 1, "images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
     "height": 10,
     "length": 10,
     "breadth": 10,
@@ -212,7 +212,7 @@ Nagar, New Delhi",
         "igst_tax_rate": 100,
         "invoice_reference": "1234",
         "cgst_tax_rate": 100
-    }
+    },
 
     "rvp_reason": "Not Interested",
     "delivery_type": "RVP",
@@ -282,7 +282,6 @@ Nagar, New Delhi",
         "gst_total_tax": 100,
         "igst_amount": 100,
         "cgst_amount": 200,
-        "gst_tax_base": 200,
         "consignee_gstin": "1233",
         "igst_tax_rate": 100,
         "invoice_reference": "1234",
@@ -361,7 +360,28 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
-tin | character | TIN number of seller
+tin | character | TIN number of seller (Now GST No)
+images | character | comma separated images of the item
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -429,32 +449,6 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-    "drop_info": {
-        "drop_address": "F-68 third floor kalkaji New Delhi ",
-        "drop_phone": "9717732407",
-        "drop_country": "IN",
-        "drop_state": "DELHI",
-        "drop_pincode": "110019",
-        "drop_city": "Delhi",
-        "drop_name": "Prashant"
-    },
-    "additional": {
-        "label ": true,
-        "return_info": {
-            "pincode": "110019",
-            "address": "Test Address top floor kalkaji NewDelhi ",
-            "state": "DELHI",
-            "phone": "8080808080",
-            "name": "Deepanshu",
-            "city": "DELHI",
-            "country": "IN"
-        },
-        "awb_number ": "43062728295",
-        "delivery_type": "FORWARD",
-        "async": true,
-        "gst_number" : "21313",
-        "account_code": "ecom surface"
-    },
     "pickup_info": {
         "pickup_state": "DELHI",
         "pickup_address": "A-228 top floor kalkaji New Delhi ",
@@ -466,6 +460,15 @@ Headers: {'Content-type': 'application/json'}
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
         "pickup_phone": "9816691388"
+    },
+    "drop_info": {
+        "drop_address": "F-68 third floor kalkaji New Delhi ",
+        "drop_phone": "9717732407",
+        "drop_country": "IN",
+        "drop_state": "DELHI",
+        "drop_pincode": "110019",
+        "drop_city": "Delhi",
+        "drop_name": "Prashant"
     },
     "shipment_details": {
         "height": 12,
@@ -485,7 +488,8 @@ Headers: {'Content-type': 'application/json'}
                     "length": 10,
                     "height": 10,
                     "breadth": 10,
-                    "weight": 100
+                    "weight": 100,
+                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
                 },
                 "quantity": 1,
                 "sku": "XYZ1"
@@ -513,6 +517,23 @@ Headers: {'Content-type': 'application/json'}
         "igst_tax_rate": 100,
         "invoice_reference": "1234",
         "cgst_tax_rate": 100
+    },
+    "additional": {
+        "label": true,
+        "return_info": {
+            "pincode": "110019",
+            "address": "Test Address top floor kalkaji NewDelhi ",
+            "state": "DELHI",
+            "phone": "8080808080",
+            "name": "Deepanshu",
+            "city": "DELHI",
+            "country": "IN"
+        },
+        "awb_number ": "43062728295",
+        "delivery_type": "FORWARD",
+        "async": true,
+        "gst_number" : "21313",
+        "account_code": "ecom surface"
     }
 }
 ```
@@ -614,7 +635,8 @@ Headers: {'Content-type': 'application/json'}
                     "length": 10,
                     "height": 10,
                     "breadth": 10,
-                    "weight": 100
+                    "weight": 100,
+                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
                 },
                 "quantity": 1,
                 "sku": "XYZ1"
@@ -696,7 +718,28 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
-tin | character | TIN number of seller
+tin | character | TIN number of seller (Now GST No)
+images | character | comma separated images of the item
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -951,7 +994,27 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
-tin | character | TIN number of seller
+tin | character | TIN number of seller (Now GST No)
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -1211,7 +1274,27 @@ breadth | integer | in cm
 height | integer | in cm
 weight | integer | grams
 tin | character | TIN number of seller
-shipment_type | character | MPS
+shipment_type | character | MPS (Compulsory)
+#####GST Information
+Parameter | Type | Description
+--------- | ---- | -----------
+enterprise_gstin | string | GST No of enterprise shipping the shipment
+seller_gstin | string | GST No of seller sending the shipment (will be different from above for marketplaces)
+taxable_value | double | taxable amount for GST (generally invoice_value of shipment)
+ewaybill_serial_number | string | ewaybill for the shipment (optional)
+is_seller_registered_under_gst | boolean | True / False, depending on whether you are registered for GST
+place_of_supply | string | place of supply of service/product (https://cleartax.in/s/gst-state-code-jurisdiction)
+gst_discount | double | discount given under gst, if any (optional)
+hsn_code | string | HSN code for the product shipped (You may search for HSN https://cleartax.in/s/gst-hsn-lookup)
+gst_total_tax | double | total GST applicable for the shipment
+sgst_tax_rate | integer | tax percent applicable for sgst for the shipment (optional)
+sgst_amount | double | amount applicable for sgst for the shipment (optional)
+igst_tax_rate | integer | tax percent applicable for igst for the shipment (optional)
+igst_amount | double | amount applicable for igst for the shipment (optional)
+cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (optional)
+cgst_amount | double | amount applicable for cgst for the shipment (optional)
+consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
+invoice_reference | string | invoice number for the shipment
 #####Order type:
 Parameter | Type | Description
 --------- | ---- | -----------
