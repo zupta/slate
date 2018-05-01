@@ -44,7 +44,28 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
 ```json
 {
     "result": {
-        "cp_response": "UPL10575891229462827496"
+        "ndr_update_status": [
+            {
+                "cp_response": "UPL15970567163944112616",
+                "status": true,
+                "awb": "1823821"
+            },
+            {
+                "cp_response": "UPL15970567163944112616",
+                "status": true,
+                "awb": "3278213"
+            },
+            {
+                "cp_response": "UPL15970567163944112616",
+                "status": true,
+                "awb": "278382"
+            },
+            {
+                "cp_response": "in valid awb and action not supported",
+                "status": false,
+                "awb": "1278728"
+            }
+        ]
     },
     "meta": {
         "message": "Success",
@@ -105,7 +126,10 @@ Response object has two parts:
         1. 200 if the request is processed successfully,
         2. 400 if there is a bad request encountered: errors will be present in “message”
 2. result: 
-    + cp_response: courier company reference number for the action requested    
+    + ndr_update_status: contains array of ndr update responses for each awb number
+    + ndr_update_status->cp_response: courier company reference number for the action requested    
+    + ndr_update_status->status: true/false based on if ndr action is updated or not
+    + ndr_update_status->awb: awb number corresponding to ndr update action    
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
