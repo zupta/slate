@@ -34,7 +34,7 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
             },
             {
                 "waybill": "1278728",
-                "act": "RE-ATTEMPT"
+                "act": "INITIATE_RTO"
             }
         ]
 ```
@@ -113,7 +113,7 @@ action_data->deferred_date | character | [DEFER_DLV] Deferred date for reattempt
 action_data->name | character | [EDIT_DETAILS] Name of person to handover the shipment
 action_data->add | character | [EDIT_DETAILS] Address where shipment need to be delivered
 action_data->phone | character | [RE-ATTEMPT] Phone no of the persion to contact for delivery
-NO_DATA | NO_DATA | [RE-ATTEMPT] No extra data is required
+NO_DATA | NO_DATA | [RE-ATTEMPT and INITIATE_RTO] No extra data is required
 
 ###Response explanation:
 
