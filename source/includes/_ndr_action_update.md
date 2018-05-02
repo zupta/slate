@@ -34,7 +34,7 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
             },
             {
                 "waybill": "1278728",
-                "act": "INITIATE_R"
+                "act": "INITIATE_RTO"
             }
         ]
 ```
