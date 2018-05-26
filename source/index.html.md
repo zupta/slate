@@ -37,8 +37,8 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 5. __Serviceability, Cost, TAT API__: Check pincode serviceability, cost for shipping and turn around time for the delivery.
 6. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
 7. __Pickup Request API__: Recommend list of Courier Partners in priority order
-8. __Operation and Customer Feedback API: Gives list of customer feedbacks and operations feedback on the tracking page
-9. __NDR Action update API__: Updates the after NDR action directly on courier company's database. (Currently works for Delhivery/ECOM only)
+8. __Operation and Customer Feedback API__: Gives list of customer feedbacks and operations feedback on the tracking page.
+9. __NDR Action update API__: Updates the after NDR action directly on courier company's database.
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 
