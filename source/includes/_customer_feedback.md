@@ -19,17 +19,19 @@ https://www.clickpost.in/api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae
 ```json
 {
     "result": [{
-            "created_at": "2018-01-17T12:28:53.316389Z",
-            "awb": "C0100122291",
-            "preferred_time": null,
-            "landmark": null,
-            "clickpost_status_code": 28,
-            "clickpost_status_description": "Awb Registered",
-            "comment": "Please deliver the product on Saturday,Before that I won't be at my address",
-            "phone": null,
-            "preferred_date": null,
-            "address": null
-    }],
+        "phone": null,
+        "api_data_push": null,
+        "created_at": "2018-05-20T07:44:24.704183Z",
+        "type": "CUSTOMER_FEED",
+        "landmark": null,
+        "comment": "Shipment Delayed",
+        "clickpost_status_code": 9,
+        "awb": "SF16384627NER",
+        "preferred_time": null,
+        "preferred_date": null,
+        "address": null,
+        "clickpost_status_description": "Delivery Failed"
+}],
     "meta": {
         "meta": {
             "message": "Success",
@@ -89,6 +91,8 @@ Response object has two parts:
     + phone: new phone number for delivery   
     + clickpost_status_code: shipment status code when customer entered the feedback 
     + clickpost_status_description: shipment status description when customer entered the feedback
+    + type: either CLIENT_OPS_FEED or CUSTOMER_FEED
+    + api_data_push: if the data is pushed via api to courier company or not, null means we did not try to push, true is successfully pushed and false if failed to push.
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
