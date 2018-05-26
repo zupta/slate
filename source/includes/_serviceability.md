@@ -123,8 +123,8 @@ Response object has two parts:
     	+ COD: Values: true: if the pincode is COD serviceable else false
     	+ PREPAID: Values: true: if the pincode is COD serviceable else false
     + commited_sla: average commited SLA by courier partner (based on your contract with courier partner) for the shipment if dispatched today. (integer field)
-    + account_code: average commited SLA by courier partner (based on your contract with courier partner) for the shipment if dispatched today. (integer field)
-    + shipping_charges: average commited SLA by courier partner (based on your contract with courier partner) for the shipment if dispatched today. (integer field)
+    + account_code: Account code for which the details are given in the result.
+    + shipping_charges: Shipping charges for the delivery of the shipment.
 
 
 <aside class="warning">

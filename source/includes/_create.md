@@ -44,7 +44,7 @@ Headers: {'Content-type': 'application/json'}
   "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
   "invoice_number": "123465",
   "invoice_value": 1006.00,
-  "reference_number": "ASDF1234",
+  "reference_number": "SAMPLE-REF-No",
   "email": "founders@clickpost.in",
   "weight": 500,
   "length": 5,
@@ -84,7 +84,7 @@ Headers: {'Content-type': 'application/json'}
     "success": true
   },
   "result": {
-    "reference_number": "ASDF1234",
+    "reference_number": "SAMPLE-REF-No",
     "waybill": "785578015860",
     "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
   }
@@ -1201,12 +1201,34 @@ Headers: {'Content-type': 'application/json'}
         "children": [{
                 "reference_number": "ASDF1234",
                 "waybill": "785578015860_1",
-                "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
+                "label": null,
+                "item": {
+                    "height": 10,
+                    "quantity": 1,
+                    "price": 200,
+                    "breadth": 10,
+                    "description": "item1",
+                    "weight": 100,
+                    "waybill": "58402429105_1",
+                    "sku": "XYZ1",
+                    "length": 10
+                }
             },
             {
                 "reference_number": "ASDF1234",
                 "waybill": "785578015860_2",
-                "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
+                "label": null,
+                "item": {
+                    "height": 10,
+                    "quantity": 1,
+                    "price": 200,
+                    "breadth": 10,
+                    "description": "item2",
+                    "weight": 100,
+                    "waybill": "58402429105_1",
+                    "sku": "XYZ2",
+                    "length": 10
+                }
             }
         ]
     }
@@ -1359,7 +1381,7 @@ Response Object has two parts:
   Additional fields for Bluedart:
   4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
   5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
-  6 All above details will be given for children awbs also under children field, which is an array having label, awb and reference number for all the children
+  6. All above details will be given for children awbs as well under children field along with item info, which is an array having label, awb and reference number for all the children
 
 <aside class="warning">
 You must replace Username/key with the username/key provided to you.
