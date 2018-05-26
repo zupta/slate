@@ -30,15 +30,15 @@ search: true
 
 Welcome to the Clickpost API! You can use our API to access Clickpost API endpoints which can get information on our different APIs:
 
-1. __Recommendation Engine__: Recommend list of Courier Partners in priority order
+1. __Recommendation Engine API__: Recommend list of Courier Partners in priority order
 2. __Manifestation API__: Create order on Courier Partner and fetch AWB, Cancel orders and place pickup request
-3. __Track Shipment__: Track your shipment using AWB and Courier Partner
+3. __Track Shipment API__: Track your shipment using AWB and Courier Partner
 4. __Cancellation API__: Cancel shipment manifested on Courier Partner for faster returns and higher inventory availability
-5. __Serviceability API__: Check pincode serviceability
+5. __Serviceability, Cost, TAT API__: Check pincode serviceability, cost for shipping and turn around time for the delivery.
 6. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
 7. __Pickup Request API__: Recommend list of Courier Partners in priority order
-8. __Customer Feedback API__: Gives list of customer feedbacks submitted on tracking page by end user.
-9. __NDR Action update API__: Updates the after NDR action directly on courier company's database. (Currently works for Delhivery only)
+8. __OPS and Customer Feedback API__: Gives list of customer feedbacks submitted on tracking page by end user.
+9. __NDR Action update API__: Updates the after NDR action directly on courier company's database. (Currently works for Delhivery/ECOM only)
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 

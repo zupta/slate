@@ -1189,16 +1189,27 @@ Headers: {'Content-type': 'application/json'}
 
 ```
 {
-  "meta": {
-    "message": "Order Placed Successfully",
-    "status": 200,
-    "success": true
-  },
-  "result": {
-    "reference_number": "ASDF1234",
-    "waybill": "785578015860",
-    "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
-  }
+    "meta": {
+        "message": "Order Placed Successfully",
+        "status": 200,
+        "success": true
+    },
+    "result": {
+        "reference_number": "ASDF1234",
+        "waybill": "785578015860",
+        "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf",
+        "children": [{
+                "reference_number": "ASDF1234",
+                "waybill": "785578015860_1",
+                "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
+            },
+            {
+                "reference_number": "ASDF1234",
+                "waybill": "785578015860_2",
+                "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
+            }
+        ]
+    }
 }
 ```
 
@@ -1348,6 +1359,7 @@ Response Object has two parts:
   Additional fields for Bluedart:
   4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
   5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
+  6 All above details will be given for children awbs also under children field, which is an array having label, awb and reference number for all the children
 
 <aside class="warning">
 You must replace Username/key with the username/key provided to you.

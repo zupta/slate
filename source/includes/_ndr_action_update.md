@@ -75,7 +75,7 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
 }
 ```
 
-This api instructs the courier company to take action on a awb. Only three actions supported (DEFER_DLV, EDIT_DETAILS, RE-ATTEMPT); errors/warnings will be highlighted in the response.
+This api instructs the courier company to take action on a awb. Only Four actions supported (DEFER_DLV, EDIT_DETAILS, RE-ATTEMPT, INITIATE_RTO); errors/warnings will be highlighted in the response.
 
 It’s a POST request as follows
 
