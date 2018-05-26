@@ -12,31 +12,31 @@ https://www.clickpost.in/api/v1/ndr/update/?username=test&key=42d42a34-ae09-4693
 
 ```json
 [       
-        {
-            "waybill": "1823821",
-            "act": "DEFER_DLV",
-            "action_data": {
-                "deferred_date": "2017-12-28"
-            }
-        },
-            {
-                "waybill": "3278213",
-                "act": "EDIT_DETAILS",
-                "action_data": {
-                    "name": "name1",
-                    "add": "add1",
-                    "phone": "2132341412"
-                }
-            },
-            {
-                "waybill": "278382",
-                "act": "RE-ATTEMPT"
-            },
-            {
-                "waybill": "1278728",
-                "act": "INITIATE_RTO"
-            }
-        ]
+    {
+        "waybill": "1823821",
+        "act": "DEFER_DLV",
+        "action_data": {
+            "deferred_date": "2017-12-28"
+        }
+    },
+    {
+        "waybill": "3278213",
+        "act": "EDIT_DETAILS",
+        "action_data": {
+            "name": "name1",
+            "add": "add1",
+            "phone": "2132341412"
+        }
+    },
+    {
+        "waybill": "278382",
+        "act": "RE-ATTEMPT"
+    },
+    {
+        "waybill": "1278728",
+        "act": "RE-ATTEMPT"
+    }
+]
 ```
 
 >__Response__
@@ -112,8 +112,9 @@ Parameter | Type | Description
 action_data->deferred_date | character | [DEFER_DLV] Deferred date for reattempt in (YYYY-MM-DD) format
 action_data->name | character | [EDIT_DETAILS] Name of person to handover the shipment
 action_data->add | character | [EDIT_DETAILS] Address where shipment need to be delivered
-action_data->phone | character | [RE-ATTEMPT] Phone no of the persion to contact for delivery
-NO_DATA | NO_DATA | [RE-ATTEMPT and INITIATE_RTO] No extra data is required
+action_data->phone | character | [EDIT_DETAILS] Phone no of the persion to contact for delivery
+
+[RE-ATTEMPT] : No need to pass action_data
 
 ###Response explanation:
 
