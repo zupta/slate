@@ -1174,12 +1174,22 @@ Headers: {'Content-type': 'application/json'}
     "shipment_type": "MPS",
     "items": [{
         "length": 10,
-        "breadth": 15,
+        "breadth": 10,
         "sku": "XYZ1",
         "price": 200,
-        "height": 17,
+        "height": 10,
         "weight": 100,
-        "description": "bottle",
+        "description": "item1",
+        "quantity": 1
+    },
+    {
+        "length": 10,
+        "breadth": 150,
+        "sku": "XYZ2",
+        "price": 200,
+        "height": 10,
+        "weight": 100,
+        "description": "item2",
         "quantity": 1
     }]
 }
