@@ -215,7 +215,7 @@ Nagar, New Delhi",
     },
 
     "rvp_reason": "Not Interested",
-    "delivery_type": "RVP",
+    "delivery_type": "RVP"
 }
 ```
 
