@@ -32,6 +32,7 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
     "result": [
         {
             "cp_id": 3,
+            "is_rvp" : true,
             "serviceable": {
                 "PREPAID": false,
                 "COD": false
@@ -45,6 +46,7 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
         },
         {
             "cp_id": 3,
+            "is_rvp" : false,
             "serviceable": {
                 "PREPAID": false,
                 "COD": false
@@ -125,6 +127,7 @@ Response object has two parts:
     + commited_sla: average commited SLA by courier partner (based on your contract with courier partner) for the shipment if dispatched today. (integer field)
     + account_code: Account code for which the details are given in the result.
     + shipping_charges: Shipping charges for the delivery of the shipment.
+    + is_rvp: True if the account/cp is for reverse pickup or False if for forward shipment.
 
 
 <aside class="warning">
