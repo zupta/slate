@@ -1,11 +1,11 @@
-# Generate a shipping label for the order. Remember if the label is already given while creating the manifestation it will give the older shipping label only. To generate the new one please pass regenerate=true in the app.
+# Generate a shipping label for the order. Remember if the label is already given while creating the manifestation it will give the older shipping label only. To generate the new one please pass regenerate=true in the api.
 
 ##Generate a shipping label for an AWB
 
 >GET request. URL:
 
 ```
-https://www.clickpost.in/api/v1/fetch/shippinglabel/?waybill={waybill_number}&regenerate=False&key={--key given to client--}
+https://www.clickpost.in/api/v1/fetch/shippinglabel/?waybill={waybill_number}&regenerate=false&key={--key given to client--}
 Headers: {'Content-type': 'application/json'}
 ```
 

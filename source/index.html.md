@@ -13,7 +13,6 @@ includes:
   - recommend
   - create
   - track
-  - untrack
   - cancellation
   - serviceability
   - expected_date_of_delivery
@@ -35,13 +34,12 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 2. __Manifestation API__: Create order on Courier Partner and fetch AWB, Cancel orders and place pickup request
 3. __Shipping Label Generation API__: Generating new shipping label or get the one generated in Manifestation Request
 4. __Track Shipment API__: Track your shipment using AWB and Courier Partner.
-5. __Un-Register Shipment API__: Unregister or mark expired any awb which was getting tracked using Awb and Courier Partner.
-6. __Cancellation API__: Cancel shipment manifested on Courier Partner for faster returns and higher inventory availability
-7. __Serviceability, Cost, TAT API__: Check pincode serviceability, cost for shipping and turn around time for the delivery.
-8. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
-9. __Pickup Request API__: Recommend list of Courier Partners in priority order
-10. __Operation and Customer Feedback API__: Gives list of customer feedbacks and operations feedback on the tracking page.
-11. __NDR Action update API__: Updates the after NDR action directly on courier company's database.
+5. __Cancellation API__: Cancel shipment manifested on Courier Partner for faster returns and higher inventory availability
+6. __Serviceability, Cost, TAT API__: Check pincode serviceability, cost for shipping and turn around time for the delivery.
+7. __Expected Date of Delivery API__: Check predictive sla time range for any shipment
+8. __Pickup Request API__: Recommend list of Courier Partners in priority order
+9. __Operation and Customer Feedback API__: Gives list of customer feedbacks and operations feedback on the tracking page.
+10. __NDR Action update API__: Updates the after NDR action directly on courier company's database.
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 
