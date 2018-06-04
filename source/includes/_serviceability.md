@@ -18,7 +18,8 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
         "height": 10,
         "invoice_value": 1245,
         "weight": 10,
-        "cp_id": 3
+        "cp_id": 3,
+        "service_type": "FORWARD/RVP/EXCHANGE",
     },
     "drop_pincode": "110020",
     "pickup_pincode": "122002"
@@ -32,7 +33,6 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
     "result": [
         {
             "cp_id": 3,
-            "is_rvp" : true,
             "serviceable": {
                 "PREPAID": false,
                 "COD": false
@@ -46,7 +46,6 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
         },
         {
             "cp_id": 3,
-            "is_rvp" : false,
             "serviceable": {
                 "PREPAID": false,
                 "COD": false
@@ -109,7 +108,7 @@ length | integer | length of the shipment
 breadth | integer | breadth of the shipment
 height | integer | height of the shipment
 cp_id | integer | clickpost courier comapny id
-
+service_type | characyer | Any one of FORWARD/RVP/EXCHANGE, if service_type param is not passed, then default is FORWARD.
 ###Response explanation:
 
 Response object has two parts:
@@ -127,8 +126,7 @@ Response object has two parts:
     + commited_sla: average commited SLA by courier partner (based on your contract with courier partner) for the shipment if dispatched today. (integer field)
     + account_code: Account code for which the details are given in the result.
     + shipping_charges: Shipping charges for the delivery of the shipment.
-    + is_rvp: True if the account/cp is for reverse pickup or False if for forward shipment.
-
+    
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
