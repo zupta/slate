@@ -19,7 +19,7 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
         "invoice_value": 1245,
         "weight": 10,
         "cp_id": 3,
-        "service_type": "FORWARD/RVP/EXCHANGE",
+        "service_type": "FORWARD/RVP/EXCHANGE"
     },
     "drop_pincode": "110020",
     "pickup_pincode": "122002"
@@ -71,8 +71,7 @@ Serviceability api checks if pickup and drop pincodes are serviceabile or not, s
 It’s a POST request as follows
 
 URL:
-`https://www.clickpost.in/api/v1/serviceability_api/``
-
+`https://www.clickpost.in/api/v1/serviceability_api/`
 Headers: {'Content-type': 'application/json'}
 
 ####URL Parameters:
@@ -108,7 +107,8 @@ length | integer | length of the shipment
 breadth | integer | breadth of the shipment
 height | integer | height of the shipment
 cp_id | integer | clickpost courier comapny id
-service_type | characyer | Any one of FORWARD/RVP/EXCHANGE, if service_type param is not passed, then default is FORWARD.
+service_type | character | Any one of FORWARD/RVP/EXCHANGE, if service_type param is not passed, then default is FORWARD.
+
 ###Response explanation:
 
 Response object has two parts:
