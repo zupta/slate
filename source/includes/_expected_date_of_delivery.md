@@ -16,7 +16,8 @@ https://www.clickpost.in//api/v1/predicted_sla_api/?username=test&key=42d42a34-a
         "pickup_pincode": "600040",
         "drop_pincode": "421504",
         "optional" : {
-            "cp_id" :5
+            "cp_id" :5,
+            "awb": "ABCD12345"
         }
     }
 ]
@@ -143,6 +144,7 @@ drop_pincode | integer | pincode of drop address
 Parameter | Type | Description
 --------- | ---- | -----------
 cp_id | integer | courier partner id
+awb | char | awb for which expected delivery date is to be calculated
 
 List of courier partners is present at:
 <a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
