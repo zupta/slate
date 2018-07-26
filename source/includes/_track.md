@@ -154,8 +154,8 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | in grams
-drop_pincode | character | 6 digit pincode of drop location
-pickup_pincode | character | 6 digit pincode of pickup location
+drop_pin_code | character | 6 digit pincode of drop location
+pickup_pin_code | character | 6 digit pincode of pickup location
 delivery_type | character | either FORWARD / RVP
 cod_amount| float field | COD value to be collected from customer, float field
 drop_address| character (500 chars) | drop address of the shipment
