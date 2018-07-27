@@ -84,8 +84,9 @@ Headers: {'Content-type': 'application/json'}
                             "sku": "XYZ1",
                             "description": "item1",
                             "quantity": 1,
+                            "price": 200,
+                            "images": "<Image URL>",
                             "additional": {
-                                "price": 200,
                                 "length": 10,
                                 "height": 10,
                                 "breadth": 10,
