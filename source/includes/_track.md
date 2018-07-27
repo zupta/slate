@@ -73,8 +73,8 @@ Headers: {'Content-type': 'application/json'}
           "height": 10,
           "weight": 10,
           "breadth": 10,
-          "drop_pin_code": "110019",
-          "pickup_pin_code": "110017",
+          "drop_pincode": "110019",
+          "pickup_pincode": "110017",
           "delivery_type": "FORWARD",
           "cod_amount": 1000.10,
           "drop_address": "Roots hacker Home, R 28, Second Floor, Nehru Enclace, Opposite Nehru Place, New Delhi 110019",
@@ -154,8 +154,8 @@ length | integer | in cm
 breadth | integer | in cm
 height | integer | in cm
 weight | integer | in grams
-drop_pin_code | character | 6 digit pincode of drop location
-pickup_pin_code | character | 6 digit pincode of pickup location
+drop_pincode | character | 6 digit pincode of drop location
+pickup_pincode | character | 6 digit pincode of pickup location
 delivery_type | character | either FORWARD / RVP
 cod_amount| float field | COD value to be collected from customer, float field
 drop_address| character (500 chars) | drop address of the shipment
