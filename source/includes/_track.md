@@ -424,7 +424,6 @@ It's a POST request. (PUT in case you want to update existing webhook url)
 
 `https://www.clickpost.in/api/v1/tracking/register-webhook/`
 
-
 >__Webhook Registration URL__
 
 ```
@@ -544,147 +543,6 @@ Every time courier partner updates tracking of the shipment, We will post data t
 }
 ```
 
-
->__NuvoEx Doorstep QC check webhook__
-
-```json
-{
-  "status": "Shipment picked up",
-  "remark": "Picked up",
-  "waybill": "XYZABC",
-  "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-  "timestamp": "2016-07-12T17:12:36.710",
-  "clickpost_status_code": 4,
-  "clickpost_status_description": "PickedUp",
-  "cp_id": 7,
-  "additional": {
-    "latest_status": {
-      "status": "Shipment picked up",
-      "remark": "Picked up",
-      "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-      "timestamp": "2016-07-12T17:12:36.710",
-      "clickpost_status_code": 4,
-      "clickpost_status_description": "PickedUp"
-    },
-    "dsqc": {
-      "breadth": null,
-      "expected_amount": 0,
-      "receiver": "GGN HUB",
-      "weight": null,
-      "package_price": null,
-      "consignee": "GGN HUB",
-      "pincode": 1177,
-      "creation_date": "2017-07-27T00:01:00",
-      "qc_type": "0",
-      "sign_img": "https://media-nuvo.s3.amazonaws.com/AWB/images/SBL35560229_na_SIG__pid_8901110.png?Signature=1JOmLgoBraoGVIr%2BBP0vW7FOQ0s%3D&Expires=1532682077&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12",
-      "phone_2": "",
-      "customer_name": "Prashant Gupta",
-      "on_update": "2017-07-27T14:30:42.747",
-      "city": "Surat",
-      "pickupdate": "07/27/2017 5:01 p.m.",
-      "invoice_no": null,
-      "order_id_barcode": "http://media-nuvo.s3.amazonaws.com/Barcode/AWB/100790852-640.png?Signature=6eNY0BlHttRLh%2BXQ%2Fbky%2F9IW%2BG8%3D&Expires=1532599621&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12",
-      "expected_date": null,
-      "area": null,
-      "destination": "Delhi NCR",
-      "qr_code": "1012547131",
-      "priority": "N",
-      "volumetric_weight": 0,
-      "crp_id": "",
-      "ptm_otp": null,
-      "phone_1": "9099118426",
-      "package_sku": null,
-      "status": "Bag Created",
-      "category": "REV",
-      "reason_code": "",
-      "vendor": 509427,
-      "description": "Floral Chloey Cold Shoulder Top,Sky Errand Dress",
-      "order_id": "100790852-640",
-      "pod_link": "",
-      "barcode": null,
-      "is_active": true,
-      "client_weight": "0.1",
-      "image_urls": "",
-      "origin_branch": 10,
-      "last_update_date": "07/27/2017 6:48 p.m.",
-      "remarks": "Reverse Pickup",
-      "qty": null,
-      "awb": "35560229",
-      "product_img": "https://media-nuvo.s3.amazonaws.com/AWB/images/SBL35560229_IN1634MTODREBLU-518-16_SHI_pid_4108613.png?Signature=1o9Om%2FwaOxf7V8jv1GbntJfcPGc%3D&Expires=1532682080&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12",
-      "qc_details": {
-        "image_data": {
-          "IN1634MTODREBLU-518-16": [
-            "https://media-nuvo.s3.amazonaws.com/AWB/images/SBL35560229_IN1634MTODREBLU-518-16_SHI_pid_6674516.png?Signature=XOOeGFhosPDeu4tUhmFl%2FmWbqSE%3D&Expires=1532682079&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12",
-            "https://media-nuvo.s3.amazonaws.com/AWB/images/SBL35560229_IN1634MTODREBLU-518-16_SHI_pid_4108613.png?Signature=1o9Om%2FwaOxf7V8jv1GbntJfcPGc%3D&Expires=1532682080&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12"
-          ],
-          "IN1702MTOTOPFLR-195-16": [
-            "https://media-nuvo.s3.amazonaws.com/AWB/images/SBL35560229_IN1702MTOTOPFLR-195-16_SHI_pid_5099882.png?Signature=hxRLaVodTvkg0AubXB4V5a10F3o%3D&Expires=1532682078&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12",
-            "https://media-nuvo.s3.amazonaws.com/AWB/images/SBL35560229_IN1702MTOTOPFLR-195-16_SHI_pid_8242019.png?Signature=c7j1j1MblBFwGU8J2rHE8R%2B%2BWts%3D&Expires=1532682079&AWSAccessKeyId=AKIAJKYQRPL5EOZJMFFQ12"
-          ]
-        },
-        "data": [{
-            "item": "IN1634MTODREBLU-518-16",
-            "config": [{
-                "answer": "yes",
-                "question": "Is the SKU code matching?"
-              },
-              {
-                "answer": "yes",
-                "question": "Is MRP tag Available?"
-              },
-              {
-                "answer": "no",
-                "question": "Is the item defective/Damage?"
-              },
-              {
-                "answer": "yes",
-                "question": "Are the product images matching"
-              }
-            ]
-          },
-          {
-            "item": "IN1702MTOTOPFLR-195-16",
-            "config": [{
-                "answer": "yes",
-                "question": "Is the SKU code matching?"
-              },
-              {
-                "answer": "yes",
-                "question": "Is MRP tag Available?"
-              },
-              {
-                "answer": "no",
-                "question": "Is the item defective/Damage?"
-              },
-              {
-                "answer": "yes",
-                "question": "Are the product images matching"
-              }
-            ]
-          }
-        ],
-        "remark": "ok",
-        "qc_status": "pass"
-      },
-      "reason_for_return": "Customer initiated reverse pickup.",
-      "dto_center": null,
-      "destination_branch": 43,
-      "qc_result": true,
-      "height": null,
-      "qc_fail_reason": {},
-      "length": null,
-      "qc_type_new": "doorstep",
-      "address_1": "Prashant , 7-D arnav-B building,  city light road , Surat , Gujarat, IN",
-      "address_2": null,
-      "slot": null,
-      "package_value": null,
-      "delivery_date": ""
-    }
-  }
-}
-
-```
-
 ###Payload Explanation:
 
 1. waybill: AWB number for which data is posted.
@@ -714,7 +572,7 @@ If customer opts for this service, we add: "notification_event_id" key in additi
 
 Please see the sample payload on the right:
 
->__Failed delivery Payload__
+>__Selected event subscribed webhook: Failed delivery Payload__
 
 ```json
 
@@ -743,7 +601,7 @@ Please see the sample payload on the right:
 }
 
 ```
->__Delivered Payload__
+>__Selected event subscribed webhook: Delivered Payload__
 
 ```json
 
