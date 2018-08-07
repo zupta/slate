@@ -416,7 +416,7 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
         6. clickpost_status_description: description of clickpost_status_code (Specified on last page of this document)
 
 
-##Tracking Waybills Using Webhooks
+##Tracking AWB Using Webhooks
 
 ###Register for Webhooks:
 
