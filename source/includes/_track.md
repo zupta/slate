@@ -417,6 +417,7 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
 
 
 ##Tracking Waybills Using Webhooks
+
 ###Register for Webhooks:
 
 It's a POST request. (PUT in case you want to update existing webhook url) 
@@ -443,7 +444,10 @@ Headers: {'Content-type': 'application/json'}
 
 ####Fields Explanation:
 
-1. “service_id” is the service identifier for which you want to register the webhook. Right  now, Clickpost provides webhook only for tracking service, which has service_id = 2
+1. “service_id” is the service identifier for which you want to register the webhook. Right now, Clickpost provides webhook only for tracking service:
+  a. In case you want to receive webhooks for all status change, pass service_id = 2
+  b. In case you want to receive webhooks for all status change, pass service_id = 15
+
 2. “key”: API key provided to you
 3. “webhook_url” is the url on which data will be posted on your server
 
@@ -473,7 +477,7 @@ Status Code | Description
 306 | Not authorized to use this service
 
 
-###Webhook data POST on Client Server:
+###Webhook data POST on Client Server for all events:
 
 Every time courier partner updates tracking of the shipment, We will post data to your server using the url you registered while registering for webhooks.
 
@@ -692,6 +696,78 @@ Every time courier partner updates tracking of the shipment, We will post data t
 7. clickpost_status_description: description of clickpost_status_code (Specified on next page)
 
 
+---
+
+###Webhook data POST on Client Server for selected events:
+
+In case customer wants to recieve notifications only for certain events, Clickpost provides funtionality for the same.
+
+If customer opts for this service, we add: "notification_event_id" key in additional object of the payload. This will inform you the current status of shipment.
+
+####Possible values:
+1. Out For Pickup
+2. Shipped
+3. Out For Delivery
+4. Failed Delivery
+5. Delivered
+6. RTO
+
+Please see the sample payload on the right:
+
+>__Failed delivery Payload__
+
+```json
+
+{
+  "remark": "Customer Cancelled the order",
+  "waybill": "420714276042",
+  "clickpost_status_description": "FailedDelivery",
+  "timestamp": "2018-08-06T14:48:57.002000Z",
+  "cp_id": 4,
+  "status": "Pending",
+  "clickpost_status_code": 9,
+  "additional": {
+    "ndr_status_description": "No attempt",
+    "notification_event_id": 4,
+    "ndr_status_code": 4,
+    "latest_status": {
+      "remark": "Customer Cancelled the order",
+      "timestamp": "2018-08-06T14:48:57.002000Z",
+      "clickpost_status_description": "FailedDelivery",
+      "status": "Pending",
+      "clickpost_status_code": 9,
+      "location": "Kayamkulam_Bhrnikvu_D (Kerala)"
+    }
+  },
+  "location": "Kayamkulam_Bhrnikvu_D (Kerala)"
+}
+
+```
+>__Delivered Payload__
+```json
+
+{
+  "remark": "Delivered to consignee",
+  "waybill": "420714276075",
+  "clickpost_status_description": "Delivered",
+  "timestamp": "2018-08-06T15:00:32.002000Z",
+  "cp_id": 4,
+  "status": "Delivered",
+  "clickpost_status_code": 8,
+  "additional": {
+    "notification_event_id": 5,
+    "latest_status": {
+      "remark": "Delivered to consignee",
+      "timestamp": "2018-08-06T15:00:32.002000Z",
+      "clickpost_status_description": "Delivered",
+      "status": "Delivered",
+      "clickpost_status_code": 8,
+      "location": "Udaipur_DC (Rajasthan)"
+    }
+  },
+  "location": "Udaipur_DC (Rajasthan)"
+}
+```
 
 ###Important Notes and special data in Webhooks (Examples are present on the right):
 
@@ -699,7 +775,9 @@ Every time courier partner updates tracking of the shipment, We will post data t
 latest_status indicates the latest status for the shipment at the time when the webhook is sent. This is sent with all webhooks
 2. In case of NuvoEx Reverse Pickup: doorstep Quality Check order, additional has dsqc object at the time of pickup cancelled (clickpost_status_code = 10) and pickedup (clickpost_status_code = 4)
 3. In case of Failed Delivery, Clickpost unified NDR status code and NDR status description is sent in additional
-
+4. Please make your API end point idempotent
+5. Since webhooks are transactional in nature, To insure minimal API data loss, we have retries in place if we do not get http 200 response from your server
+6. If you opt for selected events webhook notification, in case clickpost receives multiple notification from courier partner at the same time, only the latest notification will be sent to you
 
 ###NDR Status Codes
 
@@ -719,6 +797,7 @@ ndr_status_code | ndr_status_description
 11| "Shipment Seized By Customer"
 
 *Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description*
+
 
 ---
 
