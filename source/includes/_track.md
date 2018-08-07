@@ -744,6 +744,7 @@ Please see the sample payload on the right:
 
 ```
 >__Delivered Payload__
+
 ```json
 
 {
@@ -767,6 +768,7 @@ Please see the sample payload on the right:
   },
   "location": "Udaipur_DC (Rajasthan)"
 }
+
 ```
 
 ###Important Notes and special data in Webhooks (Examples are present on the right):
