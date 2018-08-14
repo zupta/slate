@@ -584,10 +584,15 @@ Please see the sample payload on the right:
   "cp_id": 4,
   "status": "Pending",
   "clickpost_status_code": 9,
+  "location": "Kayamkulam_Bhrnikvu_D (Kerala)",
+
   "additional": {
-    "ndr_status_description": "No attempt",
+  
     "notification_event_id": 4,
+  
+    "ndr_status_description": "No attempt",
     "ndr_status_code": 4,
+
     "latest_status": {
       "remark": "Customer Cancelled the order",
       "timestamp": "2018-08-06T14:48:57.002000Z",
@@ -596,8 +601,7 @@ Please see the sample payload on the right:
       "clickpost_status_code": 9,
       "location": "Kayamkulam_Bhrnikvu_D (Kerala)"
     }
-  },
-  "location": "Kayamkulam_Bhrnikvu_D (Kerala)"
+  }
 }
 
 ```
@@ -613,8 +617,12 @@ Please see the sample payload on the right:
   "cp_id": 4,
   "status": "Delivered",
   "clickpost_status_code": 8,
+  "location": "Udaipur_DC (Rajasthan)",
+
   "additional": {
+
     "notification_event_id": 5,
+
     "latest_status": {
       "remark": "Delivered to consignee",
       "timestamp": "2018-08-06T15:00:32.002000Z",
@@ -623,8 +631,7 @@ Please see the sample payload on the right:
       "clickpost_status_code": 8,
       "location": "Udaipur_DC (Rajasthan)"
     }
-  },
-  "location": "Udaipur_DC (Rajasthan)"
+  }
 }
 
 ```
