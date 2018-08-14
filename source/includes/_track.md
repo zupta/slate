@@ -443,9 +443,9 @@ Headers: {'Content-type': 'application/json'}
 
 ####Fields Explanation:
 
-1. “service_id” is the service identifier for which you want to register the webhook. Right now, Clickpost provides webhook only for tracking service:
-  a. In case you want to receive webhooks for all status change, pass service_id = 2
-  b. In case you want to receive webhooks for all status change, pass service_id = 15
+1. "service_id" is the service identifier for which you want to register the webhook. Right now, Clickpost provides webhook only for tracking service:
+  1. In case you want to receive webhooks for all status change, pass service_id = 2
+  2. In case you want to receive webhooks for selected status change, pass service_id = 15. Please inform your Clickpost POC to activate this service for you.
 
 2. “key”: API key provided to you
 3. “webhook_url” is the url on which data will be posted on your server
