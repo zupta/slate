@@ -793,7 +793,7 @@ Response Object has two parts:
   4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
   5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
 
-##Order Creation V3 API (Reverse Pickup/ RVP)
+##Order Creation V3 API (Reverse Pickup)
 ```
 https://www.clickpost.in/api/v3/create-order/?username=<user-name>&key=<api-key>
 Headers: {'Content-type': 'application/json'}
@@ -904,7 +904,7 @@ rvp_reason | character | stating the reason for Reverse Pickup
 delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
 
 
-##Multiseller items shipment:
+##Multiseller items shipment API
 
 ```
 https://www.clickpost.in/api/v3/create-order/?username=<user-name>&key=<api-key>
