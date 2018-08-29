@@ -227,8 +227,7 @@ Nagar, New Delhi",
     "email": "founders@clickpost.in",
     "pickup_name": "Deepanshu",
     "pickup_phone": "8080808080",
-    "pickup_address": "B-220/2, 1st Floor, Right Door, Savitri Nagar,
-    New Delhi",
+    "pickup_address": "B-220/2, 1st Floor, Right Door, Savitri Nagar, New Delhi",
     "pickup_pincode": "110017",
     "pickup_city": "DELHI",
     "pickup_state": "DELHI",
@@ -436,7 +435,7 @@ Response Object has two parts:
   4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
   5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
 
-##Order Creation V3 API
+##Order Creation V3 API (Forward)
 > URL to hit:
 
 ```
@@ -531,16 +530,16 @@ Headers: {'Content-type': 'application/json'}
         },
         "awb_number ": "43062728295",
         "delivery_type": "FORWARD",
-        "async": true,
+        "async": false,
         "gst_number" : "21313",
-        "account_code": "ecom surface"
+        "account_code": "<account_code generated via clickpost dashboard>"
     }
 }
 ```
 
 > __Response__
 
-```
+```json
 {
   "meta": {
     "message": "Order Placed Successfully",
@@ -557,65 +556,28 @@ Headers: {'Content-type': 'application/json'}
 
 > __Example:__ POST Body (PREPAID Shipment)
 
-```
+```json
 {
-    "drop_info": {
-        "drop_address": "F-68 third floor kalkaji New Delhi ",
-        "drop_phone": "9717732407",
-        "drop_country": "IN",
-        "drop_state": "DELHI",
-        "drop_pincode": "110019",
-        "drop_city": "Delhi",
-        "drop_name": "Prashant"
-    },
-    "additional": {
-        "label ": true,
-        "return_info": {
-            "pincode": "110019",
-            "address": "Test Address top floor kalkaji NewDelhi ",
-            "state": "DELHI",
-            "phone": "8080808080",
-            "name": "Deepanshu",
-            "city": "DELHI",
-            "country": "IN"
-        },
-        "awb_number ": "43062728295",
-        "delivery_type": "FORWARD",
-        "async": true,
-        "gst_number" : "21313",
-        "account_code": "ecom surface"
-    },
     "pickup_info": {
         "pickup_state": "DELHI",
         "pickup_address": "A-228 top floor kalkaji New Delhi ",
-        "email": "deepanshu.kartikey@pyck.in",
+        "email": "support@clickpost.in",
         "pickup_time": "2017-05-20T12:00:00Z",
         "pickup_pincode": "110019",
         "pickup_city": "DELHI",
         "tin": "120349483",
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
-        "pickup_phone": "9816691388"
+        "pickup_phone": "8080808080"
     },
-    "gst_info": {
-        "seller_gstin": "1234",
-        "taxable_value": 100,
-        "ewaybill_serial_number": "2345677",
-        "is_seller_registered_under_gst": false,
-        "sgst_tax_rate": 100,
-        "place_of_supply": "DELHI",
-        "gst_discount": 0,
-        "hsn_code": "1234",
-        "sgst_amount": 100,
-        "enterprise_gstin": "13",
-        "gst_total_tax": 100,
-        "igst_amount": 100,
-        "cgst_amount": 200,
-        "gst_tax_base": 200,
-        "consignee_gstin": "1233",
-        "igst_tax_rate": 100,
-        "invoice_reference": "1234",
-        "cgst_tax_rate": 100
+    "drop_info": {
+        "drop_address": "F-68 third floor kalkaji New Delhi ",
+        "drop_phone": "8080808080",
+        "drop_country": "IN",
+        "drop_state": "DELHI",
+        "drop_pincode": "110019",
+        "drop_city": "Delhi",
+        "drop_name": "Prashant"
     },
     "shipment_details": {
         "height": 12,
@@ -642,8 +604,46 @@ Headers: {'Content-type': 'application/json'}
                 "sku": "XYZ1"
             }
         ],
-        "cod_value": 200,
+        "cod_value": 0,
         "courier_partner": 3
+    },
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
+    },
+
+    "additional": {
+        "label ": true,
+        "return_info": {
+            "pincode": "110019",
+            "address": "Test Address top floor kalkaji New Delhi ",
+            "state": "DELHI",
+            "phone": "8080808080",
+            "name": "Deepanshu",
+            "city": "DELHI",
+            "country": "IN"
+        },
+        "awb_number ": "43062728295",
+        "delivery_type": "FORWARD",
+        "async": false,
+        "gst_number" : "21313",
+        "account_code": "ecom surface"
     }
 }
 ```
@@ -766,19 +766,6 @@ priority | character| "NORMAL" or any other priority for order
 async | boolean| for real time orders false and true if order need to generated in background
 gst_number | character| gst number for tax purposes
 
-#####**Compulsory fields for RVP order creation:**
-Parameter | Type | Description
---------- | ---- | -----------
-rvp_reason | character | stating the reason for Reverse Pickup
-delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
-
-#####Optional field for NuvoEx RVP (Doorstep QC):
-Parameter | Type | Description
---------- | ---- | -----------
-qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
-image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
-cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
-sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -805,6 +792,252 @@ Response Object has two parts:
   Additional fields for Bluedart:
   4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
   5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
+
+##Order Creation V3 API (Reverse Pickup/ RVP)
+```
+https://www.clickpost.in/api/v3/create-order/?username=<user-name>&key=<api-key>
+Headers: {'Content-type': 'application/json'}
+
+(Username/key needs to be replaced with the username/key provided to you)
+```
+> __Example:__ POST Body
+
+```json
+{
+    "pickup_info": {
+        "pickup_state": "DELHI",
+        "pickup_address": "A-228 top floor kalkaji New Delhi ",
+        "email": "support@clickpost.in",
+        "pickup_time": "2017-05-20T12:00:00Z",
+        "pickup_pincode": "110019",
+        "pickup_city": "DELHI",
+        "tin": "120349483",
+        "pickup_name": "Deepanshu",
+        "pickup_country": "IN",
+        "pickup_phone": "8080808080"
+    },
+    "drop_info": {
+        "drop_address": "F-68 third floor kalkaji New Delhi ",
+        "drop_phone": "8080808080",
+        "drop_country": "IN",
+        "drop_state": "DELHI",
+        "drop_pincode": "110019",
+        "drop_city": "Delhi",
+        "drop_name": "Prashant"
+    },
+    "shipment_details": {
+        "height": 12,
+        "order_type": "PREPAID",
+        "invoice_value": 200,
+        "invoice_number": "INV123",
+        "invoice_date": "2015-12-27",
+        "reference_number": "Order-1232",
+        "length": 10,
+        "breadth": 10,
+        "weight": 100,
+        "items": [
+            {
+                "price": 200,
+                "description": "item1",
+                "additional": {
+                    "length": 10,
+                    "height": 10,
+                    "breadth": 10,
+                    "weight": 100,
+                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
+                },
+                "quantity": 1,
+                "sku": "XYZ1"
+            }
+        ],
+        "cod_value": 0,
+        "courier_partner": 24
+    },
+    "gst_info": {
+        "seller_gstin": "1234",
+        "taxable_value": 100,
+        "ewaybill_serial_number": "2345677",
+        "is_seller_registered_under_gst": false,
+        "sgst_tax_rate": 100,
+        "place_of_supply": "DELHI",
+        "gst_discount": 0,
+        "hsn_code": "1234",
+        "sgst_amount": 100,
+        "enterprise_gstin": "13",
+        "gst_total_tax": 100,
+        "igst_amount": 100,
+        "cgst_amount": 200,
+        "gst_tax_base": 200,
+        "consignee_gstin": "1233",
+        "igst_tax_rate": 100,
+        "invoice_reference": "1234",
+        "cgst_tax_rate": 100
+    },
+    
+    "additional": {
+        "label ": true,
+        "return_info": {
+            "pincode": "110019",
+            "address": "Test Address top floor kalkaji New Delhi ",
+            "state": "DELHI",
+            "phone": "8080808080",
+            "name": "Deepanshu",
+            "city": "DELHI",
+            "country": "IN"
+        },
+        "awb_number ": "43062728295",
+        "delivery_type": "RVP",
+        "rvp_reason": "Shipper cancellation",
+        "async": false,
+        "account_code": "ecom reverse"
+    }
+}
+```
+
+1. All parameter definition remains same as manifestation v3 Forward API
+2. Following parameters are the changes in manifestation v3 Forward API:
+
+#####**Compulsory fields for RVP order creation:**
+Parameter | Type | Description
+--------- | ---- | -----------
+rvp_reason | character | stating the reason for Reverse Pickup
+delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
+
+
+##Multiseller items shipment:
+
+```
+https://www.clickpost.in/api/v3/create-order/?username=<user-name>&key=<api-key>
+Headers: {'Content-type': 'application/json'}
+
+(Username/key needs to be replaced with the username/key provided to you)
+```
+> __Example:__ POST Body
+
+```json
+{
+    "pickup_info": {
+        "pickup_time": "2017-09-20T12:00:00Z",
+        "email": "pankaj@khazanabazaar.com",
+        "pickup_address": "402, Orbit tower, Sahara Darwaja, Ring Road, Surat - 395002",
+        "pickup_state": "GUJARAT",
+        "pickup_name": "Pankaj Kubadiya",
+        "pickup_country": "IN",
+        "tin": "120349483",
+        "pickup_city": "SURAT",
+        "pickup_phone": "08469591430",
+        "pickup_pincode": "395002"
+    },
+    "drop_info": {
+        "drop_country": "IN",
+        "drop_city": "Delhi",
+        "drop_phone": "9717732402",
+        "drop_address": "F-68 third floor kalkaji New Delhi ",
+        "drop_name": "Prashant",
+        "drop_state": "DELHI",
+        "drop_pincode": "110019",
+        "drop_email": "support@clickpost.in"
+    },
+    "shipment_details": {
+        "breadth": 10,
+        "cod_value": 200,
+        "height": 12,
+        "invoice_date": "2015-12-27",
+        "length": 10,
+        "order_type": "COD",
+        "invoice_number": "INV123",
+        "invoice_value": 200,
+        "items": [{
+            "quantity": 1,
+            "sku": "XYZ1",
+            "price": 200,
+            "description": "item1",
+            "gst_info": {
+                "consignee_gstin": "1233",
+                "invoice_reference": "1234",
+                "seller_gstin": "1234",
+                "cgst_tax_rate": 100,
+                "place_of_supply": "DELHI",
+                "sgst_tax_rate": 100,
+                "igst_tax_rate": 100,
+                "enterprise_gstin": "13",
+                "gst_tax_base": 200,
+                "igst_amount": 100,
+                "is_seller_registered_under_gst": false,
+                "sgst_amount": 100,
+                "taxable_value": 100,
+                "gst_discount": 0,
+                "gst_total_tax": 100,
+                "hsn_code": "1234",
+                "ewaybill_serial_number": "2345677",
+                "cgst_amount": 200,
+                "invoice_value": 200,
+                "seller_name": "Deepanshu",
+                "seller_address": "A-228 top floor kalkaji",
+                "seller_state": "Delhi",
+                "seller_pincode": "110019",
+                "invoice_number": "1882782",
+                "invoice_date": "2018-08-23"
+            },
+            "additional": {
+                "breadth": 10,
+                "images": "http://sample-file1.jpg,http://sample-file2.jpg",
+                "length": 10,
+                "weight": 100,
+                "height": 10
+            }
+        }],
+        "courier_partner": 3,
+        "weight": 100,
+        "reference_number": "UNIQUE-SHIPMENT-ID"
+    },
+    "additional": {
+        "label": true,
+        "data_validation": true,
+        "async": false,
+        "return_info": {
+            "email": "support@clickpost.in",
+            "name": "Deepanshu",
+            "phone": "8080808080",
+            "address": "Test Address top floor Kalkaji New Delhi ",
+            "country": "IN",
+            "city": "DELHI",
+            "pincode": "110019",
+            "state": "DELHI"
+        },
+        "delivery_type": "FORWARD",
+        "is_multi_seller": true
+    }
+}
+```
+> __Response__
+
+```
+{
+  "meta": {
+    "message": "Order Placed Successfully",
+    "status": 200,
+    "success": true
+  },
+  "result": {
+    "reference_number": "UNIQUE-SHIPMENT-ID",
+    "waybill": "785578015860",
+    "label": "https://pyck-res-bucket.s3.amazonaws.com:443/ECOM/2017-02-18/785578015860.pdf"
+  }
+}
+```
+
+The create order Multi Seller shipment API allows uploading the package details (manifest information) into the courier partner’s system for single shipment having multiple items in it (having different GST values) and returns a label generated by them. You can create single order; errors/warnings will be highlighted in the response.
+
+Please note, in case of any validation failure - order will not get created. Please wait for 8 seconds before you reject a rest-request for latency.
+
+The API is a HTTP POST request to: `https://www.clickpost.in/api/v3/create-order/` where output format is json.
+
+All the parameters are same as manifestation v3 API. Changes are:
+
+1. gst_info added in shipment_details object
+2. is_multi_seller: true flag to be passed in the additional object.
+
 
 ##Order Creation Multi Model API
 > URL to hit:

@@ -137,7 +137,7 @@ account_code (optional) | string | account code in case you have multiple accoun
 
 ####Optional:
 
-####consumer_details(optional): In case you to send notifications to your customers via mail / sms, please pass information in this object:
+####consumer_details (optional): In case you want Clickpost to send notifications to your customers via mail / sms, please pass information in this object:
 Parameter | Type | Description
 --------- | ---- | ----------- 
 name | character (250 chars) | end customer name, who will receive the shipment, this will be used to personalize the SMS / email sent to the customer
@@ -213,9 +213,6 @@ Parameter | Type | Description
 key (required) | character | this is the API Key
 waybill (required) | character | this is/are comma separated waybill numbers for which the status is required
 cp_id (required) | integer | courier_partner_id as specified on page 1 of this documentation
-
-####Optional:
-There are no optional params passed in the api.
 
 ###Response Explanation:
 
@@ -418,63 +415,10 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
 
 ##Tracking AWB Using Webhooks
 
-###Register for Webhooks:
+###Activating Webhooks:
 
-It's a POST request. (PUT in case you want to update existing webhook url) 
-
-`https://www.clickpost.in/api/v1/tracking/register-webhook/`
-
->__Webhook Registration URL__
-
-```
-URL: https://www.clickpost.in/api/v1/tracking/register-webhook/
-Headers: {'Content-type': 'application/json'}
-```
-
->__Webhook Registration Example__
-
-```json
-{
-     "service_id": 2,
-     "key": "xxxxxxxxxxxx---Your API KEY---xxxxxxxxxxxxxxxxxxx",
-     "webhook_url": "xxxxxxx---- Your Webhook URL---xxxxxxxx"
-}
-```
-
-####Fields Explanation:
-
-1. "service_id" is the service identifier for which you want to register the webhook. Right now, Clickpost provides webhook only for tracking service:
-  1. In case you want to receive webhooks for all status change, pass service_id = 2
-  2. In case you want to receive webhooks for selected status change, pass service_id = 15. Please inform your Clickpost POC to activate this service for you.
-
-2. “key”: API key provided to you
-3. “webhook_url” is the url on which data will be posted on your server
-
->__Webhook Registration Response__
-
-```json
-{
-     "message": "SUCCESS",
-     "webhook_key": "7e7cc4c4-273d-49ce-90f1-ecc2b69b4e6c",
-     "success": true,
-     "status_code": 200
-}
-```
-###Response Explanation:
-
-1. “message”: SUCCESS implies the request has been placed successfully. Else message will hold error message
-2. “webhook_key”: security key that Clickpost will send with every request it will post on  your server. This key will be sent in headers as: `webhook_key: webhook_key_as_in_registration_response`
-3. “success” : true if the request has been placed successfully false other wise
-4. "status_codes" :
-
-Status Code | Description
------- | -------
-200 | Everything is fine
-301 | Invalid API key
-302 | AWB already exists
-305 | Already registered Webhook for this AWB
-306 | Not authorized to use this service
-
+1. Visit Clickpost dashboard: *Settings* Tab on the left and Click notification section
+2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need
 
 ###Webhook data POST on Client Server for all events:
 
@@ -608,7 +552,6 @@ Please see the sample payload on the right:
 >__Selected event subscribed webhook: Delivered Payload__
 
 ```json
-
 {
   "remark": "Delivered to consignee",
   "waybill": "420714276075",
