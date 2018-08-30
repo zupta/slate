@@ -41,7 +41,7 @@ Headers: {'Content-type': 'application/json'}
   "invoice_date": "2016-12-16",
   "order_type": "PREPAID",
   "cod_value": 0,
-  "items": [{"product_url":"<Product Page Url>", price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"<Product Page Url>","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
+  "items": [{"product_url":"<Product Page Url>", "price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"<Product Page Url>","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
   "invoice_number": "123465",
   "invoice_value": 1006.00,
   "reference_number": "SAMPLE-REF-No",
@@ -550,6 +550,7 @@ Headers: {'Content-type': 'application/json'}
     "success": true
   },
   "result": {
+    "sort_code": null,
     "reference_number": "ASDF1234",
     "waybill": "785578015860",
     "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf"
@@ -1028,6 +1029,7 @@ Headers: {'Content-type': 'application/json'}
     "success": true
   },
   "result": {
+    "sort_code": "DEL/SET",
     "reference_number": "UNIQUE-SHIPMENT-ID",
     "waybill": "785578015860",
     "label": "https://pyck-res-bucket.s3.amazonaws.com:443/ECOM/2017-02-18/785578015860.pdf"
