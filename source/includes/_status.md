@@ -28,4 +28,6 @@ clickpost_status_code | clickpost_status_description | Meaning
 27 | RTO_SHIPMENT_DELAY | 'RTO Shipment Delayed'
 28 | Awb Registered | 'AWB registered on Clickpost'
 
+Status flow diagram is available at: http://bit.ly/status_flow
+
 It is strongly recommended to use the clickpost_status_code to apply any logic on unified statuses.
