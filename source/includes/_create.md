@@ -41,7 +41,7 @@ Headers: {'Content-type': 'application/json'}
   "invoice_date": "2016-12-16",
   "order_type": "PREPAID",
   "cod_value": 0,
-  "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
+  "items": [{"product_url":"<Product Page Url>", price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"<Product Page Url>","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
   "invoice_number": "123465",
   "invoice_value": 1006.00,
   "reference_number": "SAMPLE-REF-No",
@@ -125,7 +125,7 @@ Nagar, New Delhi",
     "invoice_date": "2015-12-27",
     "order_type": "PREPAID",
     "cod_value": "0",
-    "items": [{"price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images":"http://sample-file1.jpg,http://sample-file2.jpg"}],
+    "items": [{"product_url":"<Product Page Url>","price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"<Product Page Url>","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images":"http://sample-file1.jpg,http://sample-file2.jpg"}],
     "invoice_number": "INV-234/3",
     "invoice_value": "100",
     "reference_number": "SAMPLE-REF-No",
@@ -185,7 +185,7 @@ Nagar, New Delhi",
     "invoice_number": "INV-4/3",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
-    "items": [{"price": 200, "description": "item1", "sku":
+    "items": [{"product_url":"<Product Page Url>", "price": 200, "description": "item1", "sku":
     "XYZ1", "quantity": 1, "images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
     "height": 10,
     "length": 10,
@@ -246,7 +246,8 @@ Nagar, New Delhi",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
     "items": [
-    {"price": 200, 
+    {"product_url":"<Product Page Url>",
+    "price": 200, 
     "description": "item1",
     "sku": "XYZ1",
     "quantity": 1,
@@ -346,11 +347,12 @@ email | character | (optional) email of the customer
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
-items | List | Json list with multiple item objects in it. Each item object should have
+items | List | Json list with multiple item objects in it. Each item object should have following:
 price | double | price of the item
 description | character | Item description
 sku | character | SKU unit name of item
 quantity | Integer | number of item pieces
+product_url |  string | url of the product on the website
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
@@ -481,6 +483,7 @@ Headers: {'Content-type': 'application/json'}
         "weight": 100,
         "items": [
             {
+                "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
                 "additional": {
@@ -591,6 +594,7 @@ Headers: {'Content-type': 'application/json'}
         "weight": 100,
         "items": [
             {
+                "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
                 "additional": {
@@ -705,11 +709,13 @@ email | character | (optional) email of the customer
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
-items | List | Json list with multiple item objects in it. Each item object should have
+items | List | Json list with multiple item objects in it. Each item object should have following:
 price | double | price of the item
 description | character | Item description
 sku | character | SKU unit name of item
 quantity | Integer | number of item pieces
+product_url | character | product page url for the item on website
+
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
@@ -837,6 +843,7 @@ Headers: {'Content-type': 'application/json'}
         "weight": 100,
         "items": [
             {
+                "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
                 "additional": {
@@ -981,6 +988,7 @@ Headers: {'Content-type': 'application/json'}
             },
             "additional": {
                 "breadth": 10,
+                "product_url":"<Product Page Url>",
                 "images": "http://sample-file1.jpg,http://sample-file2.jpg",
                 "length": 10,
                 "weight": 100,
@@ -1083,6 +1091,7 @@ Headers: {'Content-type': 'application/json'}
         "order_type": "PREPAID",
         "cod_value": 0,
         "items": [{
+            "product_url":"<Product Page Url>",
             "price": 1000,
             "description": "dfdsfsd",
             "sku": "asasa",
@@ -1214,11 +1223,13 @@ email | character | (optional) email of the customer
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
-items | List | Json list with multiple item objects in it. Each item object should have
+items | List | Json list with multiple item objects in it. Each item object should have following:
 price | double | price of the item
 description | character | Item description
 sku | character | SKU unit name of item
 quantity | Integer | number of item pieces
+product_url | character | item url on website 
+
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
@@ -1406,6 +1417,7 @@ Headers: {'Content-type': 'application/json'}
     "cod_value": 0,
     "shipment_type": "MPS",
     "items": [{
+        "product_url":"<Product Page Url>",
         "length": 10,
         "breadth": 10,
         "sku": "XYZ1",
@@ -1416,6 +1428,7 @@ Headers: {'Content-type': 'application/json'}
         "quantity": 1
     },
     {
+        "product_url":"<Product Page Url>",
         "length": 10,
         "breadth": 150,
         "sku": "XYZ2",
@@ -1536,11 +1549,13 @@ email | character | (optional) email of the customer
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
-items | List | Json list with multiple item objects in it. Each item object should have
+items | List | Json list with multiple item objects in it. Each item object should have following:
 price | double | price of the item
 description | character | Item description
 sku | character | SKU unit name of item
 quantity | Integer | number of item pieces
+product_url | character | product page url on website
+
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
