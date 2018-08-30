@@ -41,7 +41,7 @@ Headers: {'Content-type': 'application/json'}
   "invoice_date": "2016-12-16",
   "order_type": "PREPAID",
   "cod_value": 0,
-  "items": [{"product_url":"http://sample-file1", price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"http://sample-file1","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
+  "items": [{"product_url":"<Product Page Url>", price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"<Product Page Url>","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
   "invoice_number": "123465",
   "invoice_value": 1006.00,
   "reference_number": "SAMPLE-REF-No",
@@ -125,7 +125,7 @@ Nagar, New Delhi",
     "invoice_date": "2015-12-27",
     "order_type": "PREPAID",
     "cod_value": "0",
-    "items": [{"product_url":"http://sample-file1","price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"http://sample-file1","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images":"http://sample-file1.jpg,http://sample-file2.jpg"}],
+    "items": [{"product_url":"<Product Page Url>","price":"370.00","description":"IN1543MTOSKTBLA-146-10","sku":"IN1543MTOSKTBLA-146-10","quantity":"1","images": "http://sample-file1.jpg,http://sample-file2.jpg"},{"product_url":"<Product Page Url>","price":"694.00","description":"IN1516MTODREMLT-147-10","sku":"IN1516MTODREMLT-147-10","quantity":"1","images":"http://sample-file1.jpg,http://sample-file2.jpg"}],
     "invoice_number": "INV-234/3",
     "invoice_value": "100",
     "reference_number": "SAMPLE-REF-No",
@@ -185,7 +185,7 @@ Nagar, New Delhi",
     "invoice_number": "INV-4/3",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
-    "items": [{"product_url":"http://sample-file1", "price": 200, "description": "item1", "sku":
+    "items": [{"product_url":"<Product Page Url>", "price": 200, "description": "item1", "sku":
     "XYZ1", "quantity": 1, "images": "http://sample-file1.jpg,http://sample-file2.jpg"}],
     "height": 10,
     "length": 10,
@@ -246,7 +246,7 @@ Nagar, New Delhi",
     "invoice_value": 100,
     "invoice_date": "2015-12-27",
     "items": [
-    {"product_url":"http://sample-file1",
+    {"product_url":"<Product Page Url>",
     "price": 200, 
     "description": "item1",
     "sku": "XYZ1",
@@ -483,7 +483,7 @@ Headers: {'Content-type': 'application/json'}
         "weight": 100,
         "items": [
             {
-                "product_url":"http://sample-file1",
+                "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
                 "additional": {
@@ -594,7 +594,7 @@ Headers: {'Content-type': 'application/json'}
         "weight": 100,
         "items": [
             {
-                "product_url":"http://sample-file1",
+                "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
                 "additional": {
@@ -843,7 +843,7 @@ Headers: {'Content-type': 'application/json'}
         "weight": 100,
         "items": [
             {
-                "product_url":"http://sample-file1",
+                "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
                 "additional": {
@@ -988,7 +988,7 @@ Headers: {'Content-type': 'application/json'}
             },
             "additional": {
                 "breadth": 10,
-                "product_url":"http://sample-file1",
+                "product_url":"<Product Page Url>",
                 "images": "http://sample-file1.jpg,http://sample-file2.jpg",
                 "length": 10,
                 "weight": 100,
@@ -1091,7 +1091,7 @@ Headers: {'Content-type': 'application/json'}
         "order_type": "PREPAID",
         "cod_value": 0,
         "items": [{
-            "product_url":"http://sample-file1",
+            "product_url":"<Product Page Url>",
             "price": 1000,
             "description": "dfdsfsd",
             "sku": "asasa",
@@ -1417,7 +1417,7 @@ Headers: {'Content-type': 'application/json'}
     "cod_value": 0,
     "shipment_type": "MPS",
     "items": [{
-        "product_url":"http://sample-file1",
+        "product_url":"<Product Page Url>",
         "length": 10,
         "breadth": 10,
         "sku": "XYZ1",
@@ -1428,7 +1428,7 @@ Headers: {'Content-type': 'application/json'}
         "quantity": 1
     },
     {
-        "product_url":"http://sample-file1",
+        "product_url":"<Product Page Url>",
         "length": 10,
         "breadth": 150,
         "sku": "XYZ2",
