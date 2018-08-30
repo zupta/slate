@@ -684,7 +684,7 @@ pickup_time | character | (ISO Format: example 2015-12-10T12:00:00Z)
 pickup_city | character | pickup city name, maximum length 200 characters
 pickup_state | character | pickup state name, maximum length 200 characters
 pickup_country | character | pickup country name, maximum length 100 characters i. email: email id to be sent to courier partner for this shipment
-vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location
+
 #####Drop Information
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -772,6 +772,8 @@ rvp_reason | character | rvp reason if order is for reverse pickup
 priority | character| "NORMAL" or any other priority for order
 async | boolean| for real time orders false and true if order need to generated in background
 gst_number | character| gst number for tax purposes
+pickup_type | character | Acceptable values: "WH" (for warehouse pickup) / "SL" (for seller pickup [marketplace]). This value is passed to EcomExpress only
+vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location. For Ecom Express this field is passed to them as pickup_location_code to create location tagging 
 
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
@@ -1015,6 +1017,8 @@ Headers: {'Content-type': 'application/json'}
             "state": "DELHI"
         },
         "delivery_type": "FORWARD",
+        "vendor_code": "<WH_CODE>",
+        "pickup_type": "WH",
         "is_multi_seller": true
     }
 }
