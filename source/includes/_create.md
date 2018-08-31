@@ -677,25 +677,27 @@ Format: JSON
 Parameter | Type | Description
 --------- | ---- | -----------
 pickup_name | character | maximum length of 100 characters
-pickup_phone |integer | 10/11 digit phone number
-pickup_pincode | integer | 6 digit pincode
+pickup_phone | character | 10/11 digit phone number
+pickup_pincode | character | 6 digit pincode
 pickup_address | character | maximum length of 500 characters
 pickup_time | character | (ISO Format: example 2015-12-10T12:00:00Z)
 pickup_city | character | pickup city name, maximum length 200 characters
 pickup_state | character | pickup state name, maximum length 200 characters
-pickup_country | character | pickup country name, maximum length 100 characters i. email: email id to be sent to courier partner for this shipment
+pickup_country | character | pickup country name, maximum length 100 characters 
+email | character | email id to be sent to courier partner for this shipment
 
 #####Drop Information
 Parameter | Type | Description
 --------- | ---- | -----------
 drop_name | character | maximum length of 100 characters
 drop_address | character | maximum length of 500 characters
-drop_phone | integer | 10/11 digit phone number
-drop_pincode| integer | 6 digit pincode
+drop_phone | character | 10/11 digit phone number
+drop_pincode | character | 6 digit pincode
 drop_city | character | drop city name, maximum length 200 characters
 drop_state | character | drop state name, maximum length 200 characters
 drop_country | character | drop country name, maximum length 200 characters
 drop_email | character | (optional) email of the customer
+
 #####Return Information
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -707,6 +709,7 @@ city | character | drop city name, maximum length 200 characters
 state | character | drop state name, maximum length 200 characters
 country | character | drop country name, maximum length 200 characters
 email | character | (optional) email of the customer
+
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -714,19 +717,35 @@ items | List | Json list with multiple item objects in it. Each item object shou
 price | double | price of the item
 description | character | Item description
 sku | character | SKU unit name of item
-quantity | Integer | number of item pieces
+quantity | Integer | number of item pieces (should be always > 0)
 product_url | character | product page url for the item on website
 
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
-invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
+invoice_date | character | Format: YYYY-MM-DD, example: 2015-12-25 for 25th December 2015
 reference_number | character | reference number to tag the order with your order id.
-length | integer | in cm
-breadth | integer | in cm
-height | integer | in cm
-weight | integer | grams
+length | integer | length of shipment in cm
+breadth | integer | breadth of shipment in cm
+height | integer | height of shipment in cm
+weight | integer | weight of shipment in grams
 tin | character | TIN number of seller (Now GST No)
 images | character | comma separated images of the item
+
+#####Order type:
+Parameter | Type | Description
+--------- | ---- | -----------
+order_type | character | COD/PREPAID/EXCHANGE, to be passed in shipment_details object
+cod_value | double | if order_type = COD, cod_value should be greater than 0, if order_type = PREPAID, cod_value should be equal to 0. To be passed in shipment_details object
+
+#####Courier Partner:
+Parameter | Type | Description
+--------- | ---- | -----------
+courier_partner | integer | ID of courier partner for which the order is to be placed. This is to be passed in shipment_details object
+account_code | character | (optional) in case you have multiple accounts for a courier partner in Clickpost, code of account saved in clickpost is to be passed in additional object
+
+List of courier partners is present at:
+<a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
+
 #####GST Information
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -747,21 +766,8 @@ cgst_tax_rate | integer | tax percent applicable for cgst for the shipment (opti
 cgst_amount | double | amount applicable for cgst for the shipment (optional)
 consignee_gstin | string | GST No of consignee (compulsory for B2B shipments) 
 invoice_reference | string | invoice number for the shipment
-#####Order type:
-Parameter | Type | Description
---------- | ---- | -----------
-order_type | character | COD/PREPAID/EXCHANGE
-cod_value | double | if order_type = COD, cod_value should be greater than 0, if order_type = PREPAID, cod_value should be equal to 0
-#####Courier Partner:
-Parameter | Type | Description
---------- | ---- | -----------
-courier_partner | integer | ID of courier partner for which the order is to be placed.
-account_code | character | (optional) in case you have multiple accounts for a courier partner, code of account saved in clickpost is to be passed in additional object
 
-List of courier partners is present at:
-<a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
-
-#####**additional object:**
+#####additional object
 Parameter | Type | Description
 --------- | ---- | -----------
 label | boolean | true or false based upon if label need to be generated
@@ -798,11 +804,13 @@ Response Object has two parts:
   1. reference_number: reference number provided in the post data
   2. waybill: waybill generated by courier partner for the shipment
   3. label: AWS link of the label generated for the shipment (Not generated for RVP shipments)
+  4. sort_code: Sort Code of shipment, needed by certain logistics partner on the label. response will be null if the sort code is not applicable for logistics partner. Right now populated for Delhivery / Ecom / Bluedart / XpressBees.
+  
   Additional fields for Bluedart:
-  4. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
-  5. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
+  5. DestinationLocation: 3 digit destination location code needed by Bluedart on shipping label
+  6. DestinationArea: 3 digit destination area code needed by Bluedart on shipping label
 
-##Order Creation V3 API (Reverse Pickup)
+##Order Creation V3 API (Reverse)
 ```
 https://www.clickpost.in/api/v3/create-order/?username=<user-name>&key=<api-key>
 Headers: {'Content-type': 'application/json'}
