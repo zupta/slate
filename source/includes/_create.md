@@ -685,6 +685,7 @@ pickup_city | character | pickup city name, maximum length 200 characters
 pickup_state | character | pickup state name, maximum length 200 characters
 pickup_country | character | pickup country name, maximum length 100 characters 
 email | character | email id to be sent to courier partner for this shipment
+tin | character | Seller TIN if available. If not, please pass GST No here
 
 #####Drop Information
 Parameter | Type | Description
