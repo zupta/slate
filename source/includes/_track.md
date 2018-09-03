@@ -605,14 +605,6 @@ ndr_status_code | ndr_status_description
 
 ##Testing Webhook
 
-You can test the webhooks by making a POST request on the following URL:
-
-`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
-
-Where test_url is your server URL where you want to test the webhook data.
-
-This will send sample payload as specified in test_data with Headers on the server mentioned in test_url.
-
 >__Test Webhook URL__
 
 ```
@@ -650,4 +642,11 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
 }
 
 ```
+You can test the webhooks by making a POST request on the following URL:
+
+`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
+
+Where test_url is your server URL where you want to test the webhook data.
+
+This will send sample payload as specified in test_data with Headers on the server mentioned in test_url.
 ------
