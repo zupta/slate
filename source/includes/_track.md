@@ -407,21 +407,12 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 
 ##Tracking AWB Using Webhooks
 
-###Activating Webhooks:
-
-1. Visit Clickpost dashboard: *Settings* Tab on the left and Click notification section
-2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need
-
-###Webhook data POST on Client Server for all events:
-
-Every time courier partner updates tracking of the shipment, We will post data to your server using the url you registered while registering for webhooks.
-
 >__Webhook Payload Header__
 
 ```json
 {
-	"Content-Type": "application/json",
-	"webhook_key": "webhook_key_given_during_webhooks_register"
+  "Content-Type": "application/json",
+  "webhook_key": "webhook_key_given_during_webhooks_register"
 }
 ```
 
@@ -478,6 +469,15 @@ Every time courier partner updates tracking of the shipment, We will post data t
   }
 }
 ```
+
+###Activating Webhooks:
+
+1. Visit Clickpost dashboard: *Settings* Tab on the left and Click notification section
+2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need
+
+###Webhook data POST on Client Server for all events:
+
+Every time courier partner updates tracking of the shipment, We will post data to your server using the url you registered while registering for webhooks.
 
 ###Payload Explanation:
 
