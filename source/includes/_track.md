@@ -237,130 +237,107 @@ Headers: {'Content-type': 'application/json'}
 ```json
 {
     "meta": {
-        "status": 200,
         "message": "SUCCESS",
+        "status": 200,
         "success": true
     },
     "result": {
-        "69590558973": {
+        "SF18399217NER": {
             "latest_status": {
-                "location": "TOLICHOWKI E-TAIL CENTRE",
-                "clickpost_status_code": 8,
-                "timestamp": "2018-03-16 18:56:00",
                 "clickpost_status_description": "Delivered",
-                "status": "SHIPMENT DELIVERED",
-                "remark": "SHIPMENT DELIVERED"
+                "clickpost_status_code": 8,
+                "clickpost_status_bucket": 6,
+                "status": "Delivered successfully",
+                "location": "",
+                "remark": "Delivered successfully",
+                "timestamp": "2018-07-07 19:34:46"
+            },
+            "additional": {
+                "is_stuck": false,
+                "dest_hub_inscan": false,
+                "order_detail": [],
+                "edd": {
+                    "min_sla": 2,
+                    "max_sla": 5
+                }
             },
             "scans": [
                 {
-                    "location": "TOLICHOWKI E-TAIL CENTRE",
-                    "clickpost_status_code": 8,
-                    "timestamp": "2018-03-16 18:56:00",
-                    "checkpoint_id": 112650092,
                     "clickpost_status_description": "Delivered",
-                    "status": "SHIPMENT DELIVERED",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT DELIVERED"
+                    "clickpost_status_code": 8,
+                    "clickpost_status_bucket": 6,
+                    "status": "Delivered successfully",
+                    "location": "",
+                    "remark": "Delivered successfully",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-07 19:34:46",
+                    "checkpoint_id": 163921399
                 },
                 {
-                    "location": "TOLICHOWKI E-TAIL CENTRE",
-                    "clickpost_status_code": 6,
-                    "timestamp": "2018-03-16 13:11:00",
-                    "checkpoint_id": 112584864,
                     "clickpost_status_description": "OutForDelivery",
-                    "status": "SHIPMENT OUT FOR DELIVERY",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT OUT FOR DELIVERY"
+                    "clickpost_status_code": 6,
+                    "clickpost_status_bucket": 4,
+                    "status": "Out for Delivery",
+                    "location": "",
+                    "remark": "Out for Delivery",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-07 08:53:01",
+                    "checkpoint_id": 163496669
                 },
                 {
-                    "location": "TOLICHOWKI E-TAIL CENTRE",
-                    "clickpost_status_code": 5,
-                    "timestamp": "2018-03-16 11:37:00",
-                    "checkpoint_id": 112584868,
                     "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT ARRIVED",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT ARRIVED"
-                },
-                {
-                    "location": "TOLICHOWKI E-TAIL CENTRE",
                     "clickpost_status_code": 5,
-                    "timestamp": "2018-03-16 11:22:00",
-                    "checkpoint_id": 112584871,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT IN TRANSIT",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT IN TRANSIT"
+                    "clickpost_status_bucket": 3,
+                    "status": "Assigned to a Shadowfax Rider",
+                    "location": "",
+                    "remark": "Assigned to a Shadowfax Rider",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-07 08:52:51",
+                    "checkpoint_id": 163496670
                 },
                 {
-                    "location": "HYDERABAD HUB",
+                    "clickpost_status_description": "InTransit",
                     "clickpost_status_code": 5,
-                    "timestamp": "2018-03-16 10:47:00",
-                    "checkpoint_id": 112584879,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT FURTHER CONNECTED",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT FURTHER CONNECTED"
+                    "clickpost_status_bucket": 3,
+                    "status": "Reached the nearest hub",
+                    "location": "",
+                    "remark": "Reached the nearest hub",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-07 08:02:08",
+                    "checkpoint_id": 163496671
                 },
                 {
-                    "location": "HYDERABAD HUB",
+                    "clickpost_status_description": "OrderPlaced",
+                    "clickpost_status_code": 1,
+                    "clickpost_status_bucket": 1,
+                    "status": "In Manifest",
+                    "location": "GUNJAN ",
+                    "remark": "In Manifest",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-07 02:47:21",
+                    "checkpoint_id": 163419110
+                },
+                {
+                    "clickpost_status_description": "InTransit",
                     "clickpost_status_code": 5,
-                    "timestamp": "2018-03-16 07:59:00",
-                    "checkpoint_id": 112401887,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT ARRIVED AT HUB",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT ARRIVED AT HUB"
+                    "clickpost_status_bucket": 3,
+                    "status": "Collected by Shadowfax",
+                    "location": "GUNJAN ",
+                    "remark": "Collected by Shadowfax",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-07 02:25:34",
+                    "checkpoint_id": 163419111
                 },
                 {
-                    "location": "MUMBAI ETAIL WAREHOU",
-                    "clickpost_status_code": 5,
-                    "timestamp": "2018-03-16 06:05:00",
-                    "checkpoint_id": 112401888,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT FURTHER CONNECTED",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT FURTHER CONNECTED"
-                },
-                {
-                    "location": "MUMBAI ETAIL WAREHOU",
-                    "clickpost_status_code": 5,
-                    "timestamp": "2018-03-15 23:48:00",
-                    "checkpoint_id": 112292967,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT ARRIVED AT HUB",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT ARRIVED AT HUB"
-                },
-                {
-                    "location": "MUMBAI ETAIL CENTRE",
-                    "clickpost_status_code": 5,
-                    "timestamp": "2018-03-15 21:32:00",
-                    "checkpoint_id": 112292968,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT FURTHER CONNECTED",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT FURTHER CONNECTED"
-                },
-                {
-                    "location": "MUMBAI ETAIL CENTRE",
-                    "clickpost_status_code": 5,
-                    "timestamp": "2018-03-15 18:52:00",
-                    "checkpoint_id": 112292969,
-                    "clickpost_status_description": "InTransit",
-                    "status": "SHIPMENT ARRIVED",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT ARRIVED"
-                },
-                {
-                    "location": "SEEPZ",
-                    "clickpost_status_code": 4,
-                    "timestamp": "2018-03-15 18:01:00",
-                    "checkpoint_id": 112217310,
-                    "clickpost_status_description": "PickedUp",
-                    "status": "SHIPMENT PICKED UP",
-                    "tracking_id": 8241453,
-                    "remark": "SHIPMENT PICKED UP"
+                    "clickpost_status_description": "OrderPlaced",
+                    "clickpost_status_code": 1,
+                    "clickpost_status_bucket": 1,
+                    "status": "Assigned to Shadowfax",
+                    "location": "",
+                    "remark": "Assigned to Shadowfax",
+                    "tracking_id": 12087859,
+                    "timestamp": "2018-07-06 05:41:13",
+                    "checkpoint_id": 162947643
                 }
             ],
             "valid": true
@@ -411,6 +388,21 @@ cp_id (required) | integer | courier_partner_id as specified on page 1 of this d
         5. clickpost_status_code: clickpost generated status code for particular
         status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner (Explained on last page of this document)
         6. clickpost_status_description: description of clickpost_status_code (Specified on last page of this document)
+        7. clickpost_status_bucket: this is a consolidated id built on top of clickpost_status_codes, that can be used to show status to the customer on your track orders page. It has following distinct values:
+
+clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
+--------- | ---- | -----------
+1 | Order Placed by Customer | [1, 2, 3, 28, 25, 10]
+2 | Dispatched | [4]
+3 | In Transit | [5, 18, 19, 20]
+4 | Out For Delivery | [6]
+5 | Failed Delivery | [7, 9]
+6 | Delivered | [8] 
+7 | Returned: When shipment is in return journey due to customer rejection | [11, 12, 13, 14, 15, 21, 26, 27]
+8 | Lost | [16]
+9 | Damaged | [17]
+
+6, 7, 8: These are terminal buckets in shipment journey
 
 
 ##Tracking AWB Using Webhooks
