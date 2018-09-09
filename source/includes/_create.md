@@ -531,7 +531,7 @@ Headers: {'Content-type': 'application/json'}
             "city": "DELHI",
             "country": "IN"
         },
-        "awb_number ": "43062728295",
+        "awb_number": "43062728295",
         "delivery_type": "FORWARD",
         "async": false,
         "gst_number" : "21313",
@@ -644,7 +644,7 @@ Headers: {'Content-type': 'application/json'}
             "city": "DELHI",
             "country": "IN"
         },
-        "awb_number ": "43062728295",
+        "awb_number": "43062728295",
         "delivery_type": "FORWARD",
         "async": false,
         "gst_number" : "21313",
@@ -904,7 +904,7 @@ Headers: {'Content-type': 'application/json'}
             "city": "DELHI",
             "country": "IN"
         },
-        "awb_number ": "43062728295",
+        "awb_number": "43062728295",
         "delivery_type": "RVP",
         "rvp_reason": "Shipper cancellation",
         "async": false,
