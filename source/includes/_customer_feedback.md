@@ -31,7 +31,12 @@ https://www.clickpost.in/api/v1/ndr_user_feedback/?username=test&key=42d42a34-ae
         "preferred_date": null,
         "address": null,
         "clickpost_status_description": "Delivery Failed",
-        "reference_number": "Order-ID"
+        "reference_number": "Order-ID",
+        "additional": {
+            "internal_cst_responded": true,
+            "internal_username": "netmeds",
+            "internal_comment": "Test"
+        }
 }],
     "meta": {
         "meta": {
@@ -95,6 +100,9 @@ Response object has two parts:
     + reference_number: reference_number passed to Clickpost
     + type: either CLIENT_OPS_FEED or CUSTOMER_FEED
     + api_data_push: if the data is pushed via api to courier company or not, null means we did not try to push, true is successfully pushed and false if failed to push.
+    + additional: internal_cst_responded: in case of CLIENT_OPS_FEED (Feedback by your operations team), if operation team has word with customer, they will mark the same on NDR Management section of the dashboard. Possible values: True / False
+    + additional: internal_comment: in case of CLIENT_OPS_FEED (Feedback by your operations team), if operation team enters any internal comment. This is a string field
+    + additional: internal_username: in case of CLIENT_OPS_FEED (Feedback by your operations team), if there are multiple users, username of employee updating the remark will populate here
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
