@@ -13,16 +13,17 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-  "pickup_date": "2016-04-02T12:00:00Z",
+  "pickup_date": "2018-10-23T15:30:39+05:30",
   "courier_partner": 1,
-  "items": "laptop",
-  "pickup_pincode": "110017",
-  "pickup_email": "founders@clickpost.in",
-  "pickup_phone": "8376035546",
-  "pickup_name": "Test-User",
-  "pickup_city": "Delhi",
-  "pickup_state": "DELHI",
-  "pickup_address": "B-222/2 savitri nagar new delhi -10"
+  "items": "3 Carton boxes, 20 KGs",
+  "pickup_pincode": 560037,
+  "pickup_email": "Test@pickupwarehousemail.com",
+  "pickup_phone": 8080808080,
+  "pickup_name": "Warehouse Pickup POC",
+  "pickup_city": "Bengaluru Urban",
+  "pickup_state": "KARNATAKA",
+  "pickup_address": "Test Pickup Warehouse Address, Pickup Locality, ",
+  "account_code": "BluedartAIR"
 }
 ```
 
