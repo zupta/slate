@@ -1370,89 +1370,90 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-    "breadth": 10,
-    "drop_name": "Rahul",
-    "order_type": "PREPAID",
-    "invoice_date": "2015-12-27",
-    "priority": "NORMAL",
-    "pickup_pincode": "110008",
-    "drop_city": "DELHI",
-    "reference_number": "ad123",
-    "drop_address": "L-19B, third Floor Malviya Nagar, New Delhi",
-    "courier_partner": 1,
-    "gst_info": {
-        "is_seller_registered_under_gst": false,
-        "place_of_supply": "DELHI",
-        "invoice_reference": "1234",
-        "gst_tax_base": 200,
-        "hsn_code": "1234",
-        "gst_discount": 0,
-        "sgst_tax_rate": 100,
-        "igst_amount": 100,
-        "taxable_value": 100,
-        "sgst_amount": 100,
-        "seller_gstin": "1234",
-        "gst_total_tax": 100,
-        "ewaybill_serial_number": "2345677",
-        "consignee_gstin ": "1233",
-        "enterprise_gstin": "13",
-        "igst_tax_rate": 100,
-        "cgst_amount": 200,
-        "cgst_tax_rate": 100
+    "pickup_info": {
+        "pickup_time": "2018-11-20T12:00:00Z",
+        "email": "pankaj@khazanabazaar.com",
+        "pickup_address": "402, Orbit tower, Sahara Darwaja, Ring Road, Surat - 395002",
+        "pickup_state": "GUJARAT",
+        "pickup_name": "Pankaj Kubadiya",
+        "pickup_country": "IN",
+        "tin": "120349483",
+        "pickup_city": "SURAT",
+        "pickup_phone": "08469591430",
+        "pickup_pincode": "395002"
     },
-    "tin": "120349483",
-    "email": "founders@clickpost.in",
-    "return_info": {
-        "state": "DELHI",
-        "country": "IN",
-        "city": "DELHI",
-        "phone": 8080808080,
-        "name": "Deepanshu",
-        "pincode": "110019",
-        "address": "Test Address top floor Nehru Place New Delhi "
+    "drop_info": {
+        "drop_country": "IN",
+        "drop_city": "Delhi",
+        "drop_phone": "9717732402",
+        "drop_address": "F-68 third floor kalkaji New Delhi ",
+        "drop_name": "Prashant",
+        "drop_state": "DELHI",
+        "drop_pincode": "110019",
+        "drop_email": "support@clickpost.in"
     },
-    "pickup_phone": "8080808080",
-    "drop_state": "DELHI",
-    "pickup_time": "2017-11-23T12:00:00Z",
-    "pickup_state": "Haryana",
-    "drop_pincode": "110017",
-    "drop_country": "IN",
-    "weight": 100,
-    "length": 10,
-    "invoice_value": 1000,
-    "height": 10,
-    "drop_phone": "8080808080",
-    "pickup_name": "Deepanshu",
-    "awb_number": "553889122",
-    "data_validation": false,
-    "pickup_country": "IN",
-    "invoice_number": "INV-234/3",
-    "pickup_address": "A-228 top floor near XYZ, Gurgaon",
-    "pickup_city": "Gurgaon",
-    "cod_value": 0,
-    "shipment_type": "MPS",
-    "items": [{
-        "product_url":"<Product Page Url>",
+    "shipment_details": {
+        "breadth": 10, 
+        "cod_value": 300,
+        "height": 12,
+        "invoice_date": "2018-11-12",
         "length": 10,
-        "breadth": 10,
-        "sku": "XYZ1",
-        "price": 200,
-        "height": 10,
-        "weight": 100,
-        "description": "item1",
-        "quantity": 1
+        "order_type": "COD",
+        "invoice_number": "INV123",
+        "invoice_value": 200,
+        "shipment_type": "MPS",
+        # Each item in items object represent a carton box.
+        "items": [{
+            "quantity": 1,
+            "sku": "XYZ1",
+            "price": 200,
+            "description": "Carton box 1",
+            "breadth": 10,
+            "length": 10,
+            "weight": 100,
+            "height": 10,
+            "additional": {
+                "product_url":"<Product Page Url>",
+                "images": "http://sample-file1.jpg,http://sample-file2.jpg",
+            }
+        },{
+            "quantity": 1,
+            "sku": "XYZ2",
+            "price": 200,
+            "description": "Carton box 2",
+            "breadth": 10,
+            "length": 10,
+            "weight": 100,
+            "height": 10,
+            "additional": {
+                "product_url":"<Product Page Url>",
+                "images": "http://sample-file1.jpg,http://sample-file2.jpg",
+            }
+        }],
+        "courier_partner": 61,
+        "weight": 200,
+        "reference_number": "UNIQUE-SHIPMENT-ID7"
     },
-    {
-        "product_url":"<Product Page Url>",
-        "length": 10,
-        "breadth": 150,
-        "sku": "XYZ2",
-        "price": 200,
-        "height": 10,
-        "weight": 100,
-        "description": "item2",
-        "quantity": 1
-    }]
+    "additional": {
+        "label": true,
+        "data_validation": true,
+        "async": false,
+        "return_info": {
+            "email": "support@clickpost.in",
+            "name": "Test Return Warehouse Name",
+            "phone": "8080808080",
+            "address": "Test Return Address New Delhi ",
+            "country": "IN",
+            "city": "DELHI",
+            "pincode": "110020",
+            "state": "DELHI"
+        },
+        "delivery_type": "FORWARD",
+        "vendor_code": "SBL",
+        "pickup_type": "WH",
+        "is_multi_seller": true,
+        "account_code":"AIR"
+    }
 }
 ```
 
@@ -1468,7 +1469,7 @@ Headers: {'Content-type': 'application/json'}
     "result": {
         "reference_number": "ASDF1234",
         "waybill": "785578015860",
-        "label": "https://pyck-res-bucket.s3.amazonaws.com:443/fedex/2017-02-11/785578015860.pdf",
+        "label": "https://pyck-res-bucket.s3.amazonaws.com:443/XPRESBEES_CARGO/2017-02-11/785578015860.pdf",
         "children": [{
                 "reference_number": "ASDF1234",
                 "waybill": "785578015860_1",
@@ -1508,7 +1509,7 @@ Headers: {'Content-type': 'application/json'}
 
 The create order B2B API allows uploading the package details (manifest information) for multi piece shipment into the courier partner’s system and returns a label generated by them. You can create single order; errors/warnings will be highlighted in the response.
 
-Details for multiple shipments needs to passed in items array during object creation. This array is treated as multiple shipments if shipment_type is MPS.
+Details for multiple shipments needs to passed in items array during object creation. This array is treated as multiple shipments/carton boxes if shipment_type is MPS.
 
 Please note, in case of any validation failure - order will not get created. Please wait for 8 seconds before you reject a rest-request for latency.
 
@@ -1564,12 +1565,16 @@ email | character | (optional) email of the customer
 #####Shipment details
 Parameter | Type | Description
 --------- | ---- | -----------
-items | List | Json list with multiple item objects in it. Each item object should have following:
+items | List | Json list with multiple item objects in it. Each item object represents a carton and should have following:
 price | double | price of the item
 description | character | Item description
 sku | character | SKU unit name of item
-quantity | Integer | number of item pieces
-product_url | character | product page url on website
+length | integer | in cm
+breadth | integer | in cm
+height | integer | in cm
+weight | integer | grams
+quantity | Integer | number of sku pieces
+product_url | character | product page url on website, optional
 
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
@@ -1621,13 +1626,6 @@ Parameter | Type | Description
 rvp_reason | character | stating the reason for Reverse Pickup
 delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
 
-#####Optional field for NuvoEx RVP (Doorstep QC):
-Parameter | Type | Description
---------- | ---- | -----------
-qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
-image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
-cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
-sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
 --------- | ---- | -----------
