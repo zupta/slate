@@ -1372,24 +1372,24 @@ Headers: {'Content-type': 'application/json'}
 {
     "pickup_info": {
         "pickup_time": "2018-11-20T12:00:00Z",
-        "email": "pankaj@khazanabazaar.com",
-        "pickup_address": "402, Orbit tower, Sahara Darwaja, Ring Road, Surat - 395002",
+        "email": "support@clickpost.in",
+        "pickup_address": "Test Pickup Warehouse Address, Pickup Locality, Surat - 395002",
         "pickup_state": "GUJARAT",
-        "pickup_name": "Pankaj Kubadiya",
+        "pickup_name": "Test Pickup Warehouse Name",
         "pickup_country": "IN",
-        "tin": "120349483",
+        "tin": "<GST_NUMBER>",
         "pickup_city": "SURAT",
-        "pickup_phone": "08469591430",
+        "pickup_phone": "8080808080",
         "pickup_pincode": "395002"
     },
     "drop_info": {
         "drop_country": "IN",
         "drop_city": "Delhi",
-        "drop_phone": "9717732402",
-        "drop_address": "F-68 third floor kalkaji New Delhi ",
-        "drop_name": "Prashant",
+        "drop_phone": "8080808080",
+        "drop_address": "Test Drop address, Drop Locality, New Delhi ",
+        "drop_name": "Test Drop Name",
         "drop_state": "DELHI",
-        "drop_pincode": "110019",
+        "drop_pincode": "110020",
         "drop_email": "support@clickpost.in"
     },
     "shipment_details": {
@@ -1414,7 +1414,7 @@ Headers: {'Content-type': 'application/json'}
             "height": 10,
             "additional": {
                 "product_url":"<Product Page Url>",
-                "images": "http://sample-file1.jpg,http://sample-file2.jpg",
+                "images": "http://sample-file1.jpg,http://sample-file2.jpg"
             }
         },{
             "quantity": 1,
@@ -1427,7 +1427,7 @@ Headers: {'Content-type': 'application/json'}
             "height": 10,
             "additional": {
                 "product_url":"<Product Page Url>",
-                "images": "http://sample-file1.jpg,http://sample-file2.jpg",
+                "images": "http://sample-file1.jpg,http://sample-file2.jpg"
             }
         }],
         "courier_partner": 61,
