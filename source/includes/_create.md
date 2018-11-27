@@ -1627,7 +1627,6 @@ height | integer | in cm
 weight | integer | grams
 quantity | Integer | number of sku pieces
 product_url | character | product page url on website, optional
-
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
