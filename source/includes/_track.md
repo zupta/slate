@@ -107,21 +107,21 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-	"meta": {
-		"message": "SUCCESS",
-		"status": 200,
-		"success": true
-	},
-	"result": {
+  "meta": {
+    "message": "SUCCESS",
+    "status": 200,
+    "success": true
+  },
+  "result": {
     "security_key": "530470b0-8ebd-40c3-9c9e-6ca6bf1d29b8",
-		"consumer_details": {
-			"id": 1
-		},
-		"shipment_info": {
-			"id": 1
-		},
-		"tracking_id": 1188264
-	}
+    "consumer_details": {
+      "id": 1
+    },
+    "shipment_info": {
+      "id": 1
+    },
+    "tracking_id": 1188264
+  }
 }
 ```
 
