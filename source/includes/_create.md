@@ -895,15 +895,6 @@ Headers: {'Content-type': 'application/json'}
     
     "additional": {
         "label ": true,
-        "return_info": {
-            "pincode": "110019",
-            "address": "Test Address top floor kalkaji New Delhi ",
-            "state": "DELHI",
-            "phone": "8080808080",
-            "name": "Deepanshu",
-            "city": "DELHI",
-            "country": "IN"
-        },
         "awb_number": "43062728295",
         "delivery_type": "RVP",
         "rvp_reason": "Shipper cancellation",
