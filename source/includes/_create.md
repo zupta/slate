@@ -913,6 +913,13 @@ Parameter | Type | Description
 rvp_reason | character | stating the reason for Reverse Pickup
 delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
 
+#####Optional field for RVP (Doorstep QC):
+Parameter | Type | Description
+--------- | ---- | -----------
+qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
+image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
+cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
+sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
 
 ##Multiseller items shipment API
 
@@ -1306,19 +1313,6 @@ transit_address | character | address for last mile courier company to pick the 
 transit_country | character | country code for the address
 transit_email | character | email id for reference to pick order for last mile
 
-#####**Compulsory fields for RVP order creation:**
-Parameter | Type | Description
---------- | ---- | -----------
-rvp_reason | character | stating the reason for Reverse Pickup
-delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
-
-#####Optional field for NuvoEx RVP (Doorstep QC):
-Parameter | Type | Description
---------- | ---- | -----------
-qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
-image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
-cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
-sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
 --------- | ---- | -----------
