@@ -861,11 +861,14 @@ Headers: {'Content-type': 'application/json'}
                     "length": 10,
                     "height": 10,
                     "breadth": 10,
-                    "weight": 100,
-                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
+                    "weight": 100
                 },
                 "quantity": 1,
-                "sku": "XYZ1"
+                "sku": "XYZ1",
+                "image_urls": [
+                    "https://assetscdn.paytm.com/images/catalog/view_item/114560/123.jpg",
+                    "https://assetscdn.paytm.com/images/catalog/view_item/116303/123434.jpg"
+                ]
             }
         ],
         "cod_value": 0,
