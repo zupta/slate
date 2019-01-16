@@ -720,7 +720,6 @@ description | character | Item description
 sku | character | SKU unit name of item
 quantity | Integer | number of item pieces (should be always > 0)
 product_url | character | product page url for the item on website
-
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | Format: YYYY-MM-DD, example: 2015-12-25 for 25th December 2015
@@ -1242,7 +1241,6 @@ description | character | Item description
 sku | character | SKU unit name of item
 quantity | Integer | number of item pieces
 product_url | character | item url on website 
-
 invoice_value | decimal/float/integer | value
 invoice_number | character | string of length 50 characters
 invoice_date | character | (Format: YYYY-MM-DD, example: 2015-12-25 for 25th December  2015)
@@ -1417,7 +1415,9 @@ Headers: {'Content-type': 'application/json'}
                 "seller_state": "Delhi",
                 "seller_pincode": "110019",
                 "invoice_number": "1882782",
-                "invoice_date": "2018-08-23"
+                "invoice_date": "2018-08-23",
+                "ewaybill_serial_number": "07AACCF1234T3AS",
+                "ewaybill_expiry_date": "2018-12-31 18:58:56"
             },
             "additional": {
                 "breadth": 10,
