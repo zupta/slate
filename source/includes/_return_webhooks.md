@@ -19,22 +19,22 @@
   "waybill": "",
   "clickpost_status_code": 101,
   "cp_id": -1,
-  "clickpost_status_description": "OutForDelivery",
+  "clickpost_status_description": "Return Order Placed",
   "status": "O",
   "location": "VASAI, MUMBAI",
   "timestamp": "2017-08-02T13:23:02Z",
-  "remark": "Out For Delivery",
+  "remark": "Return Order Placed",
   "additional": {
     "is_rvp":True,
     "forward_awb":"sample_forward_awb",
     "forward_reference_number":"sample_forward_reference",
     "latest_status": {
       "clickpost_status_code": 101,
-      "location": "VASAI, MUMBAI",
+      "location": "",
       "status": "O",
-      "clickpost_status_description": "OutForDelivery",
+      "clickpost_status_description": "Return Order Placed",
       "timestamp": "2017-08-02T13:23:02Z",
-      "remark": "Out For Delivery"
+      "remark": "Return Order Placed"
     }
   }
 }
@@ -91,13 +91,13 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
 {
   "test_url": "http://www.clickpost.in/",
   "test_data": {
-    "status": "When forward shipment is not accepted by end customer",
-    "remark": "Failed Delivery",
-    "waybill": "XYZABC",
-    "location": "Bengaluru_Koramangala_Dc (Karnataka)",
+    "status": "Return Order Placed",
+    "remark": "Return Order Placed",
+    "waybill": "",
+    "location": "",
     "timestamp": "2016-07-12T17:12:36.710",
     "clickpost_status_code": 101,
-    "clickpost_status_description": "FailedDelivery",
+    "clickpost_status_description": "Return Order Placed",
     "cp_id": 1,
     "additional": {
       "is_rvp":True,
@@ -105,11 +105,11 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
       "forward_reference_number":"sample_forward_reference",
       "latest_status": {
         "clickpost_status_code": 101,
-        "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-        "status": "When forward shipment is not accepted by end customer",
-        "clickpost_status_description": "FailedDelivery",
+        "location": "",
+        "status": "Return Order Placed",
+        "clickpost_status_description": "Return Order Placed",
         "timestamp": "2016-07-12T17:12:36.710",
-        "remark": "Failed Delivery"
+        "remark": "Return Order Placed"
       }      
     }
   }
