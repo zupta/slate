@@ -25,6 +25,7 @@
   "timestamp": "2017-08-02T13:23:02Z",
   "remark": "Return Order Placed",
   "additional": {
+    "self_shipped" : False,
     "is_rvp":True,
     "forward_awb":"sample_forward_awb",
     "forward_reference_number":"sample_forward_reference",
@@ -57,6 +58,7 @@
 8. is_rvp inside additional object tells the payload is for reverse orders. forward_awb field contain the forward awb number for which return order has been placed and forward_reference_number will have the corresponding reference number.
 9. waybill number will be blank as order is not yet created on courier company (not manifested yet) 
 10. clickpost_status_code will have 101 value which is Return Order Placed.
+10. self_shipped: Either True or False depending upon how the return shipment is shipped, if shipped by customer, then self_shipped is True else False.
 
 
 ---

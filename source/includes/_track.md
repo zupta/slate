@@ -506,6 +506,7 @@ If customer opts for this service, we add: "notification_event_id" key in additi
 4. Failed Delivery
 5. Delivered
 6. RTO
+12. RTO-Delivered
 
 Please see the sample payload on the right:
 
