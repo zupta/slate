@@ -3,7 +3,7 @@
 > URL to hit:
 
 ```
-https://www.clickpost.in/api/v1/cancel-order/?username=test&key=42d42a34-ae09-4693- b20c-ae2624&waybill=782715732348&cp_id=8
+https://www.clickpost.in/api/v1/cancel-order/?username=test&key=42d42a34-ae09-469312b20c-ae2624&waybill=782715732348&cp_id=8
 
 Headers: {'Content-type': 'application/json'}
 

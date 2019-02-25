@@ -251,7 +251,6 @@ Nagar, New Delhi",
     "description": "item1",
     "sku": "XYZ1",
     "quantity": 1,
-    "qc_type": "doorstep",
     "cat": "electronics",
     "sub_cat": "tv",    
     "image_urls":[
@@ -268,6 +267,7 @@ Nagar, New Delhi",
     "pickup_time": "2016-10-01T12:00:00Z",
     "rvp_reason": "Not Interested",
     "delivery_type": "RVP",
+    "qc_type": "doorstep",
     "gst_info": {
         "seller_gstin": "1234",
         "taxable_value": 100,
@@ -403,13 +403,14 @@ Parameter | Type | Description
 rvp_reason | character | stating the reason for Reverse Pickup
 delivery_type | character | For Reverse Pickup, the value of this field should  be **"RVP"**
 
-#####Optional field for NuvoEx RVP (Doorstep QC):
+#####Optional field for RVP (Doorstep QC):
 Parameter | Type | Description
 --------- | ---- | -----------
 qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
 image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
 cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
 sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
+
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -900,6 +901,7 @@ Headers: {'Content-type': 'application/json'}
         "awb_number": "43062728295",
         "delivery_type": "RVP",
         "rvp_reason": "Shipper cancellation",
+        "qc_type": "doorstep",
         "async": false,
         "account_code": "ecom reverse"
     }
