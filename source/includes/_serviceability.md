@@ -19,7 +19,7 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
         "invoice_value": 1245,
         "weight": 10,
         "cp_id": 3,
-        "service_type": "FORWARD/RVP/EXCHANGE"
+        "service_type": "FORWARD/RVP"
     },
     "drop_pincode": "110020",
     "pickup_pincode": "122002"
@@ -35,7 +35,8 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
             "cp_id": 3,
             "serviceable": {
                 "PREPAID": false,
-                "COD": false
+                "COD": false,
+                "EXCHANGE": false # Exchange is returned only for service_type: RVP
             },
             "comitted_sla": null,
             "account_code": "Sample_Ecom_1",
