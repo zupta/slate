@@ -36,7 +36,7 @@ https://www.clickpost.in/api/v1/serviceability_api/?username=test&key=42d42a34-a
             "serviceable": {
                 "PREPAID": false,
                 "COD": false,
-                "EXCHANGE": false # Exchange is returned only for service_type: RVP
+                "EXCHANGE": false # EXCHANGE: true is returned only for service_type: RVP
             },
             "comitted_sla": null,
             "account_code": "Sample_Ecom_1",

@@ -86,6 +86,7 @@ Headers: {'Content-type': 'application/json'}
                             "quantity": 1,
                             "price": 200,
                             "images": "<Image URL>",
+                            "return_days": 2,
                             "additional": {
                                 "length": 10,
                                 "height": 10,
@@ -161,7 +162,8 @@ pickup_pincode | character | 6 digit pincode of pickup location
 delivery_type | character | either FORWARD / RVP
 cod_amount| float field | COD value to be collected from customer, float field
 drop_address| character (500 chars) | drop address of the shipment
-additional | object | optional field which can have additional information related to items like description, images for return management solution (easier for end customer to select which product to return)
+additional | object | optional field which can have additional information related to items like sku, description, quantity, image, price and return_days for return management solution (easier for end customer to select which product to return)
+additional --> items --> return_days | integer | number of days allowed for a product to be accepted as return
 
 ####additional (optional): extra information about shipment used to power tracking page:
 Parameter | Type | Description
