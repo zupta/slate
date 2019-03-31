@@ -1,46 +1,5 @@
 # Track Order
 
-##Register for Tracking Service
-
-> POST request. URL:
-
-```
-https://www.clickpost.in/api/v1/register-service/
-Headers: {'Content-type': 'application/json'}
-```
->__Payload__
-
-```
-{
-  "key":"---Your Clickpost API KEY--",
-  "service_id":2
-}
-```
->__Response__
-
-```json
-{
-  "message": "SUCCESS",
-  "status_code": 200,
-  "success": true
-}
-```
-
-###Fields Explanation:
-
-Parameter | Type | Description
---------- | ---- | -----------
-key (required) | character | this is the API Key provided to you
-service_id (required) | Integer | this is the Integer id of service for which you want to register
-
-####Service ID
-
-ID | Use
------- | -------
-1 | For placing orders on courier partner
-2 | For Tracking Shipments on Clickpost
-3 | For using Clickpost Recommendation Engine
-
 ##Register an AWB for tracking
 
 >POST request. URL:
@@ -60,9 +19,9 @@ Headers: {'Content-type': 'application/json'}
   "account_code": "Fedex Domestic",
   
   "consumer_details": {
-          "name": "Prashant Gupta",
+          "name": "Test Customer",
           "phone": "8080808080",
-          "email": "support@clickpost.in"
+          "email": "test@clickpost.in"
   },
   "shipment_info": {
           "item": "Shirt",
@@ -73,11 +32,11 @@ Headers: {'Content-type': 'application/json'}
           "height": 10,
           "weight": 10,
           "breadth": 10,
-          "drop_pincode": "110019",
-          "pickup_pincode": "110017",
+          "drop_pincode": "110001",
+          "pickup_pincode": "110001",
           "delivery_type": "FORWARD",
           "cod_amount": 1000.10,
-          "drop_address": "Roots hacker Home, R 28, Second Floor, Nehru Enclace, Opposite Nehru Place, New Delhi 110019",
+          "drop_address": "Roots hacker Home, R 28, Second Floor, Nehru Enclace, Opposite Nehru Place, New Delhi 110001",
           "additional": {
                     "items": [
                         {
