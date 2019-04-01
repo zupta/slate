@@ -95,8 +95,8 @@ Payload is a list of json objects each of which have following fields:
 
 Parameter | Type | Description
 --------- | ---- | -----------
-pickup_pincode | integer | pincode of pickup address
-drop_pincode | integer | pincode of drop address
+pickup_pincode | character | pincode of pickup address
+drop_pincode | character | pincode of drop address
 order_type | character | COD/PREPAID
 reference_number | character | to identify each json object uniquely
 item | character | item that you wish to send
