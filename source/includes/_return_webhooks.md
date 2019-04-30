@@ -1,6 +1,6 @@
 # Track Return Order
 
-##Tracking AWB Using Webhooks
+##Return Order Placed Webhook
 
 >__Webhook Payload Header__
 
@@ -16,35 +16,56 @@
 ```json
 
 {
-  "waybill": "",
-  "clickpost_status_code": 101,
-  "cp_id": -1,
-  "clickpost_status_description": "Return Order Placed",
-  "status": "O",
-  "location": "VASAI, MUMBAI",
-  "timestamp": "2017-08-02T13:23:02Z",
-  "remark": "Return Order Placed",
-  "additional": {
-    "self_shipped" : False,
-    "is_rvp":True,
-    "forward_awb":"sample_forward_awb",
-    "forward_reference_number":"sample_forward_reference",
-    "latest_status": {
-      "clickpost_status_code": 101,
-      "location": "",
-      "status": "O",
-      "clickpost_status_description": "Return Order Placed",
-      "timestamp": "2017-08-02T13:23:02Z",
-      "remark": "Return Order Placed"
+        "location": "",
+        "remark": "Return Order Placed",
+        "notification_event": 11,
+        "timestamp": "2019-04-29 07:47:07.161221",
+        "clickpost_status_code": 101,
+        "cp_id": -1,
+        "clickpost_status_bucket_description": "Return Order Placed",
+        "waybill": "",
+        "clickpost_status_bucket": 8,
+        "status": "Return Order Placed",
+        "clickpost_status_description": "Return Order Placed",
+        "additional": {
+            "latest_status": {
+                "clickpost_status_bucket_description": "Return Order Placed",
+                "clickpost_status_description": "Return Order Placed",
+                "clickpost_status_bucket": 8,
+                "remark": "Return Order Placed",
+                "status": "Return Order Placed",
+                "location": "",
+                "timestamp": "2019-04-29 07:47:07.161252",
+                "clickpost_status_code": 101
+            },
+            "is_rvp": true,
+            "notification_event_id": 11,
+            "forward_awb": "5522110373319",
+            "self_shipped": false,
+            "forward_reference_number": "1405277",
+            "item_info": [{
+              "sku": "120667",
+              "quantity": 1
+          }, {
+              "sku": "9649",
+              "quantity": 1
+          }, {
+              "sku": "46457",
+              "quantity": 1
+          }, {
+              "sku": "10924",
+              "quantity": 1
+          }],
+        }
     }
-  }
-}
 ```
 
-###Activating Webhooks:
+This webhook is only useful for customers using Clickpost managed returns platform to accept customer returns on their website.
 
-1. Visit Clickpost dashboard: *Settings* Tab on the left and Click notification section
-2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need
+###Activating Return order placed webhook:
+
+1. Visit Clickpost dashboard: *Settings* Tab on the right and Click notification section
+2. Select webhooks and activate Selected webhooks configuration --> "Return Order Placed". 
 
 ###Payload Explanation:
 
@@ -55,73 +76,16 @@
 5. timestamp: date/time in IST format when the scan was done
 6. clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner.
 7. clickpost_status_description: description of clickpost_status_code
-8. is_rvp inside additional object tells the payload is for reverse orders. forward_awb field contain the forward awb number for which return order has been placed and forward_reference_number will have the corresponding reference number.
-9. waybill number will be blank as order is not yet created on courier company (not manifested yet) 
-10. clickpost_status_code will have 101 value which is Return Order Placed.
-10. self_shipped: Either True or False depending upon how the return shipment is shipped, if shipped by customer, then self_shipped is True else False.
-
-
----
-
-###Webhook data POST on Client Server for selected events:
-
-In case customer wants to recieve notifications only for certain events, Clickpost provides funtionality for the same.
-
-If customer opts for this service, we add: "notification_event_id" key in additional object of the payload. This will inform you the current status of shipment. For return (Return Request Placed) this field's value will be 11 
-
-###Important Notes and special data in Webhooks (Examples are present on the right):
-
-1. Webhooks do not guarantee the order of data send to Client servers. 
-latest_status indicates the latest status for the shipment at the time when the webhook is sent. This is sent with all webhooks
-2. Please make your API end point idempotent
-3. Since webhooks are transactional in nature, To insure minimal API data loss, we have retries in place if we do not get http 200 response from your server
-4. If you opt for selected events webhook notification, in case clickpost receives multiple notification from courier partner at the same time, only the latest notification will be sent to you
+8. is_rvp inside additional object tells the payload is for reverse orders. 
+9. forward_awb field contain the forward awb number for which return order has been placed 
+10. forward_reference_number will have the corresponding reference number.
+12. waybill number will be blank as order is not yet created on courier partner (not manifested yet) 
+13. clickpost_status_code will have 101 value which is Return Order Placed.
+14. self_shipped: Either True or False depending upon how the return shipment is shipped, if shipped by customer, then self_shipped is True else False.
+15. item_info: represents the item details for which return request is raised by the customer
 
 ---
 
-##Testing Webhook
-
->__Test Webhook URL__
-
-```
-https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
-```
-
->__Test Webhook Payload__
-
-```json
-{
-  "test_url": "http://www.clickpost.in/",
-  "test_data": {
-    "status": "Return Order Placed",
-    "remark": "Return Order Placed",
-    "waybill": "",
-    "location": "",
-    "timestamp": "2016-07-12T17:12:36.710",
-    "clickpost_status_code": 101,
-    "clickpost_status_description": "Return Order Placed",
-    "cp_id": 1,
-    "additional": {
-      "is_rvp":True,
-      "forward_awb":"sample_forward_awb",
-      "forward_reference_number":"sample_forward_reference",
-      "latest_status": {
-        "clickpost_status_code": 101,
-        "location": "",
-        "status": "Return Order Placed",
-        "clickpost_status_description": "Return Order Placed",
-        "timestamp": "2016-07-12T17:12:36.710",
-        "remark": "Return Order Placed"
-      }      
-    }
-  }
-}
-
-```
-You can test the webhooks by making a POST request on the following URL:
-
-`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
-
-Where test_url is your server URL where you want to test the webhook data.
+Logic to be applied on webhook endpoint to detect returns webhook: In all reverse pickup order webhooks, is_rvp will be true. If its true, check the forward_awb or forward_reference_number in the payload, verify it with the same in your system and update the sku(s) present in item_info.
 
 ------
