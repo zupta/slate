@@ -490,13 +490,13 @@ Headers: {'Content-type': 'application/json'}
                 "description": "item1",
                 "quantity": 1,
                 "sku": "XYZ1",
-                "return_days": 2,
                 "additional": {
                     "length": 10,
                     "height": 10,
                     "breadth": 10,
                     "weight": 100,
-                    "images": "http://sample-file1.jpg,http://sample-file2.jpg"
+                    "images": "http://sample-file1.jpg,http://sample-file2.jpg",
+                    "return_days": 2
                 }
             }
         ],
