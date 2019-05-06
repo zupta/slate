@@ -463,24 +463,29 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 ```json
 
 {
-  "waybill": "P0109276342",
-  "clickpost_status_code": 6,
-  "cp_id": 14,
-  "clickpost_status_description": "OutForDelivery",
-  "status": "O",
-  "location": "VASAI, MUMBAI",
-  "timestamp": "2017-08-02T13:23:02Z",
-  "remark": "Out For Delivery",
-  "additional": {
-    "latest_status": {
-      "clickpost_status_code": 6,
-      "location": "VASAI, MUMBAI",
-      "status": "O",
-      "clickpost_status_description": "OutForDelivery",
-      "timestamp": "2017-08-02T13:23:02Z",
-      "remark": "Out For Delivery"
-    }
-  }
+    "additional": {
+        "latest_status": {
+            "remark": "Shipment is Out for Delivery",
+            "clickpost_status_code": 6,
+            "reference_number": "WERA-9616974",
+            "timestamp": "2019-05-06T10:04:20Z",
+            "clickpost_status_bucket_description": "Out for delivery",
+            "location": "DEL_GeetaColony",
+            "clickpost_status_description": "OutForDelivery",
+            "clickpost_status_bucket": 4,
+            "status": "OFD"
+        },
+        "is_rvp": false,
+
+    },
+    "remark": "Shipment is Out for Delivery",
+    "clickpost_status_description": "OutForDelivery",
+    "timestamp": "2019-05-06T10:04:20Z",
+    "location": "DEL_GeetaColony",
+    "status": "OFD",
+    "cp_id": 9,
+    "clickpost_status_code": 6,
+    "waybill": "SF49245NER"
 }
 ```
 
@@ -499,6 +504,7 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 
   "additional": {
     "latest_status": {
+      "reference_number": "WERA-9616974",
       "clickpost_status_code": 9,
       "location": "Bengaluru_Koramangala_Dc (Karnataka)",
       "status": "When forward shipment is not accepted by end customer",
@@ -507,7 +513,8 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
       "remark": "Failed Delivery"
     },
     "ndr_status_code": 1,
-    "ndr_status_description": "Customer Unavailable"
+    "ndr_status_description": "Customer Unavailable",
+    "is_rvp": false
   }
 }
 ```
@@ -582,6 +589,7 @@ Please see the sample payload on the right:
     "notification_event_id": 4,
 
     "latest_status": {
+      "reference_number": "WERA-NMS1908MSO2",
       "remark": "Customer escalation received",
       "clickpost_status_code": 9,
       "status": "Pending",
@@ -600,28 +608,33 @@ Please see the sample payload on the right:
 
 ```json
 {
-  "remark": "Delivered to consignee",
-  "waybill": "420714276075",
-  "clickpost_status_description": "Delivered",
-  "timestamp": "2018-08-06T15:00:32.002000Z",
-  "cp_id": 4,
-  "status": "Delivered",
-  "clickpost_status_code": 8,
-  "location": "Udaipur_DC (Rajasthan)",
+    "status": "Delivered",
+    "clickpost_status_code": 8,
+    "waybill": "12527345",
+    "clickpost_status_description": "Delivered",
+    "location": "Nayagarh_Durgprsd_D (Orissa)",
+    "cp_id": 4,
+    "remark": "Delivered to consignee",
+    "timestamp": "2019-05-06T15:01:00.002000Z",
 
-  "additional": {
+    "additional": {
 
-    "notification_event_id": 5,
+        "notification_event_id": 5,
+        "is_rvp": false,
 
-    "latest_status": {
-      "remark": "Delivered to consignee",
-      "timestamp": "2018-08-06T15:00:32.002000Z",
-      "clickpost_status_description": "Delivered",
-      "status": "Delivered",
-      "clickpost_status_code": 8,
-      "location": "Udaipur_DC (Rajasthan)"
+        "latest_status": {
+            "status": "Delivered",
+            "reference_number": "WERA-NMS1908MSO2",
+            "clickpost_status_bucket_description": "Delivered",
+            "clickpost_status_description": "Delivered",
+            "clickpost_status_code": 8,
+            "location": "Nayagarh_Durgprsd_D (Orissa)",
+            "clickpost_status_bucket": 6,
+            "remark": "Delivered to consignee",
+            "timestamp": "2019-05-06T15:01:00.002000Z"
+        }
+
     }
-  }
 }
 
 ```
