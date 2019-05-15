@@ -588,6 +588,7 @@ Please see the sample payload on the right:
 
     "notification_event_id": 4,
 
+    "is_rvp": false,
     "latest_status": {
       "reference_number": "WERA-NMS1908MSO2",
       "remark": "Customer escalation received",
@@ -598,8 +599,7 @@ Please see the sample payload on the right:
       "clickpost_status_description": "FailedDelivery",
       "timestamp": "2019-05-01T00:55:06.367000Z",
       "clickpost_status_bucket": 5
-    },
-    "is_rvp": false
+    }
   }
 }
 

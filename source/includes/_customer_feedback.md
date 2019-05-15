@@ -74,7 +74,7 @@ Format: JSON
 Parameter | Type | Description
 --------- | ---- | -----------
 start_date | long | UTC epoch start time
-start_date | long | UTC epoch end time
+end_date | long | UTC epoch end time
 
 ###Response explanation:
 
@@ -106,6 +106,8 @@ Response object has two parts:
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
+
+Maximum difference allowed between start and end time is 60 minutes.
 </aside>
 
 -------
