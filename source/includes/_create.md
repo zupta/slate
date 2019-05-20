@@ -251,7 +251,22 @@ Headers: {'Content-type': 'application/json'}
     "sku": "XYZ1",
     "quantity": 1,
     "cat": "electronics",
-    "sub_cat": "tv",    
+    "sub_cat": "tv",
+    "color": "Red",
+    "serial_no": "SRN1237890000",
+    "size": "7",
+    "qc_rules": [
+    {
+        "question": "Is product colour as per description ?",
+        "is_mandatory": 1,
+        "value": "Red"
+    },
+    {
+        "question": "Is product size as per description ?",
+        "is_mandatory": 1,
+        "value": "7"
+      }
+    ],
     "image_urls":[
         "https://assetscdn.paytm.com/images/catalog/view_item/114560/1494268990652.jpg",
         "https://assetscdn.paytm.com/images/catalog/view_item/116303/1493891914950.jpg"
@@ -407,8 +422,12 @@ Parameter | Type | Description
 --------- | ---- | -----------
 qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
 image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
-cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
-sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
+cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object (only for shadowfax reverse with qc_type: doorstep)
+sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object (only for shadowfax reverse with qc_type: doorstep)
+color | character | color of the item to be picked (only for shadowfax reverse with qc_type: doorstep)
+serial_no | character | serial_no of the item to be picked (only for shadowfax reverse with qc_type: doorstep)
+size | character | size of the item to be picked (only for shadowfax reverse with qc_type: doorstep)
+qc_rules | json array | questions to be asked by pickup boy (only for shadowfax reverse with qc_type: doorstep)
 
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
@@ -862,18 +881,33 @@ Headers: {'Content-type': 'application/json'}
                 "product_url":"<Product Page Url>",
                 "price": 200,
                 "description": "item1",
-                "additional": {
-                    "length": 10,
-                    "height": 10,
-                    "breadth": 10,
-                    "weight": 100
-                },
                 "quantity": 1,
                 "sku": "XYZ1",
                 "image_urls": [
                     "https://assetscdn.paytm.com/images/catalog/view_item/114560/123.jpg",
                     "https://assetscdn.paytm.com/images/catalog/view_item/116303/123434.jpg"
-                ]
+                ],
+                "cat": "electronics",
+                "sub_cat": "tv",
+                "color": "Red",
+                "serial_no": "SRN1237890000",
+                "size": "7",
+                "qc_rules": [{
+                    "question": "Is product colour as per description ?",
+                    "is_mandatory": 1,
+                    "value": "Red"
+                },
+                {
+                    "question": "Is product size as per description ?",
+                    "is_mandatory": 1,
+                    "value": "7"
+                }],
+                "additional": {
+                    "length": 10,
+                    "height": 10,
+                    "breadth": 10,
+                    "weight": 100
+                }
             }
         ],
         "cod_value": 0,
@@ -926,8 +960,14 @@ Parameter | Type | Description
 --------- | ---- | -----------
 qc_type | character | pass "doorstep" if you want reverse pickup to be done as doorstep quality check as leave it blank
 image_urls | character | add this field in items array for each item. value will be comma seperated url strings without spaces.
-cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
-sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object
+cat | character | category of product for qc questions to be asked at doorstep. To be passed in items array for each item object (only for shadowfax reverse with qc_type: doorstep)
+sub_cat | character | sub category of product for qc questions to be asked at doorstep. To be passed in items array for each item object (only for shadowfax reverse with qc_type: doorstep)
+color | character | color of the item to be picked (only for shadowfax reverse with qc_type: doorstep)
+serial_no | character | serial_no of the item to be picked (only for shadowfax reverse with qc_type: doorstep)
+size | character | size of the item to be picked (only for shadowfax reverse with qc_type: doorstep)
+qc_rules | json array | questions to be asked by pickup boy (only for shadowfax reverse with qc_type: doorstep)
+
+If you want to pass above parameters as QC for other reverse logistics partners, please contact support@clickpost.in for integrations request.
 
 ##Multiseller items shipment API
 
