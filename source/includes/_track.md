@@ -560,6 +560,9 @@ If customer opts for this service, we add: "notification_event_id" key in additi
 6. RTO
 10. Order Cancelled
 12. RTO-Delivered
+14. Exchange Pickup
+15. Exchange Delivered
+16. Pickup Cancelled
 
 Following notification_event_id are useful for customers using Clickpost's managed returns service which accepts return requests from end user:
 
