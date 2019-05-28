@@ -552,22 +552,27 @@ In case customer wants to recieve notifications only for certain events, Clickpo
 If customer opts for this service, we add: "notification_event_id" key in additional object of the payload. This will inform you the current status of shipment.
 
 ####Possible values:
-1. Out For Pickup
-2. Shipped
-3. Out For Delivery
-4. Failed Delivery
-5. Delivered
-6. RTO
-10. Order Cancelled
-12. RTO-Delivered
-14. Exchange Pickup
-15. Exchange Delivered
-16. Pickup Cancelled
+
+Value | Description
+--------- | -----------
+1 | Out For Pickup
+2 | Shipped
+3 | Out For Delivery
+4 | Failed Delivery
+5 | Delivered
+6 | RTO
+10 | Order Cancelled
+12 | RTO-Delivered
+14 | Exchange Pickup
+15 | Exchange Delivered
+16 | Pickup Cancelled
 
 Following notification_event_id are useful for customers using Clickpost's managed returns service which accepts return requests from end user:
 
-11. Return Request placed: As soon as a return request is placed by the end user using Clickpost's return UI
-9. AWB Generated: As soon as an AWB is generated in Clickpost for a return request
+Value | Description
+--------- | -----------
+9 | AWB Generated: As soon as an AWB is generated in Clickpost for a return request
+11 | Return Request placed: As soon as a return request is placed by the end user using Clickpost's return UI
 
 Please see the sample payload on the right:
 
