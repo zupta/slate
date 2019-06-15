@@ -557,7 +557,10 @@ Headers: {'Content-type': 'application/json'}
         "delivery_type": "FORWARD",
         "async": false,
         "gst_number" : "21313",
-        "account_code": "<account_code generated via clickpost dashboard>"
+        "account_code": "<account_code generated via clickpost dashboard>",
+        "from_wh": "From Warehouse",
+        "to_wh": "To Warehouse",
+        "channel_name": "Channel Name: In case you have different channels to receive orders"
     }
 }
 ```
@@ -671,7 +674,10 @@ Headers: {'Content-type': 'application/json'}
         "delivery_type": "FORWARD",
         "async": false,
         "gst_number" : "21313",
-        "account_code": "ecom surface"
+        "account_code": "ecom surface",
+        "from_wh": "From Warehouse",
+        "to_wh": "To Warehouse",
+        "channel_name": "Channel Name: In case you have different channels to receive orders"
     }
 }
 ```
@@ -941,7 +947,10 @@ Headers: {'Content-type': 'application/json'}
         "rvp_reason": "Shipper cancellation",
         "qc_type": "doorstep",
         "async": false,
-        "account_code": "ecom reverse"
+        "account_code": "ecom reverse",
+        "from_wh": "From Warehouse",
+        "to_wh": "To Warehouse",
+        "channel_name": "Channel Name: In case you have different channels to receive orders"
     }
 }
 ```
@@ -1074,7 +1083,10 @@ Headers: {'Content-type': 'application/json'}
         "delivery_type": "FORWARD",
         "vendor_code": "<WH_CODE>",
         "pickup_type": "WH",
-        "is_multi_seller": true
+        "is_multi_seller": true,
+        "from_wh": "From Warehouse",
+        "to_wh": "To Warehouse",
+        "channel_name": "Channel Name: In case you have different channels to receive orders"
     }
 }
 ```
@@ -1539,7 +1551,10 @@ Headers: {'Content-type': 'application/json'}
         "vendor_code": "SBL",
         "pickup_type": "WH",
         "is_multi_seller": true,
-        "account_code":"AIR"
+        "account_code":"AIR",
+        "from_wh": "From Warehouse",
+        "to_wh": "To Warehouse",
+        "channel_name": "Channel Name: In case you have different channels to receive orders"
     }
 }
 ```
