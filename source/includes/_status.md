@@ -4,7 +4,7 @@ clickpost_status_code | clickpost_status_description | Meaning
 ----- | ------ |  -------
 1 | ORDER_PLACED | 'Order Has Been Placed / Manifested on Courier Partner'
 2 | PICKUP_PENDING | 'Pickup Pending'
-3 | PICKUP_CANCELLED | 'Pickup Cancelled'
+3 | PICKUP_FAILED | 'Pickup Failed'
 4 | PICKED_UP | 'Pickup Has Been Done'
 5 | INTRANSIT | 'In Transit'
 6 | OUT_FOR_DELIVERY | 'Shipment Out For Delivery'
