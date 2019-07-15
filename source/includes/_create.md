@@ -560,7 +560,8 @@ Headers: {'Content-type': 'application/json'}
         "account_code": "<account_code generated via clickpost dashboard>",
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
-        "channel_name": "Channel Name: In case you have different channels to receive orders"
+        "channel_name": "Channel Name: In case you have different channels to receive orders",
+        "order_date": "YYYY-MM-DD"
     }
 }
 ```
@@ -677,7 +678,8 @@ Headers: {'Content-type': 'application/json'}
         "account_code": "ecom surface",
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
-        "channel_name": "Channel Name: In case you have different channels to receive orders"
+        "channel_name": "Channel Name: In case you have different channels to receive orders",
+        "order_date": "YYYY-MM-DD"
     }
 }
 ```
@@ -950,7 +952,8 @@ Headers: {'Content-type': 'application/json'}
         "account_code": "ecom reverse",
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
-        "channel_name": "Channel Name: In case you have different channels to receive orders"
+        "channel_name": "Channel Name: In case you have different channels to receive orders",
+        "order_date": "YYYY-MM-DD"
     }
 }
 ```
@@ -1086,7 +1089,8 @@ Headers: {'Content-type': 'application/json'}
         "is_multi_seller": true,
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
-        "channel_name": "Channel Name: In case you have different channels to receive orders"
+        "channel_name": "Channel Name: In case you have different channels to receive orders",
+        "order_date": "YYYY-MM-DD"
     }
 }
 ```
