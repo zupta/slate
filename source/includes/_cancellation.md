@@ -3,7 +3,7 @@
 > URL to hit:
 
 ```
-https://www.clickpost.in/api/v1/cancel-order/?username=test&key=42d42a34-ae09-469312b20c-ae2624&waybill=782715732348&cp_id=8
+https://www.clickpost.in/api/v1/cancel-order/?username=test&key=42d42a34-ae09-469312b20c-ae2624&waybill=782715732348&cp_id=8&account_code=cli12
 
 Headers: {'Content-type': 'application/json'}
 
@@ -33,6 +33,7 @@ Listed below are the parameters:
 2. key: API key provided to you.
 3. waybill: waybill, which needs to be cancelled
 4. cp_id: Courier Partner ID of the courier from which shipment was dispatched. List: <a href="http://track.clickpost.in/courier_partner" target="_blank">http://track.clickpost.in/courier_partner</a>
+5. account_code (optional): in case you have multiple courier accounts for a courier partner on Clickpost, please pass account_code in the cancellation API so that clickpost uses correct credentials to mark the shipment cancel
 
 
 ###Response Explanation:
