@@ -1821,7 +1821,8 @@ Headers: {'Content-type': 'application/json'}
         "courier_partner": 1,
         "reference_number": "100035710-1-2-3",
         "label": "https://pyck-res-bucket.s3.amazonaws.com:443/FEDEX/2019-03-31/8505644567.pdf",
-        "waybill": "8505644567"
+        "waybill": "8505644567",
+        "sort_code": null
     }
 }
 ```
