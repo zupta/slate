@@ -58,7 +58,9 @@ Headers: {'Content-type': 'application/json'}
   },
   "additional": {
     "order_date": "2017-02-14T18:00:00+05:30",
-    "ship_date": "2017-02-14T23:00:00+05:30"
+    "ship_date": "2017-02-14T23:00:00+05:30",
+    "min_edd": 2,
+    "max_edd": 4
   }
 }
 
@@ -131,6 +133,8 @@ Parameter | Type | Description
 --------- | ---- | ----------- 
 order_date | character | timestamp when the order was placed
 ship_date | character | timestamp when order was ready to ship
+min_edd | integer | minimum days commited to the customer for 1st delivery attempt
+max_edd | integer | maximum days commited to the customer for 1st delivery attempt
 
 ## Un-Track an Order or Mark a shipment expired
 
