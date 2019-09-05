@@ -677,6 +677,9 @@ ndr_status_code | ndr_status_description
 9 | "Order Already Cancelled"
 10| "Self Collect"
 11| "Shipment Seized By Customer"
+12| "Customer wants open delivery"
+13| "Shipment Misrouted by logistics partner"
+
 
 *Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description*
 
