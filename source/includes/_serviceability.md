@@ -141,7 +141,7 @@ You must replace username / key with username / key provided to you.
 >URL to hit
 
 ```
-https://www.clickpost.in/api/v2/serviceability_api/?username=shop101-supply&key=69de94cf-8fd0-4200-a090-30ce18a2b96c
+https://www.clickpost.in/api/v2/serviceability_api/?username=test&key=a090-30ce18a2b96c
 
 (username and key needs to be replaced with the key provided to you)
 ```
