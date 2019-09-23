@@ -1,6 +1,7 @@
 # Pincode Serviceability API
 
-##V1 API: Gives list of only those courier partners where atleast one of the service [COD/PREPAID/EXCHANGE] is active
+##Serviceability V1 API
+Gives list of only those courier partners where atleast one of the service [COD/PREPAID/EXCHANGE] is active
 
 >URL to hit
 
