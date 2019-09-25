@@ -9,7 +9,7 @@ Headers: {'Content-type': 'application/json'}
 
 (Username/key needs to be replaced with the username/key provided to you) Response:
 ```
-> __Example: POST Body__ (Cancel Order)
+> __Example: GET Body__ (Cancel Order)
 
 ```json
 {
