@@ -1880,7 +1880,7 @@ cp_id | integer | courier partner ID of Clickpost (optional) [list at <a href="h
 waybill | character | waybill number of the shipment (optional)
 
 
-##Processing Async API requests:
+##Processing Async API requests
 
 In case you have account with courier partner which does not support sync API, please follow the steps present here to process the request:
 
