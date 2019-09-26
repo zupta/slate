@@ -3,7 +3,7 @@
 >URL to hit
 
 ```
-https://www.clickpost.in//api/v1/predicted_sla_api/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624
+https://www.clickpost.in/api/v1/predicted_sla_api/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624
 
 (username and key needs to be replaced with the key provided to you)
 ```
