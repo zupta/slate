@@ -1880,13 +1880,90 @@ cp_id | integer | courier partner ID of Clickpost (optional) [list at <a href="h
 waybill | character | waybill number of the shipment (optional)
 
 
+##Processing Async API requests:
 
+In case you have account with courier partner which does not support sync API, please follow the steps present here to process the request:
 
+When you hit the request for the 1st time, Clickpost will queue the request and share the response with "meta" --> "status" = 202
 
+> __Response__ [Async order creation request accepted]
 
+```json
+{
+    "meta": {
+        "success": true,
+        "message": "Order Placed Successfully",
+        "status": 202
+    },
+    "order_id": 8488542,
+    "result": {
+        "reference_number": "TEST-ALPHA-132135",
+        "waybill": null,
+        "label": null,
+        "sort_code": null
+    }
+}
+```
 
+Generally it takes 30 sec for the courier to process the request in async manner. Since Clickpost APIs are idempotent, you can continue to make the order creation request with same parameters, Clickpost will check the reference number and will return "meta" --> "status" 102 if the request is still under process:
 
+> __Response__ [Async order creation request in process]
 
+```json
+{
+    "order_id": 8488863,
+    "result": {
+        "waybill": null,
+        "sort_code": null,
+        "security_key": null,
+        "label": null,
+        "reference_number": "TEST-ALPHA-132135"
+    },
+    "meta": {
+        "message": "We are processing your order",
+        "success": false,
+        "status": 102
+    }
+}
+```
+
+Once the request is processed and you make the polling call with same reference number on the same API, you will get success [status code 200 or 323] or failure depending on response from courier partner
+
+> __Response__ [Async order creation Success]
+
+```json
+{
+    "meta": {
+        "status": 323,
+        "message": "You have already placed this order",
+        "success": false
+    },
+    "result": {
+        "waybill": "1993933981231",
+        "sort_code": null,
+        "reference_number": "AR9-19-2697",
+        "label": "https://test-bucket.s3.amazonaws.com:443/test/2019-09-23/19939339821.pdf",
+        "security_key": "f60207d9-8bd9-441c-80e9-0c3781721fed"
+    },
+    "tracking_id": 52158761,
+    "order_id": 7127897
+}
+
+```
+
+> __Response__ [Async order creation failure]
+
+```json
+{
+    "order_id": 8488743,
+    "meta": {
+        "message": "{'status': {'reason': 'ConfigurationError<FAAS: warehouses<GURGOANTHEA> has not been configured>', 'job_id': 'b3f5be04-f916-4bef-b0d4-3d8753e8332f', 'success': False, 'value': 'ConfigurationError', 'type': 'Complete'}}",
+        "success": false,
+        "status": 319
+    },
+    "reference_number": "TEST-ALPHA-132135"
+}
+```
 
 
 
