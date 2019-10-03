@@ -501,7 +501,7 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
   "remark": "Failed Delivery",
   "waybill": "XYZABC",
   "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-  "timestamp": "2016-07-12T17:12:36.710",
+  "timestamp": "2016-07-12T17:12:36Z",
   "clickpost_status_code": 9,
   "clickpost_status_description": "FailedDelivery",
   "cp_id": 1,
@@ -513,7 +513,7 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
       "location": "Bengaluru_Koramangala_Dc (Karnataka)",
       "status": "When forward shipment is not accepted by end customer",
       "clickpost_status_description": "FailedDelivery",
-      "timestamp": "2016-07-12T17:12:36.710",
+      "timestamp": "2016-07-12T17:12:36Z",
       "remark": "Failed Delivery"
     },
     "ndr_status_code": 1,
@@ -591,7 +591,7 @@ Please see the sample payload on the right:
   "status": "Pending",
   "clickpost_status_description": "FailedDelivery",
   "location": "Lucknow_Aliganj (Uttar Pradesh)",
-  "timestamp": "2019-05-01T00:55:06.367000Z",
+  "timestamp": "2019-05-01T00:55:06Z",
   "cp_id": 4,
   "additional": {
     
@@ -609,7 +609,7 @@ Please see the sample payload on the right:
       "location": "Lucknow_Aliganj (Uttar Pradesh)",
       "clickpost_status_bucket_description": "Failed delivery",
       "clickpost_status_description": "FailedDelivery",
-      "timestamp": "2019-05-01T00:55:06.367000Z",
+      "timestamp": "2019-05-01T00:55:06Z",
       "clickpost_status_bucket": 5
     }
   }
@@ -627,7 +627,7 @@ Please see the sample payload on the right:
     "location": "Nayagarh_Durgprsd_D (Orissa)",
     "cp_id": 4,
     "remark": "Delivered to consignee",
-    "timestamp": "2019-05-06T15:01:00.002000Z",
+    "timestamp": "2019-05-06T15:01:00Z",
 
     "additional": {
 
@@ -643,7 +643,7 @@ Please see the sample payload on the right:
             "location": "Nayagarh_Durgprsd_D (Orissa)",
             "clickpost_status_bucket": 6,
             "remark": "Delivered to consignee",
-            "timestamp": "2019-05-06T15:01:00.002000Z"
+            "timestamp": "2019-05-06T15:01:00Z"
         }
 
     }
@@ -704,7 +704,7 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
     "remark": "Failed Delivery",
     "waybill": "XYZABC",
     "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-    "timestamp": "2016-07-12T17:12:36.710",
+    "timestamp": "2016-07-12T17:12:36Z",
     "clickpost_status_code": 9,
     "clickpost_status_description": "FailedDelivery",
     "cp_id": 1,
@@ -715,7 +715,7 @@ https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
         "location": "Bengaluru_Koramangala_Dc (Karnataka)",
         "status": "When forward shipment is not accepted by end customer",
         "clickpost_status_description": "FailedDelivery",
-        "timestamp": "2016-07-12T17:12:36.710",
+        "timestamp": "2016-07-12T17:12:36Z",
         "remark": "Failed Delivery"
       },
       "ndr_status_code": 1,
