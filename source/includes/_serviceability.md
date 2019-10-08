@@ -111,7 +111,7 @@ length | integer | length of the shipment
 breadth | integer | breadth of the shipment
 height | integer | height of the shipment
 cp_id | integer | clickpost courier comapny id
-service_type | character | Any one of FORWARD/RVP/EXCHANGE, if service_type param is not passed, then default is FORWARD.
+service_type | character | Any one of FORWARD/RVP, if service_type param is not passed, then default is FORWARD.
 
 ###Response explanation:
 
