@@ -197,7 +197,7 @@ https://www.clickpost.in/api/v2/serviceability_api/?username=test&key=a090-30ce1
 }
 ```
 
-Serviceability api checks if pickup and drop pincodes are serviceabile or not, shipping charges for the shipment and turn around time for the delivery. It accepts the shipment dimension fields as additional parameters. 
+Serviceability API checks if pickup and drop pincodes are serviceable or not, shipping charges for the shipment and turn around time for the delivery.
 
 It’s a POST request as follows
 
@@ -240,7 +240,7 @@ Response object has two parts:
     + message: SUCCESS in case request was successfully processed by clickpost, else returns error message.
     + status:
         1. 200 if the order is created successfully,
-        2. 400 if there is a bad request encountered: errors will be present in “message”
+        2. 400 if there is a bad request encountered: errors will be present in "message"
 2. result: 
     + serviceable: JSON object which stores following two fields:
         + COD: Values: true: if the pincode is COD serviceable else false
@@ -251,6 +251,86 @@ Response object has two parts:
     + account_code: Account code for which the details are given in the result.
     + shipping_charges: Shipping charges for the delivery of the shipment.
     
+
+<aside class="warning">
+You must replace username / key with username / key provided to you.
+</aside>
+
+
+##Bulk Serviceability API
+
+>URL to hit
+
+```
+https://www.clickpost.in/api/v1/bulk_serviceability_api/?username=test&key=a090-30ce18a2b96c743dhg-djhsu2&courier_partner_id=<cp_id>&account_code=<account_code>
+
+(username and key needs to be replaced with the key provided to you)
+```
+
+>__Response__
+
+```json
+{
+    "result": {
+        "pickup_pincodes": {
+            "PREPAID": [
+                "690546"
+            ]
+        },
+        "drop_pincodes": {
+            "PREPAID": [
+                "560067",
+                "560102"
+            ],
+            "COD": [
+                "855114"
+            ]
+        }
+    },
+    "meta": {
+        "success": true,
+        "status": 200,
+        "message": "Success"
+    }
+}
+
+```
+
+Bulk Serviceability API takes courier_partner_id and account_code as input and returns all the pickup and drop pincodes along with order_types serviceable for that account present in Clickpost.
+
+It’s a GET request
+
+URL:
+`https://www.clickpost.in/api/v2/bulk_serviceability_api/`
+Headers: {'Content-type': 'application/json'}
+
+####URL Parameters:
+
+Parameter | Type | Description
+--------- | ---- | -----------
+key | character | API key provided to you
+username | character | username provided to you
+courier_partner_id | integer | courier partner ID
+account_code | character | account code as added in Clickpost dashboard
+
+
+###Response explanation:
+
+Response object has two parts:
+
+1. meta: stores information about the API, success or failure
+    + success: true/false, tells whether the order was created or not
+    + message: SUCCESS in case request was successfully processed by clickpost, else returns error message.
+    + status:
+        1. 200 if the order is created successfully,
+        2. 400 if there is a bad request encountered: errors will be present in "message"
+2. result: 
+    + pickup_pincodes: JSON object with value as:
+        + PREPAID: All pincodes will be pickup only
+    + drop_pincodes: JSON object with 3 possible values:
+        + COD: Values: true: if the pincode is COD serviceable else false
+        + PREPAID: If pickup pincode is serviceable
+        + EXCHANGE: If exchange is serviceable
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
