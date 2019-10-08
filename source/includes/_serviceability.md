@@ -326,11 +326,11 @@ Response object has two parts:
         2. 400 if there is a bad request encountered: errors will be present in "message"
 2. result: 
     + pickup_pincodes: JSON object with value as:
-        + PREPAID: All pincodes will be pickup only
+        + PREPAID: All pickup pincodes
     + drop_pincodes: JSON object with 3 possible values:
-        + COD: Values: true: if the pincode is COD serviceable else false
-        + PREPAID: If pickup pincode is serviceable
-        + EXCHANGE: If exchange is serviceable
+        + COD: All COD pincodes
+        + PREPAID: All PREPAID pincodes
+        + EXCHANGE: All EXCHANGE pincodes
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
