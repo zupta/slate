@@ -570,6 +570,10 @@ Value | Description
 14 | Exchange Pickup
 15 | Exchange Delivered
 16 | Pickup Cancelled
+17 | Shipment Stuck
+18 | SLA breached
+19 | Lost
+20 | Damaged
 
 Following notification_event_id are useful for customers using Clickpost's managed returns service which accepts return requests from end user:
 
