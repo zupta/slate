@@ -490,7 +490,8 @@ Headers: {'Content-type': 'application/json'}
         "drop_state": "DELHI",
         "drop_pincode": "110019",
         "drop_city": "Delhi",
-        "drop_name": "Prashant"
+        "drop_name": "Prashant",
+        "drop_email": "support@clickpost.in"
     },
     "shipment_details": {
         "height": 12,
@@ -608,7 +609,8 @@ Headers: {'Content-type': 'application/json'}
         "drop_state": "DELHI",
         "drop_pincode": "110019",
         "drop_city": "Delhi",
-        "drop_name": "Prashant"
+        "drop_name": "Prashant",
+        "drop_email": "support@clickpost.in"
     },
     "shipment_details": {
         "height": 12,
@@ -872,7 +874,8 @@ Headers: {'Content-type': 'application/json'}
         "drop_state": "DELHI",
         "drop_pincode": "110019",
         "drop_city": "Delhi",
-        "drop_name": "Prashant"
+        "drop_name": "Prashant",
+        "drop_email": "support@clickpost.in"
     },
     "shipment_details": {
         "height": 12,
@@ -1157,7 +1160,8 @@ Headers: {'Content-type': 'application/json'}
         "drop_pincode": "223045",
         "drop_city": "BANGLORE",
         "drop_state": "TAMILNADU",
-        "drop_country": "IN"
+        "drop_country": "IN",
+        "drop_email": "support@clickpost.in"
     },
     "shipment_details": {
         "courier_partner": 5,

@@ -212,7 +212,8 @@ Headers: {'Content-type': 'application/json'}
             "clickpost_status_code": 1,
             "courier_partner": 9,
             "waybill": "SF41917204SCR",
-            "updated_at": "2019-04-15T15:00:04.672388Z"
+            "updated_at": "2019-04-15T15:00:04.672388Z",
+            "account_code": "test"
         },
         {
             "created_at": "2019-04-15T14:47:26.614788Z",
@@ -221,7 +222,8 @@ Headers: {'Content-type': 'application/json'}
             "clickpost_status_code": 1,
             "courier_partner": 9,
             "waybill": "SF41917199SCR",
-            "updated_at": "2019-04-15T15:00:07.132808Z"
+            "updated_at": "2019-04-15T15:00:07.132808Z",
+            "account_code": "test"
         },
         {
             "created_at": "2019-04-15T13:58:34.822899Z",
@@ -230,7 +232,8 @@ Headers: {'Content-type': 'application/json'}
             "clickpost_status_code": 1,
             "courier_partner": 9,
             "waybill": "SF41917168SCR",
-            "updated_at": "2019-04-15T15:00:42.625536Z"
+            "updated_at": "2019-04-15T15:00:42.625536Z",
+            "account_code": "test"
         }
     ],
     "meta": {
