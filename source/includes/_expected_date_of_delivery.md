@@ -3,7 +3,7 @@
 >URL to hit
 
 ```
-https://www.clickpost.in/api/v1/predicted_sla_api/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624
+https://ds.clickpost.in/api/v2/predicted_sla_api/?username=test&key=42d42a34-ae09-4693-%20b20c-ae2624
 
 (username and key needs to be replaced with the key provided to you)
 ```
@@ -113,7 +113,7 @@ The expected date of delivery API computes the minimum/maximum time range, a shi
 It’s a POST request as follows
 
 URL:
-`https://www.clickpost.in/api/v1/predicted_sla_api/`
+`https://ds.clickpost.in/api/v2/predicted_sla_api/`
 
 Headers: {'Content-type': 'application/json'}
 
@@ -169,6 +169,8 @@ Response object has two parts:
 
 <aside class="warning">
 You must replace username / key with username / key provided to you.
+
+Please note the base URL for this API is https://ds.clickpost.in
 </aside>
 
 -------
