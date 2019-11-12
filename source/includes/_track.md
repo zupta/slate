@@ -213,7 +213,8 @@ Headers: {'Content-type': 'application/json'}
             "courier_partner": 9,
             "waybill": "SF41917204SCR",
             "updated_at": "2019-04-15T15:00:04.672388Z",
-            "account_code": "test"
+            "account_code": "test",
+            "reference_number": "CP-35416108"
         },
         {
             "created_at": "2019-04-15T14:47:26.614788Z",
@@ -223,7 +224,8 @@ Headers: {'Content-type': 'application/json'}
             "courier_partner": 9,
             "waybill": "SF41917199SCR",
             "updated_at": "2019-04-15T15:00:07.132808Z",
-            "account_code": "test"
+            "account_code": "test",
+            "reference_number": "CP-35416108"
         },
         {
             "created_at": "2019-04-15T13:58:34.822899Z",
@@ -233,7 +235,8 @@ Headers: {'Content-type': 'application/json'}
             "courier_partner": 9,
             "waybill": "SF41917168SCR",
             "updated_at": "2019-04-15T15:00:42.625536Z",
-            "account_code": "test"
+            "account_code": "test",
+            "reference_number": "CP-35416108"
         }
     ],
     "meta": {
