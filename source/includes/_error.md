@@ -62,3 +62,4 @@ Order Cancellation Error Code | Meaning
 ---------- | -------
 600 | Order already cancelled
 350 | Order Cancellation Error from Courier Partner Server
+202 | Cancellation request received, failed over API, will be mailed to the couriers [Applicable for couriers where cancel request is sent via mail post API failure]
