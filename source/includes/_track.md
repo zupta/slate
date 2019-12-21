@@ -538,6 +538,18 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 
 We generally recommend customers to use selected webhooks configuration as all webhooks will trigger too many status messages on your system.
 
+
+###Important Notes and special data in Webhooks (Examples are present on the right):
+
+1. Webhooks do not guarantee the order of data send to Client servers. 
+latest_status indicates the latest status for the shipment at the time when the webhook is sent. This is sent with all webhooks
+2. In case of Failed Delivery, Clickpost unified NDR status code and NDR status description is sent in additional
+3. Please make your API end point idempotent
+4. Since webhooks are transactional in nature, To insure minimal API data loss, we have retries in place if we do not get http 200 response from your server
+5. If you opt for selected events webhook notification, in case clickpost receives multiple notification from courier partner at the same time, only the latest notification will be sent to you
+6. While consuming the webhooks do not apply strict JSON check in the code as you might have new keys in the payload as we enhance the services.
+
+
 ###Webhook data POST on Client Server for all events:
 
 Every time courier partner updates tracking of the shipment, We will post data to your server using the url you registered while registering for webhooks.
@@ -549,9 +561,27 @@ Every time courier partner updates tracking of the shipment, We will post data t
 3. remarks: remark given by courier partner
 4. location: location of shipment at the time of the scan
 5. timestamp: date/time in IST format when the scan was done
-6. clickpost_status_code: clickpost generated status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained in next section)
-7. clickpost_status_description: description of clickpost_status_code (Specified on next page)
+6. clickpost_status_code: clickpost status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. [Visit "Tracking Status Codes" section]
+7. clickpost_status_description: description of clickpost_status_code [Visit "Tracking Status Codes" section]
 
+###NDR Status Codes
+
+ndr_status_code | ndr_status_description
+--------------|------------------------
+0 | "Unknown Exception"
+1 | "Customer Unavailable"
+2 | "Rejected by Customer"
+3 | "Delivery Rescheduled"
+4 | "No Attempt"
+5 | "Customer Unreachable"
+6 | "Address Issue"
+7 | "Payment Issue"
+8 | "Out Of Delivery Area"
+9 | "Order Already Cancelled"
+10| "Self Collect"
+11| "Shipment Seized By Customer"
+12| "Customer wants open delivery"
+13| "Shipment Misrouted by logistics partner"
 
 ---
 
@@ -588,7 +618,27 @@ Value | Description
 9 | AWB Generated: As soon as an AWB is generated in Clickpost for a return request
 11 | Return Request placed: As soon as a return request is placed by the end user using Clickpost's return UI
 
-Please see the sample payload on the right:
+
+###NDR Status Codes
+
+ndr_status_code | ndr_status_description
+--------------|------------------------
+0 | "Unknown Exception"
+1 | "Customer Unavailable"
+2 | "Rejected by Customer"
+3 | "Delivery Rescheduled"
+4 | "No Attempt"
+5 | "Customer Unreachable"
+6 | "Address Issue"
+7 | "Payment Issue"
+8 | "Out Of Delivery Area"
+9 | "Order Already Cancelled"
+10| "Self Collect"
+11| "Shipment Seized By Customer"
+12| "Customer wants open delivery"
+13| "Shipment Misrouted by logistics partner"
+
+Please see the sample payload on the right.
 
 >__Selected event subscribed webhook: Failed delivery Payload__
 
@@ -660,35 +710,6 @@ Please see the sample payload on the right:
 }
 
 ```
-
-###Important Notes and special data in Webhooks (Examples are present on the right):
-
-1. Webhooks do not guarantee the order of data send to Client servers. 
-latest_status indicates the latest status for the shipment at the time when the webhook is sent. This is sent with all webhooks
-2. In case of NuvoEx Reverse Pickup: doorstep Quality Check order, additional has dsqc object at the time of pickup cancelled (clickpost_status_code = 10) and pickedup (clickpost_status_code = 4)
-3. In case of Failed Delivery, Clickpost unified NDR status code and NDR status description is sent in additional
-4. Please make your API end point idempotent
-5. Since webhooks are transactional in nature, To insure minimal API data loss, we have retries in place if we do not get http 200 response from your server
-6. If you opt for selected events webhook notification, in case clickpost receives multiple notification from courier partner at the same time, only the latest notification will be sent to you
-
-###NDR Status Codes
-
-ndr_status_code | ndr_status_description
---------------|------------------------
-0 | "Unknown Exception"
-1 | "Customer Unavailable"
-2 | "Rejected by Customer"
-3 | "Delivery Rescheduled"
-4 | "No Attempt"
-5 | "Customer Unreachable"
-6 | "Address Issue"
-7 | "Payment Issue"
-8 | "Out Of Delivery Area"
-9 | "Order Already Cancelled"
-10| "Self Collect"
-11| "Shipment Seized By Customer"
-12| "Customer wants open delivery"
-13| "Shipment Misrouted by logistics partner"
 
 
 *Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description*

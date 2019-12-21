@@ -27,6 +27,9 @@ clickpost_status_code | clickpost_status_description | Meaning
 26 | RTO_CONTACT_CUSTOMER_CARE | 'RTO Contact Customer Care'
 27 | RTO_SHIPMENT_DELAY | 'RTO Shipment Delayed'
 28 | AWB REGISTERED | 'AWB registered on Clickpost'
+30 | EXCHANGE_PICKUP | 'Exchange successful, Shipment delivered and picked up from the customer' [Only for exchange service]
+31 | EXCHANGE_INTRANSIT | 'Exchanged shipment In Transit to warehouse' [Only for exchange service]
+32 | EXCHANGE_DELIVERED | 'When an exchange shipment is delivered back' [Only for exchange service]
 101| RETURN ORDER PLACED | 'Order Placed in Clickpost for reverse pickup by Customer' # Only useful for customers using Returns Management Platform of Clickpost
 
 Status flow diagram is available at: http://bit.ly/status_flow
