@@ -459,6 +459,14 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 
 ##Tracking AWB Using Webhooks
 
+
+###Clickpost exposes webhooks for status updates in 2 ways:
+
+1. For all events/status: This will trigger status updates for all the scans done by courier partner for the shipment. You can opt in for these webhooks using "Webhooks: All Status" on the dashboard. From tech perspective, apply check on clickpost_status_code in latest_status to update the status in your system.
+
+2. For selected events/status: This will trigger status updates only for selected checkpoints opted by you on the Clickpost dashboard. You can opt in for these webhooks using "Webhooks: Selected Status" on the dashboard. From tech perspective, apply check on notification_event_id in the webhook object to update the status in your system. The checkpoints available for Selected webhooks are as mentioned on the dashboard.
+
+
 >__Webhook Payload Header__
 
 ```json
@@ -532,7 +540,7 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 ###Activating Webhooks:
 
 1. Visit Clickpost dashboard: *Settings* Tab on the left and Click notification section
-2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need: 
+2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need.
 3. Selected webhooks configuration: trigger webhooks only when shipment reaches certain checkpoints in its journey.
 4. All webhooks configuration: trigger webhooks for all shipment statuses as they come.
 
