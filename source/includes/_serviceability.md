@@ -301,7 +301,7 @@ Bulk Serviceability API takes courier_partner_id and account_code as input and r
 It’s a GET request
 
 URL:
-`https://www.clickpost.in/api/v2/bulk_serviceability_api/`
+`https://www.clickpost.in/api/v1/bulk_serviceability_api/`
 Headers: {'Content-type': 'application/json'}
 
 ####URL Parameters:
