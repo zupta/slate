@@ -562,7 +562,8 @@ Headers: {'Content-type': 'application/json'}
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
         "channel_name": "Channel Name: In case you have different channels to receive orders",
-        "order_date": "YYYY-MM-DD"
+        "order_date": "YYYY-MM-DD",
+        "enable_whatsapp": false # Useful for whatsapp communication
     }
 }
 ```
@@ -1093,7 +1094,8 @@ Headers: {'Content-type': 'application/json'}
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
         "channel_name": "Channel Name: In case you have different channels to receive orders",
-        "order_date": "YYYY-MM-DD"
+        "order_date": "YYYY-MM-DD",
+        "enable_whatsapp": false # Useful for whatsapp communication 
     }
 }
 ```

@@ -60,7 +60,8 @@ Headers: {'Content-type': 'application/json'}
     "order_date": "2017-02-14T18:00:00+05:30",
     "ship_date": "2017-02-14T23:00:00+05:30",
     "min_edd": 2,
-    "max_edd": 4
+    "max_edd": 4,
+    "enable_whatsapp": false
   }
 }
 
@@ -135,6 +136,7 @@ order_date | character | timestamp when the order was placed
 ship_date | character | timestamp when order was ready to ship
 min_edd | integer | minimum days commited to the customer for 1st delivery attempt
 max_edd | integer | maximum days commited to the customer for 1st delivery attempt
+enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
 
 ## Un-Track an Order or Mark a shipment expired
 
