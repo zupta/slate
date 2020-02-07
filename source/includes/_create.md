@@ -554,6 +554,9 @@ Headers: {'Content-type': 'application/json'}
             "city": "DELHI",
             "country": "IN"
         },
+        "reseller_info": {
+            "name": "Clickpost Support"
+        },
         "awb_number": "43062728295",
         "delivery_type": "FORWARD",
         "async": false,
