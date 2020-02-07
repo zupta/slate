@@ -1790,26 +1790,6 @@ Headers: {'Content-type': 'application/json'}
 
 ```json
 {
-    "drop_info": {
-        "city": "JK0703",
-        "name": "amal .",
-        "email": "a_maal11@hotmail.com",
-        "phone": "558022554",
-        "state": "Al-Riyadh",
-        "address": "JALAN PANJANG NO. 08, JAKARTA BARAT",
-        "landmark": null,
-        "phone_code": "+966",
-        "postal_code": "JK0703",
-        "country_code": "AE",
-        "district": "XYZ"
-    },
-    "additional": {
-        "async": false,
-        "label": true,
-        "order_date": "2020-01-30T20:14:34",
-        "vendor_code": "ADDR12182_1463",
-        "delivery_type": "FORWARD"
-    },
     "pickup_info": {
         "city": "JK0701",
         "name": "www.stylishop.com",
@@ -1822,6 +1802,19 @@ Headers: {'Content-type': 'application/json'}
         "phone_code": "+966",
         "postal_code": "JK0701",
         "country_code": "SA",
+        "district": "XYZ"
+    },
+    "drop_info": {
+        "city": "JK0703",
+        "name": "amal .",
+        "email": "a_maal11@hotmail.com",
+        "phone": "558022554",
+        "state": "Al-Riyadh",
+        "address": "JALAN PANJANG NO. 08, JAKARTA BARAT",
+        "landmark": null,
+        "phone_code": "+966",
+        "postal_code": "JK0703",
+        "country_code": "AE",
         "district": "XYZ"
     },
     "return_info": {
@@ -1867,7 +1860,14 @@ Headers: {'Content-type': 'application/json'}
         "reference_number": "test3000019526",
         "courier_partner": 2
     },
-    "tax_info": null
+    "tax_info": null,
+    "additional": {
+        "async": false,
+        "label": true,
+        "order_date": "2020-01-30T20:14:34",
+        "vendor_code": "ADDR12182_1463",
+        "delivery_type": "FORWARD"
+    }
 }
 ```
 
