@@ -1777,6 +1777,119 @@ Response Object has two parts:
 You must replace Username/key with the username/key provided to you.
 </aside>
 
+##Order Creation Global API
+> URL to hit:
+
+```
+https://www.clickpost.in/api/v4/create-order/?username=<user-name>&key=<api-key>
+Headers: {'Content-type': 'application/json'}
+
+(Username/key needs to be replaced with the username/key provided to you)
+```
+> __Example:__ POST Body
+
+```json
+{
+    "drop_info": {
+        "city": "JK0703",
+        "name": "amal .",
+        "email": "a_maal11@hotmail.com",
+        "phone": "558022554",
+        "state": "Al-Riyadh",
+        "address": "JALAN PANJANG NO. 08, JAKARTA BARAT",
+        "landmark": null,
+        "phone_code": "+966",
+        "postal_code": "JK0703",
+        "country_code": "AE",
+        "district": "XYZ"
+    },
+    "additional": {
+        "async": false,
+        "label": true,
+        "order_date": "2020-01-30T20:14:34",
+        "vendor_code": "ADDR12182_1463",
+        "delivery_type": "FORWARD"
+    },
+    "pickup_info": {
+        "city": "JK0701",
+        "name": "www.stylishop.com",
+        "time": "2020-02-01T10:53:33",
+        "email": "hello.ksa@stylishop.com",
+        "phone": "8001111090",
+        "state": "Al-Riyadh",
+        "address": "KRAMAT ASEM RAYA N0. 6, UTAN KAYU SELATAN, JAKARTA TIMUR 13120",
+        "landmark": null,
+        "phone_code": "+966",
+        "postal_code": "JK0701",
+        "country_code": "SA",
+        "district": "XYZ"
+    },
+    "return_info": {
+        "city": "Riyadh",
+        "name": "www.stylishop.com",
+        "time": "2020-02-01T10:53:33",
+        "email": "hello.ksa@stylishop.com",
+        "phone": "8001111090",
+        "state": "Al-Riyadh",
+        "address": "Retail Cart Trading Co., Makhzan2 New Warehouse, Al Bariah",
+        "landmark": null,
+        "phone_code": "+966",
+        "postal_code": "New Industrial Area",
+        "country_code": "SA",
+        "district": "XYZ"
+    },
+    "shipment_details": {
+        "async": false,
+        "items": [{
+            "sku": "3007940106",
+            "price": "35.00",
+            "quantity": "1",
+            "description": "Sample"
+        }, {
+            "sku": "3007930106",
+            "price": "35.00",
+            "quantity": "1",
+            "description": "Sample"
+        }],
+        "label": true,
+        "height": "10",
+        "length": "10",
+        "weight": "10",
+        "breadth": "10",
+        "cod_value": 0,
+        "order_date": "2020-01-30T20:14:34",
+        "order_type": "PREPAID",
+        "invoice_date": "2020-01-30",
+        "currency_code": "SAR",
+        "delivery_type": "FORWARD",
+        "invoice_value": "375.0000",
+        "invoice_number": "3000020284",
+        "reference_number": "test3000019526",
+        "courier_partner": 2
+    },
+    "tax_info": null
+}
+```
+
+> __Response__
+```json
+{
+    "meta": {
+        "success": true,
+        "message": "Order Placed Successfully",
+        "status": 200
+    },
+    "result": {
+        "order_id": 737318,
+        "tracking_id": 10654188,
+        "label": null,
+        "reference_number": "test13000019524",
+        "security_key": "b43c6e93-e555-44c5-ab76-f57090f78a40",
+        "waybill": "test13000019524",
+        "sort_code": null
+    }
+}
+```
 
 ##Fetch AWB Number / Reference number for already manifested order
 > URL (To fetch awb / courier_partner for a reference_number):
