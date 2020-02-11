@@ -1820,7 +1820,6 @@ Headers: {'Content-type': 'application/json'}
     "return_info": {
         "city": "Riyadh",
         "name": "www.stylishop.com",
-        "time": "2020-02-01T10:53:33",
         "email": "hello.ksa@stylishop.com",
         "phone": "8001111090",
         "state": "Al-Riyadh",
@@ -1832,30 +1831,27 @@ Headers: {'Content-type': 'application/json'}
         "district": "XYZ"
     },
     "shipment_details": {
-        "async": false,
         "items": [{
             "sku": "3007940106",
-            "price": "35.00",
-            "quantity": "1",
+            "price": 35.00,
+            "quantity": 1,
             "description": "Sample"
         }, {
             "sku": "3007930106",
-            "price": "35.00",
-            "quantity": "1",
+            "price": 35.00,
+            "quantity": 1,
             "description": "Sample"
         }],
-        "label": true,
-        "height": "10",
-        "length": "10",
-        "weight": "10",
-        "breadth": "10",
+        "height": 10,
+        "length": 10,
+        "weight": 10,
+        "breadth": 10,
         "cod_value": 0,
-        "order_date": "2020-01-30T20:14:34",
         "order_type": "PREPAID",
         "invoice_date": "2020-01-30",
         "currency_code": "SAR",
         "delivery_type": "FORWARD",
-        "invoice_value": "375.0000",
+        "invoice_value": 375,
         "invoice_number": "3000020284",
         "reference_number": "test3000019526",
         "courier_partner": 2
@@ -1865,8 +1861,7 @@ Headers: {'Content-type': 'application/json'}
         "async": false,
         "label": true,
         "order_date": "2020-01-30T20:14:34",
-        "vendor_code": "ADDR12182_1463",
-        "delivery_type": "FORWARD"
+        "vendor_code": "ADDR12182_1463"
     }
 }
 ```
