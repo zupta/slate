@@ -1868,6 +1868,7 @@ Headers: {'Content-type': 'application/json'}
 ```
 
 > __Response__
+
 ```json
 {
     "meta": {
