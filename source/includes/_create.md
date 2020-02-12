@@ -1861,7 +1861,8 @@ Headers: {'Content-type': 'application/json'}
         "async": false,
         "label": true,
         "order_date": "2020-01-30T20:14:34",
-        "vendor_code": "ADDR12182_1463"
+        "vendor_code": "ADDR12182_1463",
+        "account_code": "SMSA Domestic"
     }
 }
 ```
