@@ -415,6 +415,7 @@ username (required) | character | user name, provided to you
 waybill (required) | character | this is/are comma separated waybill numbers for which the status is required
 cp_id (required) | integer | courier_partner_id as specified on page 1 of this documentation
 
+Note: You can query upto 15 waybills [AWBs] status in 1 API request
 
 ###Response Explanation:
 
