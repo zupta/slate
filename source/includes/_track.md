@@ -216,7 +216,10 @@ Headers: {'Content-type': 'application/json'}
             "waybill": "SF41917204SCR",
             "updated_at": "2019-04-15T15:00:04.672388Z",
             "account_code": "test",
-            "reference_number": "CP-35416108"
+            "reference_number": "CP-35416108",
+            "status": "001",
+            "location": "Mumbai Hub",
+            "remark": "Order Manifested in Courier System"
         },
         {
             "created_at": "2019-04-15T14:47:26.614788Z",
@@ -227,7 +230,10 @@ Headers: {'Content-type': 'application/json'}
             "waybill": "SF41917199SCR",
             "updated_at": "2019-04-15T15:00:07.132808Z",
             "account_code": "test",
-            "reference_number": "CP-35416108"
+            "reference_number": "CP-35416108",
+            "status": "Data Received Successfully",
+            "location": "Bangalore Hub",
+            "remark": "Order Manifested in Courier System"
         },
         {
             "created_at": "2019-04-15T13:58:34.822899Z",
@@ -238,7 +244,10 @@ Headers: {'Content-type': 'application/json'}
             "waybill": "SF41917168SCR",
             "updated_at": "2019-04-15T15:00:42.625536Z",
             "account_code": "test",
-            "reference_number": "CP-35416108"
+            "reference_number": "CP-35416108",
+            "status": "001",
+            "location": "New Delhi",
+            "remark": "Order Manifested in Courier System"
         }
     ],
     "meta": {
@@ -269,10 +278,10 @@ Note: The difference between start_date and end_date cannot be more than 30 minu
 
 ###Response Explanation:
 
-1. “meta” stores information about the API, success or failure
+1. "meta" stores information about the API, success or failure
   - success: true/false, true if the API worked fine, else false
   - message: SUCCESS if everything is fine, else the error message c. status: 200, if the API data was fine, 400 in case of a bad request
-2. “result” is an array of records. Each record holds information of comma-separated waybill entered in the request parameter.
+2. "result" is an array of records. Each record holds information of comma-separated waybill entered in the request parameter.
 
 
 ##Tracking AWB Using Polling
