@@ -555,7 +555,8 @@ Headers: {'Content-type': 'application/json'}
             "country": "IN"
         },
         "reseller_info": {
-            "name": "Clickpost Support"
+            "name": "Clickpost Support",
+            "phone": "8080808080"
         },
         "awb_number": "43062728295",
         "delivery_type": "FORWARD",
