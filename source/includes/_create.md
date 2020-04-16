@@ -687,8 +687,8 @@ Headers: {'Content-type': 'application/json'}
         "to_wh": "To Warehouse",
         "channel_name": "Channel Name: In case you have different channels to receive orders",
         "order_date": "YYYY-MM-DD",
-        "isFragile": true,
-        "isDangerous": true
+        "is_fragile": true,
+        "is_dangerous": true
     }
 }
 ```
@@ -820,8 +820,8 @@ async | boolean| for real time orders false and true if order need to generated 
 gst_number | character| gst number for tax purposes
 pickup_type | character | Acceptable values: "WH" (for warehouse pickup) / "SL" (for seller pickup [marketplace]). This value is passed to EcomExpress only
 vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location. For Ecom Express this field is passed to them as pickup_location_code to create location tagging 
-isFragile | boolean | true if shipment is Fragile. Default false. [Currently used only for eKart APIs]
-isDangerous | boolean | true if shipment is Dangerous/Liquid. Default false. [Currently used only for eKart APIs]
+is_fragile | boolean | true if shipment is fragile. Default false. [Currently used only for eKart APIs]
+is_dangerous | boolean | true if shipment is dangerous/liquid. Default false. [Currently used only for eKart APIs]
 
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
