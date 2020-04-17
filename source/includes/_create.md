@@ -567,7 +567,9 @@ Headers: {'Content-type': 'application/json'}
         "to_wh": "To Warehouse",
         "channel_name": "Channel Name: In case you have different channels to receive orders",
         "order_date": "YYYY-MM-DD",
-        "enable_whatsapp": false # Useful for whatsapp communication
+        "enable_whatsapp": false, # Useful for whatsapp communication
+        "is_fragile": true,
+        "is_dangerous": true
     }
 }
 ```
