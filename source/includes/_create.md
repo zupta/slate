@@ -819,7 +819,7 @@ priority | character| "NORMAL" or any other priority for order
 async | boolean| for real time orders false and true if order need to generated in background
 gst_number | character| gst number for tax purposes
 pickup_type | character | Acceptable values: "WH" (for warehouse pickup) / "SL" (for seller pickup [marketplace]). This value is passed to EcomExpress only
-vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location. For Ecom Express this field is passed to them as pickup_location_code to create location tagging 
+vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location. For Ecom Express this field is passed to them as "pickup_location_code" to create location tagging. For Delhivery this field is passed in the API field 'pickup_location["name"]'. For XpressBees, this field is passed in their API field "PickupVendorCode".
 is_fragile | boolean | true if shipment is fragile. Default false. [Currently used only for eKart APIs]
 is_dangerous | boolean | true if shipment is dangerous/liquid. Default false. [Currently used only for eKart APIs]
 
