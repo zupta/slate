@@ -506,7 +506,7 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
             "status": "OFD"
         },
         "is_rvp": false,
-
+        "courier_partner_edd": "2020-03-25"
     },
     "remark": "Shipment is Out for Delivery",
     "clickpost_status_description": "OutForDelivery",
@@ -544,7 +544,8 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
     },
     "ndr_status_code": 1,
     "ndr_status_description": "Customer Unavailable",
-    "is_rvp": false
+    "is_rvp": false,
+    "courier_partner_edd": null
   }
 }
 ```
@@ -681,6 +682,7 @@ Please see the sample payload on the right.
     "notification_event_id": 4,
 
     "is_rvp": false,
+    "courier_partner_edd": "2020-03-25",
     "latest_status": {
       "reference_number": "WERA-NMS1908MSO2",
       "remark": "Customer escalation received",
@@ -713,6 +715,7 @@ Please see the sample payload on the right.
 
         "notification_event_id": 5,
         "is_rvp": false,
+        "courier_partner_edd": "2020-03-25",
 
         "latest_status": {
             "status": "Delivered",
