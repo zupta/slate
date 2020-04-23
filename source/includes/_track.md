@@ -318,6 +318,7 @@ Headers: {'Content-type': 'application/json'}
                 "is_stuck": false,
                 "dest_hub_inscan": false,
                 "order_detail": [],
+                "courier_partner_edd": "2020-03-20",
                 "edd": {
                     "min_sla": 2,
                     "max_sla": 5
@@ -428,13 +429,13 @@ Note: You can query upto 15 waybills [AWBs] status in 1 API request
 
 ###Response Explanation:
 
-1. “meta” stores information about the API, success or failure
+1. "meta" stores information about the API, success or failure
   - success: true/false, true if the API worked fine, else false
   - message: SUCCESS if everything is fine, else the error message c. status: 200, if the API data was fine, 400 in case of a bad request
-2. “result” is an array of records. Each record holds information of comma-separated waybill entered in the request parameter.
+2. "result" is an array of records. Each record holds information of comma-separated waybill entered in the request parameter.
 3. Each record has following objects:
-  - “valid”: (true / false) in case a wrong AWB / AWB which is not yet registered on Clickpost; is entered to track a shipment, “valid” field will be false. If the AWB is correct, “valid” will be true
-  - “waybill”: AWB provided in the API. Is the key of each object. The value is a dictionary storing information about shipment:
+  - "valid": (true / false) in case a wrong AWB / AWB which is not yet registered on Clickpost; is entered to track a shipment, “valid” field will be false. If the AWB is correct, “valid” will be true
+  - "waybill": AWB provided in the API. Is the key of each object. The value is a dictionary storing information about shipment:
         1. scans: Stores all scans that happened for shipment. Has following keys:
             + status: status of the shipment at that time
             + remarks: remark given by courier partner
@@ -443,7 +444,9 @@ Note: You can query upto 15 waybills [AWBs] status in 1 API request
         5. clickpost_status_code: clickpost generated status code for particular
         status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. (Explained on last page of this document)
         6. clickpost_status_description: description of clickpost_status_code (Specified on last page of this document)
-  - lateststatus: Stores information about the latest status of shipment, has following fields:
+  - "additional": gives additional information about the shipment:
+        1. courier_partner_edd: Expected delivery date as given by courier partner over APIs
+  - "latest_status": Stores information about the latest status of shipment, has following fields:
         1. status: status of the shipment at that time
         2. remarks: remark given by courier partner
         3. location: location of shipment at the time of the scan
@@ -584,6 +587,7 @@ Every time courier partner updates tracking of the shipment, We will post data t
 5. timestamp: date/time in IST format when the scan was done
 6. clickpost_status_code: clickpost status code for particular status. Clickpost has mapped various statuses of different courier companies into few status codes, which helps customers understand and take action on statuses in preemptive manner. [Visit "Tracking Status Codes" section]
 7. clickpost_status_description: description of clickpost_status_code [Visit "Tracking Status Codes" section]
+8. courier_partner_edd: Expected delivery date as given by courier partner over APIs
 
 ###NDR Status Codes
 
