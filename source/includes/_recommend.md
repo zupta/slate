@@ -12,17 +12,26 @@ https://www.clickpost.in/api/v1/recommendation_api/?key=2e9b19ac-8e1f-41ac-a35b-
 
 ```json
 [{
-     "pickup_pincode": "110017",
-     "drop_pincode": "110019",
-     "order_type": "PREPAID",
-     "reference_number": "1",
-     "item": "bottle",
-     "invoice_value": 1245,
-     "delivery_type": "FORWARD",
-     "weight": 10,
-     "height": 10,
-     "length": 10,
-     "breadth": 10
+    "pickup_pincode": "110017",
+    "drop_pincode": "110019",
+    "order_type": "PREPAID",
+    "reference_number": "1",
+    "item": "bottle",
+    "invoice_value": 1245,
+    "delivery_type": "FORWARD",
+    "weight": 10,
+    "height": 10,
+    "length": 10,
+    "breadth": 10,
+    "additional": {
+        "custom_fields": [{
+            "key": "ptl_or_ftl",
+            "value": "PTL"
+        }, {
+            "key": "truck_size",
+            "value": "14 feet"
+        }]
+    }
 }]
 ```
 
@@ -102,6 +111,7 @@ reference_number | character | to identify each json object uniquely
 item | character | item that you wish to send
 invoice_value | double | invoice value of the shipment
 delivery_type | character | FORWARD/RVP
+additional | JSON object | custom parameters in the API request
 
 ###Optional Fields
 
