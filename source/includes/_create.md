@@ -1426,7 +1426,7 @@ Response Object has two parts:
 > URL to hit:
 
 ```
-https://www.clickpost.in/api/v1/create-order/?username=<user-name>&key=<api-key>
+https://www.clickpost.in/api/v3/create-order/?username=<user-name>&key=<api-key>
 Headers: {'Content-type': 'application/json'}
 
 (Username/key needs to be replaced with the username/key provided to you)
