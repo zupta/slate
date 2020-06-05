@@ -190,7 +190,7 @@ cp_id (required) | integer | courier_partner_id [List of courier partners is pre
 1. "meta" stores information about the API, success or failure
   - success: true/false, true if the API worked fine, else false
   - message: SUCCESS if everything is fine, else the error message c. status: 200, if the API data was fine, 400 in case of a bad request
-2. "result" is an array of records. Each record holds information of comma-separated waybill entered in the request parameter.        
+2. "result" is an array of records. Each record holds information of comma-separated waybill entered in the request parameter
 
 
 ##Fetch updated-orders list
@@ -319,6 +319,7 @@ Headers: {'Content-type': 'application/json'}
                 "dest_hub_inscan": false,
                 "order_detail": [],
                 "courier_partner_edd": "2020-03-20",
+                "rto_intransit_timestamp": "2020-05-30 20:59:00",
                 "edd": {
                     "min_sla": 2,
                     "max_sla": 5
@@ -446,6 +447,7 @@ Note: You can query upto 15 waybills [AWBs] status in 1 API request
         6. clickpost_status_description: description of clickpost_status_code (Specified on last page of this document)
   - "additional": gives additional information about the shipment:
         1. courier_partner_edd: Expected delivery date as given by courier partner over APIs
+        2. rto_intransit_timestamp: timestamp of 1st RTO Intransit scan received by Clickpost systems from courier partner
   - "latest_status": Stores information about the latest status of shipment, has following fields:
         1. status: status of the shipment at that time
         2. remarks: remark given by courier partner
