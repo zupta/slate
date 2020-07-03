@@ -1,6 +1,6 @@
 # Track Order
 
-##Register an AWB for tracking
+##Register a shipment for tracking: [IN]
 
 >POST request. URL:
 
@@ -137,6 +137,192 @@ ship_date | character | timestamp when order was ready to ship
 min_edd | integer | minimum days commited to the customer for 1st delivery attempt
 max_edd | integer | maximum days commited to the customer for 1st delivery attempt
 enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
+
+API response: "meta" --> "status": 200 and 303 represents success response
+
+##Register a shipment for tracking: [MENA, SEA, EU, US]
+
+>POST request URL:
+
+```
+https://www.clickpost.in/api/v3/tracking/awb-register/?key=<clickpost_api_key>
+
+Headers: {'Content-type': 'application/json'}
+```
+
+>__Sample Payload__
+
+```json
+{
+    "waybill": "ABCDRESDEFGHIJKL",
+    "courier_partner": 1,
+    "account_code": "Fedex Domestic",
+
+    "shipment_info": {
+        "order_type": "COD",
+        "invoice_value": "12345",
+        "cod_amount": "1000",
+        "currency_code": "SAR",
+        "reference_number": "123XYZ",
+        "order_id": "order_id of the shipment",
+        "length": 10,
+        "height": 10,
+        "weight": 10,
+        "breadth": 10,
+        "items": [
+            {
+                "sku": "XYZ1",
+                "description": "item1",
+                "quantity": 1,
+                "price": 200,
+                "images": "<Image URL>",
+                "return_days": 2,
+                "length": 10,
+                "height": 10,
+                "breadth": 10,
+                "weight": 100
+            }
+        ]
+    },
+
+    "pickup_info": {
+        "name": "Rashid Alma",
+        "email": "warehouse_1@hotmail.com",
+        "phone_code": "966",
+        "phone": "8001111090",
+        "address": "KRAMAT ASEM RAYA N0. 6, UTAN KAYU SELATAN, JAKARTA TIMUR 13120",
+        "postal_code": "JK0701",
+        "city": "Riyadh",
+        "district": "XYZ",
+        "state": "Al-Riyadh",
+        "country_code": "SA",
+        "lat": 10.01,
+        "long": 10.2
+    },
+
+    "drop_info": {
+        "name": "Amal Hisham",
+        "email": "a_maal11@hotmail.com",
+        "phone_code": "966",
+        "phone": "558022554",
+        "address": "JALAN PANJANG NO. 08, JAKARTA BARAT",
+        "postal_code": "JK0703",
+        "city": "JK0703",
+        "district": "XYZ",
+        "state": "Al-Riyadh",
+        "country_code": "AE",
+        "lat": 10.01,
+        "long": 10.01
+    },
+
+    "additional": {
+        "enable_whatsapp": false,
+        "language_code": "EN",
+        "order_date": "2017-02-14",
+        "ship_date": "2017-02-14",
+        "min_edd": 2,
+        "max_edd": 4
+    }
+}
+```
+
+>__Response__
+
+```json
+{
+  "meta": {
+    "message": "SUCCESS",
+    "status": 200,
+    "success": true
+  },
+  "result": {
+    "security_key": "530470b0-8ebd-40c3-9c9e-6ca6bf1d29b8"
+  }
+}
+```
+
+Note: All orders are passed a security_key in response. Please store this security key. 
+
+API response: "meta" --> "status": 200 and 303 represents success response. All the other status codes represent a failure. Our API will always return HTTP status code 200.
+
+###Fields Explanation
+
+####Compulsory:
+
+Parameter | Type | Description
+--------- | ---- | -----------
+waybill (required) | character (100 chars) | this is/are comma separated waybill numbers for which the status is required
+courier_partner (required) | integer | courier_partner ID of the courier on which you want to track the AWB. List of courier partners: http://track.clickpost.in/courier_partner
+account_code (required) | character (100 chars) | account code in case you have multiple accounts for same courier partner
+
+####Optional:
+
+####pickup_info (optional): [pickup location information: all the fields are optional]
+Parameter | Type | Description
+--------- | ---- | ----------- 
+name | character (100 characters) | name of person at pickup location which shall be contacted by courier partner
+email | character (100 characters) | email of the person at pickup location
+phone_code | character | ISO phone code of the country where the pickup is to be done. Country and their phone codes: https://www.clickpost.in/api/v1/countries/
+phone | character (11 characters) | phone number of the person at pickup location
+address | character (500 character) | address of pickup location
+postal_code | character (50 character) | postal code of the pickup location. For MENA region, this field represents area code
+city | character (200 character) | city of the pickup location
+district | character (200 character) | district of the pickup location [Required for South East Asian countries]
+state | character (200 character) | state of the pickup location
+country_code | character | ISO country code of the country where pickup is to be done. Country code list: https://www.clickpost.in/api/v1/countries/
+lat | float | latitute of the pickup location
+long | float | longitud of the pickup location
+
+####drop_info (optional): [destination location information: all the fields are optional]
+Parameter | Type | Description
+--------- | ---- | ----------- 
+name | character (100 characters) | name of person at destination location who will be contacted by courier partner
+email | character (100 characters) | email of the person at destination location
+phone_code | character | ISO phone code of the country where the delivery is to be done. Country and their phone codes: https://www.clickpost.in/api/v1/countries/
+phone | character (11 characters) | phone number of the person at destination location
+address | character (500 character) | address of destination location
+postal_code | character (50 character) | postal code of the destination location. For MENA region, this field represents area code
+city | character (200 character) | city of the destination location
+district | character (200 character) | district of the destination location [Required for South East Asian countries]
+state | character (200 character) | state of the destination location
+country_code | character | ISO country code of the country where destination is to be done. Country code list: https://www.clickpost.in/api/v1/countries/
+lat | float | latitute of the destination location
+long | float | longitud of the destination location
+
+####shipment_info (optional): shipment information for rich analytics on your data:
+Parameter | Type | Description
+--------- | ---- | ----------- 
+order_type | string | type of shipment based on payment mode [Possible values: "COD", "PREPAID"] 
+invoice_value | float | declared value of the shipment
+cod_amount | float | cash on delivery amount, that courier has to collect while delivering the shipment
+currency_code | string (3 characters) | ISO currency code of currency selected by customer for placing the order: Currency codes in Clickpost https://www.clickpost.in/api/v1/countries/ [https://en.wikipedia.org/wiki/ISO_4217]
+reference_number | string (50 characters) | unique shipment ID for the shipment. (You can perform search on this parameter on Clickpost dashboard)
+order_id | string (50 characters) | Order ID of the shipment
+length | int | length in cms
+height | int | height in cms
+breadth | int | breadth in cms
+weight | int | weight in grams
+
+Clickpost also accepts item (SKU: Stock Keeping Unit) level information with the shipment information, which enables you to use Clickpost's returns platform. Please pass following attributes of item [SKU]:
+
+Parameter | Type | Description
+--------- | ---- | ----------- 
+sku | string (50 character) | SKU (Stock Keeping Unit) ID of the item
+description | string (500 characters) | SKU description
+quantity | int | quantity of SKU ordered by customer
+price | float | price of 1 unit
+images | string (1000 character) | image URL of the SKU
+return_days | int | eligible days for return from the date, shipment was delivered to customer
+
+####additional (optional): extra information about shipment used to power tracking page:
+Parameter | Type | Description
+--------- | ---- | ----------- 
+order_date | character | timestamp when the order was placed in yyyy-mm-dd format
+ship_date | character | timestamp when order was ready to ship in yyyy-mm-dd format
+min_edd | integer | minimum days commited to the customer for 1st delivery attempt
+max_edd | integer | maximum days commited to the customer for 1st delivery attempt
+enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
+
 
 ## Un-Track an Order or Mark a shipment expired
 
