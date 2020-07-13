@@ -17,7 +17,8 @@ https://ds.clickpost.in/api/v2/predicted_sla_api/?username=test&key=42d42a34-ae0
         "drop_pincode": "421504",
         "optional" : {
             "cp_id" :5,
-            "awb": "ABCD12345"
+            "awb": "ABCD12345",
+            "account_code": "Bluedart"
         }
     }
 ]
