@@ -506,6 +506,10 @@ Headers: {'Content-type': 'application/json'}
                 "order_detail": [],
                 "courier_partner_edd": "2020-03-20",
                 "rto_intransit_timestamp": "2020-05-30 20:59:00",
+                "ndr": {
+                    "ndr_bucket_code": 1,
+                    "ndr_description": "Customer unavailable"
+                },
                 "edd": {
                     "min_sla": 2,
                     "max_sla": 5
@@ -522,6 +526,17 @@ Headers: {'Content-type': 'application/json'}
                     "tracking_id": 12087859,
                     "timestamp": "2018-07-07 19:34:46",
                     "checkpoint_id": 163921399
+                },
+                {
+                    "clickpost_status_description": "FailedDelivery",
+                    "clickpost_status_code": 9,
+                    "clickpost_status_bucket": 5,
+                    "status": "Delivery attempted: customer not available",
+                    "location": "",
+                    "remark": "Delivery attempted: customer not available",
+                    "tracking_id": 12087879,
+                    "timestamp": "2018-07-07 10:53:01",
+                    "checkpoint_id": 163496679
                 },
                 {
                     "clickpost_status_description": "OutForDelivery",
