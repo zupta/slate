@@ -1811,7 +1811,9 @@ Headers: {'Content-type': 'application/json'}
         "phone_code": "+966",
         "postal_code": "JK0701",
         "country_code": "SA",
-        "district": "XYZ"
+        "district": "XYZ",
+        "lat": 10.01,
+        "long": 10.2
     },
     "drop_info": {
         "city": "JK0703",
@@ -1824,7 +1826,9 @@ Headers: {'Content-type': 'application/json'}
         "phone_code": "+966",
         "postal_code": "JK0703",
         "country_code": "AE",
-        "district": "XYZ"
+        "district": "XYZ",
+        "lat": 10.01,
+        "long": 10.2
     },
     "return_info": {
         "city": "Riyadh",
@@ -1837,7 +1841,9 @@ Headers: {'Content-type': 'application/json'}
         "phone_code": "+966",
         "postal_code": "New Industrial Area",
         "country_code": "SA",
-        "district": "XYZ"
+        "district": "XYZ",
+        "lat": 10.01,
+        "long": 10.2
     },
     "shipment_details": {
         "items": [{
