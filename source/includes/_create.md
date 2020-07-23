@@ -569,7 +569,8 @@ Headers: {'Content-type': 'application/json'}
         "order_date": "YYYY-MM-DD",
         "enable_whatsapp": false, # Useful for whatsapp communication
         "is_fragile": true,
-        "is_dangerous": true
+        "is_dangerous": true,
+        "order_id": "Order ID of the shipment"
     }
 }
 ```
