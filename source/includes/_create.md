@@ -692,7 +692,8 @@ Headers: {'Content-type': 'application/json'}
         "channel_name": "Channel Name: In case you have different channels to receive orders",
         "order_date": "YYYY-MM-DD",
         "is_fragile": true,
-        "is_dangerous": true
+        "is_dangerous": true,
+        "order_id": "order ID of the shipment"
     }
 }
 ```
@@ -826,6 +827,8 @@ pickup_type | character | Acceptable values: "WH" (for warehouse pickup) / "SL" 
 vendor_code | character | (optional) vendor code of pickup location. If this field is not provided, Clickpost will generate vendor code for the pickup location. For Ecom Express this field is passed to them as "pickup_location_code" to create location tagging. For Delhivery this field is passed in the API field 'pickup_location["name"]'. For XpressBees, this field is passed in their API field "PickupVendorCode".
 is_fragile | boolean | true if shipment is fragile. Default false. [Currently used only for eKart APIs]
 is_dangerous | boolean | true if shipment is dangerous/liquid. Default false. [Currently used only for eKart APIs]
+order_id | character [50 characters] | order ID of the shipment
+
 
 #####Optional field for Bluedart (Critical / Time defined delivery service):
 Parameter | Type | Description
@@ -968,7 +971,8 @@ Headers: {'Content-type': 'application/json'}
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
         "channel_name": "Channel Name: In case you have different channels to receive orders",
-        "order_date": "YYYY-MM-DD"
+        "order_date": "YYYY-MM-DD",
+        "order_id": "order ID of the shipment"
     }
 }
 ```
@@ -1106,6 +1110,7 @@ Headers: {'Content-type': 'application/json'}
         "to_wh": "To Warehouse",
         "channel_name": "Channel Name: In case you have different channels to receive orders",
         "order_date": "YYYY-MM-DD",
+        "order_id": "order ID of the shipment",
         "enable_whatsapp": false # Useful for whatsapp communication 
     }
 }
@@ -1575,7 +1580,8 @@ Headers: {'Content-type': 'application/json'}
         "account_code":"AIR",
         "from_wh": "From Warehouse",
         "to_wh": "To Warehouse",
-        "channel_name": "Channel Name: In case you have different channels to receive orders"
+        "channel_name": "Channel Name: In case you have different channels to receive orders",
+        "order_id": "Order ID of the order"
     }
 }
 ```
@@ -1877,7 +1883,8 @@ Headers: {'Content-type': 'application/json'}
         "label": true,
         "order_date": "2020-01-30T20:14:34",
         "vendor_code": "ADDR12182_1463",
-        "account_code": "SMSA Domestic"
+        "account_code": "SMSA Domestic",
+        "order_id": "Order Number of the Shipment"
     }
 }
 ```
@@ -1984,6 +1991,7 @@ ship_date | character | timestamp when order was ready to ship in yyyy-mm-dd for
 min_edd | integer | minimum days commited to the customer for 1st delivery attempt
 max_edd | integer | maximum days commited to the customer for 1st delivery attempt
 enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
+order_id | character [50 characters] | order ID of the shipment
 
 
 
