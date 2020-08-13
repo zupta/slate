@@ -1885,7 +1885,8 @@ Headers: {'Content-type': 'application/json'}
         "order_date": "2020-01-30T20:14:34",
         "vendor_code": "ADDR12182_1463",
         "account_code": "SMSA Domestic",
-        "order_id": "Order Number of the Shipment"
+        "order_id": "Order Number of the Shipment",
+        "invoice_base_64": "base_64_string_of_invoice"
     }
 }
 ```
@@ -1993,7 +1994,7 @@ min_edd | integer | minimum days commited to the customer for 1st delivery attem
 max_edd | integer | maximum days commited to the customer for 1st delivery attempt
 enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
 order_id | character [50 characters] | order ID of the shipment
-
+invoice_base_64 | character | base 64 string of invoice. Required by DHL for PLT (Paper Less Trade) process
 
 
 <aside class="warning">
