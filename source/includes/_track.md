@@ -759,11 +759,21 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 ###Activating Webhooks:
 
 1. Visit Clickpost dashboard: *Settings* Tab on the left and Click notification section
-2. Select webhooks and activate Selected webhooks configuration or All Webhooks configuration as per your need.
+2. Select webhooks and activate Selected Events webhooks configuration or All Events Webhooks configuration as per your need.
 3. Selected webhooks configuration: trigger webhooks only when shipment reaches certain checkpoints in its journey.
 4. All webhooks configuration: trigger webhooks for all shipment statuses as they come.
 
 We generally recommend customers to use selected webhooks configuration as all webhooks will trigger too many status messages on your system.
+
+####Note:
+If you wish to configure the basic token auth also along with the webhooks the headers will change as follows:
+
+```json
+{
+  "Content-Type": "application/json",
+  "Authorization": "<value entered on the dashboard for the token under basic token auth section>"
+}
+```
 
 
 ###Important Notes and special data in Webhooks (Examples are present on the right):

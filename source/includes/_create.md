@@ -1880,6 +1880,7 @@ Headers: {'Content-type': 'application/json'}
     },
     "tax_info": null,
     "additional": {
+        "rvp_reason": "Customer wants to return the product",
         "async": false,
         "label": true,
         "order_date": "2020-01-30T20:14:34",
@@ -1995,6 +1996,7 @@ max_edd | integer | maximum days commited to the customer for 1st delivery attem
 enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
 order_id | character [50 characters] | order ID of the shipment
 invoice_base_64 | character | base 64 string of invoice. Required by DHL for PLT (Paper Less Trade) process
+rvp_reason | character | mandatory for reverse pickups [pickups from customer location]. Not required for forward, warehouse to customer 
 
 
 <aside class="warning">
