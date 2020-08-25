@@ -481,7 +481,9 @@ Headers: {'Content-type': 'application/json'}
         "tin": "120349483",
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
-        "pickup_phone": "9816691388"
+        "pickup_phone": "9816691388",
+        "pickup_lat": "10.01",
+        "pickup_long": "10.00"
     },
     "drop_info": {
         "drop_address": "F-68 third floor kalkaji New Delhi ",
@@ -491,7 +493,9 @@ Headers: {'Content-type': 'application/json'}
         "drop_pincode": "110019",
         "drop_city": "Delhi",
         "drop_name": "Prashant",
-        "drop_email": "support@clickpost.in"
+        "drop_email": "support@clickpost.in",
+        "drop_lat": "10.01",
+        "drop_long": "10.00"
     },
     "shipment_details": {
         "height": 12,
@@ -610,7 +614,10 @@ Headers: {'Content-type': 'application/json'}
         "tin": "120349483",
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
-        "pickup_phone": "8080808080"
+        "pickup_phone": "8080808080",
+        "pickup_lat": "10.01",
+        "pickup_long": "10.00"
+
     },
     "drop_info": {
         "drop_address": "F-68 third floor kalkaji New Delhi ",
@@ -620,7 +627,9 @@ Headers: {'Content-type': 'application/json'}
         "drop_pincode": "110019",
         "drop_city": "Delhi",
         "drop_name": "Prashant",
-        "drop_email": "support@clickpost.in"
+        "drop_email": "support@clickpost.in",
+        "drop_lat": "10.01",
+        "drop_long": "10.00"
     },
     "shipment_details": {
         "height": 12,
@@ -732,6 +741,8 @@ pickup_state | character | pickup state name, maximum length 200 characters
 pickup_country | character | pickup country name, maximum length 100 characters 
 email | character | email id to be sent to courier partner for this shipment
 tin | character | Seller TIN if available. If not, please pass GST No here
+pickup_lat | character | [optional] latitude of pickup location, required for Hyperlocal courier partners 
+pickup_long | character | [optional] longitude of pickup location, required for Hyperlocal courier partners 
 
 #####Drop Information
 Parameter | Type | Description
@@ -743,7 +754,10 @@ drop_pincode | character | 6 digit pincode
 drop_city | character | drop city name, maximum length 200 characters
 drop_state | character | drop state name, maximum length 200 characters
 drop_country | character | drop country name, maximum length 200 characters
-drop_email | character | (optional) email of the customer
+drop_email | character | email of the customer
+drop_lat | character | [optional] latitude of drop location, required for Hyperlocal courier partners 
+drop_long | character | [optional] longitude of drop location, required for Hyperlocal courier partners 
+
 
 #####Return Information
 Parameter | Type | Description
@@ -881,7 +895,9 @@ Headers: {'Content-type': 'application/json'}
         "tin": "120349483",
         "pickup_name": "Deepanshu",
         "pickup_country": "IN",
-        "pickup_phone": "8080808080"
+        "pickup_phone": "8080808080",
+        "pickup_lat": "10.01",
+        "pickup_long": "10.00"
     },
     "drop_info": {
         "drop_address": "F-68 third floor kalkaji New Delhi ",
@@ -891,7 +907,9 @@ Headers: {'Content-type': 'application/json'}
         "drop_pincode": "110019",
         "drop_city": "Delhi",
         "drop_name": "Prashant",
-        "drop_email": "support@clickpost.in"
+        "drop_email": "support@clickpost.in",
+        "drop_lat": "10.01",
+        "drop_long": "10.00"
     },
     "shipment_details": {
         "height": 12,
