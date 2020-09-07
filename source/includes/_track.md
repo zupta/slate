@@ -61,7 +61,8 @@ Headers: {'Content-type': 'application/json'}
     "ship_date": "2017-02-14T23:00:00+05:30",
     "min_edd": 2,
     "max_edd": 4,
-    "enable_whatsapp": false
+    "enable_whatsapp": false,
+    "order_id": "ORDER-12"
   }
 }
 
@@ -133,10 +134,12 @@ additional --> items --> return_days | integer | number of days allowed for a pr
 Parameter | Type | Description
 --------- | ---- | ----------- 
 order_date | character | timestamp when the order was placed
-ship_date | character | timestamp when order was ready to ship
+ship_date | character | timestamp when order was ready to ship 
 min_edd | integer | minimum days commited to the customer for 1st delivery attempt
 max_edd | integer | maximum days commited to the customer for 1st delivery attempt
 enable_whatsapp | boolean | if you have whatsapp for business account, you can pass opt-in information here so Clickpost starts sending out communications to customers
+order_id | string (50 characters) | Order ID of the shipment
+
 
 API response: "meta" --> "status": 200 and 303 represents success response
 
