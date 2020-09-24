@@ -386,7 +386,7 @@ cp_id (required) | integer | courier_partner_id [List of courier partners is pre
 >__URL__
 
 ```
-https://www.clickpost.in/api/v1/updated-order?username=<clickpost-username>&key=<clickpost-api-key>&start_date=1531980785&end_date=1531984399
+https://api.clickpost.in/api/v1/updated-order?username=<clickpost-username>&key=<clickpost-api-key>&start_date=1531980785&end_date=1531984399
 
 Headers: {'Content-type': 'application/json'}
 ```
@@ -450,7 +450,9 @@ Headers: {'Content-type': 'application/json'}
 The updated-order API retrieves the shipments which are updated between specified start and end time.
 
 The API is a HTTP GET request to:
-`https://www.clickpost.in/api/v1/updated-order` 
+`https://api.clickpost.in/api/v1/updated-order` 
+
+[earlier it was `https://www.clickpost.in/api/v1/updated-order`, which will deprecate by Nov 2020]
 
 where output is json
 
@@ -478,7 +480,7 @@ Note: The difference between start_date and end_date cannot be more than 30 minu
 >__URL__
 
 ```
-https://www.clickpost.in/api/v2/track-order/?username=testuser&key=2e9b19ac-8e1f- 41ac-a35b-4cd23f41ae17&waybill=3515341&cp_id=10
+https://api.clickpost.in/api/v2/track-order/?username=testuser&key=2e9b19ac-8e1f- 41ac-a35b-4cd23f41ae17&waybill=3515341&cp_id=10
 
 Headers: {'Content-type': 'application/json'}
 ```
@@ -617,7 +619,9 @@ Headers: {'Content-type': 'application/json'}
 The track-order API retrieves the historic statuses and the current status of the package.
 
 The API is a HTTP GET request to:
-`https://www.clickpost.in/api/v2/track-order/` 
+`https://api.clickpost.in/api/v2/track-order/` 
+
+[earlier it was `https://www.clickpost.in/api/v2/track-order/`, which will deprecate by Nov 2020]
 
 where output is json
 

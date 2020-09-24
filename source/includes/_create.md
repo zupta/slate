@@ -1905,7 +1905,8 @@ Headers: {'Content-type': 'application/json'}
         "vendor_code": "ADDR12182_1463",
         "account_code": "SMSA Domestic",
         "order_id": "Order Number of the Shipment",
-        "invoice_base_64": "base_64_string_of_invoice"
+        "invoice_base_64": "base_64_string_of_invoice",
+        "duty_fee_paid_by":"S"
     }
 }
 ```
@@ -2015,7 +2016,7 @@ enable_whatsapp | boolean | if you have whatsapp for business account, you can p
 order_id | character [50 characters] | order ID of the shipment
 invoice_base_64 | character | base 64 string of invoice. Required by DHL for PLT (Paper Less Trade) process
 rvp_reason | character | mandatory for reverse pickups [pickups from customer location]. Not required for forward, warehouse to customer 
-
+duty_fee_paid_by | character | defines who will be paying the duty charges for the shipment. Possible values: "S": Shipper, "R": Recipient [only applicable for UPS / DHL]
 
 <aside class="warning">
 You must replace Username/key with the username/key provided to you.
