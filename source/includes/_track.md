@@ -98,9 +98,9 @@ Note: All orders are passed a security_key in response. Please store this securi
 Parameter | Type | Description
 --------- | ---- | -----------
 key (required) | character | this is the API Key
-waybill (required) | character | this is/are comma separated waybill numbers for which the status is required
+waybill (required) | character | this is waybill number [AWB Number or LR Number] that you want to register in Clickpost
 cp_id (required) | integer | courier_partner_id as specified on page 1 of this documentation
-account_code (optional) | string | account code in case you have multiple accounts for same courier partner
+account_code (required) | string | account code added in Clickpost dashboard while creating courier partner account
 
 ####Optional:
 
@@ -254,9 +254,9 @@ API response: "meta" --> "status": 200 and 303 represents success response. All 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-waybill (required) | character (100 chars) | this is/are comma separated waybill numbers for which the status is required
+waybill (required) | character (100 chars) | this is waybill number [AWB Number or LR Number] that you want to register in Clickpost
 courier_partner (required) | integer | courier_partner ID of the courier on which you want to track the AWB. List of courier partners: http://track.clickpost.in/courier_partner
-account_code (required) | character (100 chars) | account code in case you have multiple accounts for same courier partner
+account_code (required) | character (100 chars) | account code added in Clickpost dashboard while creating courier partner account
 
 ####Optional:
 
