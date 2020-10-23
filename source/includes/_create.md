@@ -1988,7 +1988,6 @@ invoice_value | float | declared value of the shipment
 cod_amount | float | cash on delivery amount, that courier has to collect while delivering the shipment
 currency_code | string (3 characters) | ISO currency code of currency selected by customer for placing the order: Currency codes in Clickpost https://www.clickpost.in/api/v1/countries/ [https://en.wikipedia.org/wiki/ISO_4217]
 reference_number | string (50 characters) | unique shipment ID for the shipment. (You can perform search on this parameter on Clickpost dashboard)
-order_id | string (50 characters) | Order ID of the shipment
 length | int | length in cms
 height | int | height in cms
 breadth | int | breadth in cms

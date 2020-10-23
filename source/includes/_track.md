@@ -719,7 +719,8 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
             "status": "OFD"
         },
         "is_rvp": false,
-        "courier_partner_edd": "2020-03-25"
+        "courier_partner_edd": "2020-03-25",
+        "order_id":"ABC123",
     },
     "remark": "Shipment is Out for Delivery",
     "clickpost_status_description": "OutForDelivery",
@@ -773,7 +774,9 @@ clickpost_status_bucket | Meaning | clickpost_status_code clubbed in the bucket
 We generally recommend customers to use selected webhooks configuration as all webhooks will trigger too many status messages on your system.
 
 ####Note:
-If you wish to configure the basic token auth also along with the webhooks the headers will change as follows:
+If you wish to configure the basic token auth also along with the webhooks the headers will change as reflected on the right:
+
+>__Headers with basic token auth__
 
 ```json
 {
@@ -907,6 +910,8 @@ Please see the sample payload on the right.
 
     "is_rvp": false,
     "courier_partner_edd": "2020-03-25",
+    "order_id":"ABC123",
+
     "latest_status": {
       "reference_number": "WERA-NMS1908MSO2",
       "remark": "Customer escalation received",
@@ -940,6 +945,7 @@ Please see the sample payload on the right.
         "notification_event_id": 5,
         "is_rvp": false,
         "courier_partner_edd": "2020-03-25",
+        "order_id":"ABC123",
 
         "latest_status": {
             "status": "Delivered",
@@ -961,52 +967,5 @@ Please see the sample payload on the right.
 
 *Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description*
 
-
----
-
-##Testing Webhook
-
->__Test Webhook URL__
-
-```
-https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>
-```
-
->__Test Webhook Payload__
-
-```json
-{
-  "test_url": "http://www.clickpost.in/",
-  "test_data": {
-    "status": "When forward shipment is not accepted by end customer",
-    "remark": "Failed Delivery",
-    "waybill": "XYZABC",
-    "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-    "timestamp": "2016-07-12T17:12:36Z",
-    "clickpost_status_code": 9,
-    "clickpost_status_description": "FailedDelivery",
-    "cp_id": 1,
-
-    "additional": {
-      "latest_status": {
-        "clickpost_status_code": 9,
-        "location": "Bengaluru_Koramangala_Dc (Karnataka)",
-        "status": "When forward shipment is not accepted by end customer",
-        "clickpost_status_description": "FailedDelivery",
-        "timestamp": "2016-07-12T17:12:36Z",
-        "remark": "Failed Delivery"
-      },
-      "ndr_status_code": 1,
-      "ndr_status_description": "Customer Unavailable"
-    }
-  }
-}
-
-```
-You can test the webhooks by making a POST request on the following URL:
-
-`https://www.clickpost.in/api/v1/test_webhook?key=<YOUR_API_KEY>`
-
-Where test_url is your server URL where you want to test the webhook data. This will send sample payload as specified in test_data with Headers on the server mentioned in test_url.
-
+*Webhooks are idempotent in nature, ensure that is handled at your end*
 ------
