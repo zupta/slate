@@ -835,59 +835,6 @@ ndr_status_code | ndr_status_description
 
 ###Webhook data POST on Client Server for selected events:
 
-In case customer wants to recieve notifications only for certain events, Clickpost provides funtionality for the same.
-
-If customer opts for this service, we add: "notification_event_id" key in additional object of the payload. This will inform you the current status of shipment.
-
-####Possible values:
-
-Value | Description
---------- | -----------
-1 | Out For Pickup
-2 | Shipped
-3 | Out For Delivery
-4 | Failed Delivery
-5 | Delivered
-6 | RTO
-10 | Order Cancelled
-12 | RTO-Delivered
-14 | Exchange Pickup
-15 | Exchange Delivered
-16 | Pickup Cancelled
-17 | Shipment Stuck
-18 | SLA breached
-19 | Lost
-20 | Damaged
-
-Following notification_event_id are useful for customers using Clickpost's managed returns service which accepts return requests from end user:
-
-Value | Description
---------- | -----------
-9 | AWB Generated: As soon as an AWB is generated in Clickpost for a return request
-11 | Return Request placed: As soon as a return request is placed by the end user using Clickpost's return UI
-
-
-###NDR Status Codes
-
-ndr_status_code | ndr_status_description
---------------|------------------------
-0 | "Unknown Exception"
-1 | "Customer Unavailable"
-2 | "Rejected by Customer"
-3 | "Delivery Rescheduled"
-4 | "No Attempt"
-5 | "Customer Unreachable"
-6 | "Address Issue"
-7 | "Payment Issue"
-8 | "Out Of Delivery Area"
-9 | "Order Already Cancelled"
-10| "Self Collect"
-11| "Shipment Seized By Customer"
-12| "Customer wants open delivery"
-13| "Shipment Misrouted by logistics partner"
-
-Please see the sample payload on the right.
-
 >__Selected event subscribed webhook: Failed delivery Payload__
 
 ```json
@@ -964,10 +911,63 @@ Please see the sample payload on the right.
 
 ```
 
+In case customer wants to recieve notifications only for certain events, Clickpost provides funtionality for the same.
 
-*Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description*
+If customer opts for this service, we add: "notification_event_id" key in additional object of the payload. This will inform you the current status of shipment.
 
-*Webhooks are idempotent in nature, ensure that is handled at your end*
+####Possible values:
+
+Value | Description
+--------- | -----------
+1 | Out For Pickup
+2 | Shipped
+3 | Out For Delivery
+4 | Failed Delivery
+5 | Delivered
+6 | RTO
+10 | Order Cancelled
+12 | RTO-Delivered
+14 | Exchange Pickup
+15 | Exchange Delivered
+16 | Pickup Cancelled
+17 | Shipment Stuck
+18 | SLA breached
+19 | Lost
+20 | Damaged
+
+Following notification_event_id are useful for customers using Clickpost's managed returns service which accepts return requests from end user:
+
+Value | Description
+--------- | -----------
+9 | AWB Generated: As soon as an AWB is generated in Clickpost for a return request
+11 | Return Request placed: As soon as a return request is placed by the end user using Clickpost's return UI
+
+
+###NDR Status Codes
+
+ndr_status_code | ndr_status_description
+--------------|------------------------
+0 | "Unknown Exception"
+1 | "Customer Unavailable"
+2 | "Rejected by Customer"
+3 | "Delivery Rescheduled"
+4 | "No Attempt"
+5 | "Customer Unreachable"
+6 | "Address Issue"
+7 | "Payment Issue"
+8 | "Out Of Delivery Area"
+9 | "Order Already Cancelled"
+10| "Self Collect"
+11| "Shipment Seized By Customer"
+12| "Customer wants open delivery"
+13| "Shipment Misrouted by logistics partner"
+
+Please see the sample payload on the right.
+
+
+*Clickpost recommends that the mapping of NDR be done strictly on ndr_status_code and not on ndr_status_description.*
+
+
 ------
 
 
