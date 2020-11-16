@@ -42,7 +42,8 @@ Welcome to the Clickpost API! You can use our API to access Clickpost API endpoi
 10. __NDR Action update API__: Updates the after NDR action directly on courier company's database.
 11. __Return Webhooks__: Track your return shipment using AWB and Courier Partner using webhooks (we give data on your endpoint).
 12. __POD API__: Pod api for fetching pod url for a tracking number.
-13. __Whatsapp Optin-Optout__: In case customer sends whatsapp optout communication to you, you can update the same in Clickpost using this API 
+13. __Edit Order Api__: Edit your order using awb on courier partner.
+14. __Whatsapp Optin-Optout__: In case customer sends whatsapp optout communication to you, you can update the same in Clickpost using this API 
 
 <!--We have language bindings in Shell, Ruby, PHP and Python!-->
 
